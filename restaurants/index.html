@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Демо для ресторанов · Вебкузница</title>
+  <meta name="description" content="Демо-сайты для ресторанов — индивидуальный дизайн, реальное меню, бронирование, события.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Karla:wght@300;400;500;600&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --bg: #0D0B08;
+      --bg-card: #1A1410;
+      --warm-wh: #F9F4EA;
+      --copper: #A88456;
+      --copper-dim: rgba(168,132,86,0.4);
+      --muted: #9A8E80;
+      --dim: #C9BCB0;
+      --faint: #5A4F47;
+    }
+    body {
+      font-family: 'Karla', sans-serif;
+      background: var(--bg);
+      color: var(--dim);
+      margin: 0;
+    }
+    .font-display { font-family: 'Playfair Display', serif; }
+    .font-script  { font-family: 'Caveat', cursive; }
+    a { text-decoration: none; }
+
+    .breadcrumb {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      color: var(--faint);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .breadcrumb a {
+      color: var(--copper);
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: var(--warm-wh); }
+
+    .demo-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(168,132,86,0.15);
+      transition: all 0.3s ease;
+      display: block;
+      overflow: hidden;
+    }
+    .demo-card.active:hover {
+      border-color: var(--copper);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.5);
+    }
+    .demo-card.soon {
+      opacity: 0.4;
+      cursor: default;
+    }
+    .demo-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      background: #241C14;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .demo-card:hover .demo-img.active {
+      transform: scale(1.04);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--copper);
+      border: 1px solid rgba(168,132,86,0.4);
+      padding: 0.25rem 0.7rem;
+    }
+    .badge-soon { color: var(--faint); border-color: rgba(122,110,102,0.3); }
+
+    .sec-label {
+      display: inline-block;
+      font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--copper);
+    }
+
+    .orn { display: flex; align-items: center; gap: 0.8rem; }
+    .orn::before, .orn::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--copper-dim), transparent);
+    }
+    .orn-sym { color: var(--copper); font-size: 0.6rem; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════ NAV / BREADCRUMB ═══════════ -->
+  <header style="padding: 2rem 0; border-bottom: 1px solid rgba(168,132,86,0.1);">
+    <div class="container mx-auto px-6">
+      <nav class="breadcrumb">
+        <a href="../">Вебкузница</a>
+        <span style="color: var(--faint);">·</span>
+        <span>Рестораны</span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ═══════════ HEADER ═══════════ -->
+  <section style="padding: 5rem 0 3rem; text-align: center;">
+    <div class="container mx-auto px-6 max-w-3xl">
+      <span class="sec-label mb-4">Сегмент I · Активно</span>
+
+      <h1 class="font-display mt-4 mb-3" style="font-size: clamp(2rem, 5vw, 3.5rem); color: var(--warm-wh); line-height: 1.1; letter-spacing: 0.02em;">
+        Демо для ресторанов
+      </h1>
+
+      <p class="font-script mb-6" style="color: var(--copper); font-size: 1.3rem;">
+        каждый сайт сделан под характер заведения
+      </p>
+
+      <div class="orn mb-8" style="opacity: 0.5; max-width: 200px; margin: 0 auto;" aria-hidden="true">
+        <span class="orn-sym">◆</span>
+      </div>
+
+      <p style="color: var(--muted); font-size: 0.95rem; line-height: 1.7;">
+        Каждый ресторан — отдельный мир. Своя кухня, свой стиль, свой голос.
+        Поэтому каждый сайт у нас — индивидуальный, на основе вашего реального меню,
+        интерьера и текстов.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════ КАТАЛОГ ДЕМО ═══════════ -->
+  <main style="padding: 3rem 0 7rem;">
+    <div class="container mx-auto px-6 max-w-6xl">
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- В Коломне-Есть! -->
+        <a href="v-kolomne-est/" class="demo-card active">
+          <img src="v-kolomne-est/img/interior-gerby.jpg"
+               alt="В Коломне-Есть! — главный зал ресторана"
+               class="demo-img active"
+               loading="lazy"
+               onerror="this.style.background='#241C14';this.removeAttribute('src')">
+          <div style="padding: 1.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+              <span class="badge">Restaurant</span>
+              <span style="color: var(--faint); font-size: 0.78rem;">· Коломна</span>
+            </div>
+            <h2 class="font-display mb-2" style="font-size: 1.5rem; color: var(--warm-wh); line-height: 1.2;">
+              «В Коломне-Есть!»
+            </h2>
+            <p class="font-script mb-3" style="color: var(--copper); font-size: 1rem;">
+              авторская русская кухня
+            </p>
+            <p style="color: var(--muted); font-size: 0.85rem; line-height: 1.65; margin-bottom: 1.5rem;">
+              Дровяная печь · XV–XVII век · уникальное коломенское блюдо «Пупыга».
+              Меню, бронирование стола, интерьер, музыкальное лото, выездные банкеты.
+            </p>
+            <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--copper); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;">
+              Открыть демо
+              <span style="font-size: 1.1rem;">→</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Placeholder -->
+        <div class="demo-card soon">
+          <div class="demo-img" style="display: flex; align-items: center; justify-content: center;">
+            <span class="font-script" style="color: rgba(168,132,86,0.4); font-size: 1.8rem;">скоро</span>
+          </div>
+          <div style="padding: 1.75rem;">
+            <div style="margin-bottom: 1rem;">
+              <span class="badge badge-soon">Coming Soon</span>
+            </div>
+            <h3 class="font-display mb-2" style="font-size: 1.5rem; color: var(--dim); line-height: 1.2;">
+              Следующий ресторан
+            </h3>
+            <p style="color: var(--faint); font-size: 0.85rem; line-height: 1.65;">
+              Готовится к публикации.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA блок снизу -->
+      <div style="margin-top: 5rem; padding: 3rem; background: var(--bg-card); border: 1px solid rgba(168,132,86,0.15); text-align: center;">
+        <p class="font-script mb-3" style="color: var(--copper); font-size: 1.3rem;">
+          ваш ресторан в этой галерее?
+        </p>
+        <h3 class="font-display mb-4" style="font-size: clamp(1.4rem, 3vw, 1.9rem); color: var(--warm-wh); line-height: 1.2;">
+          Сделаем демо специально для вас
+        </h3>
+        <p class="max-w-xl mx-auto mb-6" style="color: var(--muted); font-size: 0.9rem; line-height: 1.7;">
+          Покажем, как может выглядеть сайт вашего заведения —
+          ничего не обещая и без обязательств. Понравится — обсудим.
+        </p>
+        <a href="../" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--copper); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid var(--copper); padding-bottom: 4px; font-weight: 500;">
+          Связаться
+          <span style="font-size: 1rem;">→</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer style="padding: 3rem 0; border-top: 1px solid rgba(168,132,86,0.1); text-align: center;">
+    <div class="container mx-auto px-6">
+      <p class="font-script mb-2" style="color: var(--copper); font-size: 1.2rem;">
+        Вебкузница
+      </p>
+      <p style="color: var(--faint); font-size: 0.75rem; letter-spacing: 0.08em;">
+        © 2026 · сайты для местного бизнеса
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

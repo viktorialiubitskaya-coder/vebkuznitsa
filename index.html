@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вебкузница · Сайты для местного бизнеса</title>
+  <meta name="description" content="Куём индивидуальные сайты для ресторанов, бьюти, фитнеса. Не штампуем шаблоны — делаем под характер вашего заведения.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Karla:wght@300;400;500;600&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --bg: #0D0B08;
+      --bg-card: #1A1410;
+      --warm-wh: #F9F4EA;
+      --copper: #A88456;
+      --copper-dim: rgba(168,132,86,0.4);
+      --muted: #9A8E80;
+      --dim: #C9BCB0;
+      --faint: #5A4F47;
+      --ember: #D4502A;
+    }
+    body {
+      font-family: 'Karla', sans-serif;
+      background: var(--bg);
+      color: var(--dim);
+      margin: 0;
+      overflow-x: hidden;
+    }
+    .font-display { font-family: 'Playfair Display', serif; }
+    .font-script  { font-family: 'Caveat', cursive; }
+    a { text-decoration: none; }
+
+    /* Главный градиент-фон с искрами */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(212,80,42,0.15) 0%, transparent 40%),
+        radial-gradient(ellipse at 70% 80%, rgba(168,132,86,0.12) 0%, transparent 50%),
+        var(--bg);
+      pointer-events: none;
+    }
+    .ember {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: var(--ember);
+      border-radius: 50%;
+      opacity: 0;
+      animation: emberFloat 4s ease-in infinite;
+      box-shadow: 0 0 8px var(--ember);
+    }
+    @keyframes emberFloat {
+      0%   { transform: translateY(0) scale(0.5); opacity: 0; }
+      10%  { opacity: 0.8; }
+      100% { transform: translateY(-300px) scale(0); opacity: 0; }
+    }
+
+    .btn-prim {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--copper); color: var(--warm-wh);
+      padding: 1rem 2.2rem;
+      font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 500;
+      border: 1px solid #6E5530;
+      transition: all 0.3s ease;
+    }
+    .btn-prim:hover { background: #6E5530; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(168,132,86,0.3); }
+
+    .btn-out {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: transparent; color: var(--copper);
+      padding: 1rem 2.2rem;
+      font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 500;
+      border: 1px solid var(--copper);
+      transition: all 0.3s ease;
+    }
+    .btn-out:hover { background: rgba(168,132,86,0.1); }
+
+    .sec-label {
+      display: inline-block;
+      font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--copper);
+    }
+
+    .orn { display: flex; align-items: center; gap: 0.8rem; }
+    .orn::before, .orn::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--copper-dim), transparent);
+    }
+    .orn-sym { color: var(--copper); font-size: 0.6rem; }
+
+    /* Сегмент-карточки */
+    .segment-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(168,132,86,0.15);
+      padding: 2.5rem 2rem;
+      transition: all 0.3s ease;
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+    .segment-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 60%, rgba(168,132,86,0.05) 100%);
+      pointer-events: none;
+    }
+    .segment-card.active:hover {
+      border-color: var(--copper);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.5);
+    }
+    .segment-card.soon {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    .segment-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.85rem;
+      color: var(--copper);
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* Принципы */
+    .principle {
+      padding: 2rem 1.5rem;
+      border-left: 1px solid rgba(168,132,86,0.2);
+    }
+    .principle-num {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--copper);
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    /* Hero typography */
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 11vw, 8rem);
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      color: var(--warm-wh);
+      font-weight: 600;
+    }
+    .hero-title .accent {
+      color: var(--copper);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    /* Pulse animation для CTA */
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(168,132,86,0.4); }
+      50%      { box-shadow: 0 0 0 12px rgba(168,132,86,0); }
+    }
+    .glow { animation: glow 2.5s ease-out infinite; }
+
+    /* Скроллбар тонкий */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--faint); }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section style="position: relative; min-height: 100vh; display: flex; align-items: center;">
+    <div class="hero-bg"></div>
+
+    <!-- Искры -->
+    <span class="ember" style="left: 15%; bottom: 10%; animation-delay: 0s;"></span>
+    <span class="ember" style="left: 25%; bottom: 15%; animation-delay: 1.2s;"></span>
+    <span class="ember" style="left: 70%; bottom: 8%; animation-delay: 2s;"></span>
+    <span class="ember" style="left: 85%; bottom: 20%; animation-delay: 0.5s;"></span>
+    <span class="ember" style="left: 50%; bottom: 5%; animation-delay: 3s;"></span>
+
+    <div style="position: relative; z-index: 10;" class="container mx-auto px-6 text-center">
+
+      <p class="font-script" style="color: var(--copper); font-size: clamp(1.2rem, 2.2vw, 1.6rem); margin-bottom: 1rem;">
+        куём вручную · не штампуем
+      </p>
+
+      <h1 class="hero-title mb-8">
+        Веб<span class="accent">кузница</span>
+      </h1>
+
+      <div class="orn mb-8" style="opacity: 0.5; max-width: 200px; margin-left: auto; margin-right: auto;" aria-hidden="true">
+        <span class="orn-sym">◆</span>
+      </div>
+
+      <p class="font-display italic mb-10 max-w-2xl mx-auto" style="color: var(--dim); font-size: clamp(1.1rem, 2vw, 1.5rem); line-height: 1.5;">
+        Делаем сайты для местного бизнеса так же,<br>
+        как они готовят свою лучшую еду —<br>
+        вручную, с характером и без полуфабрикатов.
+      </p>
+
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="#segments" class="btn-prim glow">
+          Посмотреть демо
+          <span style="font-size: 1.1rem;">→</span>
+        </a>
+      </div>
+
+      <!-- Scroll hint -->
+      <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); opacity: 0.5;">
+        <p class="font-script" style="color: var(--copper); font-size: 0.9rem; margin-bottom: 0.5rem;">
+          смотрите, что куём
+        </p>
+        <div style="width: 1px; height: 40px; background: var(--copper); margin: 0 auto;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ ПРИНЦИПЫ ═══════════ -->
+  <section style="padding: 7rem 0; border-top: 1px solid rgba(168,132,86,0.1);">
+    <div class="container mx-auto px-6 max-w-6xl">
+
+      <div class="text-center mb-16">
+        <span class="sec-label mb-4">I · Чем отличаемся</span>
+        <h2 class="font-display mt-4 mb-4" style="color: var(--warm-wh); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1;">
+          Не конструктор сайтов
+        </h2>
+        <p class="max-w-2xl mx-auto" style="color: var(--muted); font-size: 0.95rem; line-height: 1.7;">
+          Готовые шаблоны делают сайты, которые невозможно отличить друг от друга.
+          Мы делаем по-другому.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-0">
+
+        <div class="principle">
+          <span class="principle-num">I</span>
+          <h3 class="font-display mb-3" style="color: var(--warm-wh); font-size: 1.3rem; line-height: 1.2;">
+            Изучаем заведение
+          </h3>
+          <p style="color: var(--muted); font-size: 0.88rem; line-height: 1.7;">
+            Меню, отзывы, фото, тексты в соцсетях. Находим то,
+            что отличает именно ваше место.
+          </p>
+        </div>
+
+        <div class="principle">
+          <span class="principle-num">II</span>
+          <h3 class="font-display mb-3" style="color: var(--warm-wh); font-size: 1.3rem; line-height: 1.2;">
+            Делаем сайт под вас
+          </h3>
+          <p style="color: var(--muted); font-size: 0.88rem; line-height: 1.7;">
+            Каждый раз — индивидуальный дизайн, ваш реальный
+            контент, ваш стиль. Никаких типовых шаблонов.
+          </p>
+        </div>
+
+        <div class="principle">
+          <span class="principle-num">III</span>
+          <h3 class="font-display mb-3" style="color: var(--warm-wh); font-size: 1.3rem; line-height: 1.2;">
+            Показываем результат
+          </h3>
+          <p style="color: var(--muted); font-size: 0.88rem; line-height: 1.7;">
+            Сначала вы видите готовый сайт, потом решаете —
+            покупать или нет. Без давления.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ СЕГМЕНТЫ — ССЫЛКИ НА КАТАЛОГИ ═══════════ -->
+  <section id="segments" style="padding: 7rem 0; background: linear-gradient(180deg, var(--bg) 0%, #120E0A 100%);">
+    <div class="container mx-auto px-6 max-w-6xl">
+
+      <div class="text-center mb-16">
+        <span class="sec-label mb-4">II · Демо-сайты</span>
+        <h2 class="font-display mt-4 mb-4" style="color: var(--warm-wh); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1;">
+          Что куём
+        </h2>
+        <p class="max-w-2xl mx-auto" style="color: var(--muted); font-size: 0.95rem; line-height: 1.7;">
+          Мы работаем с разными сегментами малого бизнеса.
+          Выберите свой — посмотрите готовые демо-сайты.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- РЕСТОРАНЫ — активный -->
+        <a href="restaurants/" class="segment-card active">
+          <span class="segment-num">I · активно</span>
+          <h3 class="font-display mb-3" style="color: var(--warm-wh); font-size: 1.6rem; line-height: 1.2;">
+            Рестораны
+          </h3>
+          <p style="color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 2rem;">
+            Меню, бронирование, интерьер, события, банкеты.
+            Под характер каждого заведения.
+          </p>
+          <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--copper); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;">
+            Посмотреть демо
+            <span style="font-size: 1.1rem;">→</span>
+          </div>
+        </a>
+
+        <!-- БЬЮТИ — placeholder -->
+        <div class="segment-card soon">
+          <span class="segment-num">II · скоро</span>
+          <h3 class="font-display mb-3" style="color: var(--dim); font-size: 1.6rem; line-height: 1.2;">
+            Салоны красоты
+          </h3>
+          <p style="color: var(--faint); font-size: 0.88rem; line-height: 1.7; margin-bottom: 2rem;">
+            Услуги, мастера, онлайн-запись, портфолио.
+            Готовится к запуску.
+          </p>
+          <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--faint); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;">
+            <span class="font-script" style="font-size: 1rem; text-transform: none; letter-spacing: 0;">скоро</span>
+          </div>
+        </div>
+
+        <!-- ФИТНЕС — placeholder -->
+        <div class="segment-card soon">
+          <span class="segment-num">III · скоро</span>
+          <h3 class="font-display mb-3" style="color: var(--dim); font-size: 1.6rem; line-height: 1.2;">
+            Фитнес
+          </h3>
+          <p style="color: var(--faint); font-size: 0.88rem; line-height: 1.7; margin-bottom: 2rem;">
+            Тренеры, расписания, абонементы, запись.
+            Готовится к запуску.
+          </p>
+          <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--faint); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;">
+            <span class="font-script" style="font-size: 1rem; text-transform: none; letter-spacing: 0;">скоро</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer style="padding: 4rem 0 3rem; border-top: 1px solid rgba(168,132,86,0.1); text-align: center;">
+    <div class="container mx-auto px-6">
+      <p class="font-script mb-2" style="color: var(--copper); font-size: 1.4rem;">
+        Вебкузница
+      </p>
+      <p style="color: var(--faint); font-size: 0.78rem; letter-spacing: 0.08em; margin-bottom: 1.5rem;">
+        © 2026 · сайты для местного бизнеса
+      </p>
+      <p style="color: var(--faint); font-size: 0.72rem;">
+        Связаться:
+        <a href="https://t.me/" style="color: var(--copper); border-bottom: 1px solid rgba(168,132,86,0.3); padding-bottom: 1px;">
+          Telegram
+        </a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

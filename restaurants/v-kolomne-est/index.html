@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>В Коломне-Есть! — Авторская русская кухня · Коломна</title>
+  <meta name="description" content="Ресторан авторской русской кухни XV–XVII века. Дровяная печь, исторические интерьеры. Коломна, ул. Лажечникова, 1. Рейтинг 4.8 — 819 отзывов.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://v-kolomne-est.ru/">
+
+  <meta property="og:title" content="В Коломне-Есть! — Авторская русская кухня">
+  <meta property="og:description" content="Ресторан авторской русской кухни XV–XVII века в Коломне. Дровяная печь, пупыга, сом на берёзовом бревне.">
+  <meta property="og:type" content="restaurant">
+  <meta property="og:url" content="https://v-kolomne-est.ru/">
+  <meta property="og:image" content="https://v-kolomne-est.ru/img/interior-gerby.jpg">
+  <meta property="og:locale" content="ru_RU">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Karla:wght@300;400;500;600&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'noir':       '#0D0B08',
+            'noir-mid':   '#1A1410',
+            'noir-lt':    '#241C14',
+            'parchment':  '#F4EDD3',
+            'parch-dk':   '#E5D9B8',
+            'copper':     '#A88456',
+            'copper-dk':  '#6E5530',
+            'copper-lt':  '#C9A96E',
+            'warm-wh':    '#F9F4EA',
+            'dim':        '#C9BCB0',
+            'muted':      '#7A6E66',
+            'faint':      '#4A4038',
+          },
+          fontFamily: {
+            'display': ['"Playfair Display SC"', 'serif'],
+            'heading': ['"Playfair Display"', 'serif'],
+            'body':    ['Karla', 'sans-serif'],
+            'script':  ['Caveat', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      background: #0D0B08;
+      color: #C9BCB0;
+      font-family: 'Karla', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      overflow-x: hidden;
+      padding-bottom: 60px;
+    }
+    @media (min-width: 768px) { body { padding-bottom: 0; } }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; }
+
+    /* ── Section overline label ── */
+    .sec-label {
+      font-family: 'Karla', sans-serif;
+      font-size: 0.67rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #A88456;
+      display: block;
+    }
+
+    /* ── Ornament divider ── */
+    .orn { display: flex; align-items: center; gap: 0.75rem; }
+    .orn::before, .orn::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(168,132,86,0.45), transparent);
+    }
+    .orn-sym { color: #A88456; font-size: 0.55rem; opacity: 0.8; flex-shrink: 0; }
+
+    /* ── Drop cap ── */
+    .drop-cap::first-letter {
+      font-family: 'Playfair Display SC', serif;
+      font-size: 4em;
+      line-height: 0.72;
+      float: left;
+      margin-right: 0.08em;
+      padding-top: 0.06em;
+      color: #A88456;
+      font-weight: 700;
+    }
+
+    /* ── Pull quote ── */
+    .pull-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      border-left: 2px solid #A88456;
+      padding-left: 1.75rem;
+      color: #F9F4EA;
+      line-height: 1.4;
+    }
+
+    /* ── Ghost Roman numeral ── */
+    .ghost-num {
+      font-family: 'Playfair Display SC', serif;
+      font-weight: 700;
+      color: rgba(168,132,86,0.06);
+      user-select: none;
+      pointer-events: none;
+      line-height: 0.85;
+      position: absolute;
+    }
+
+    /* ── Navbar ── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      transition: background 0.35s ease, box-shadow 0.35s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(13,11,8,0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(168,132,86,0.12);
+    }
+    .nav-a {
+      font-family: 'Karla', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(249,244,234,0.5);
+      transition: color 0.2s ease;
+    }
+    .nav-a:hover { color: #A88456; }
+
+    /* ── Buttons ── */
+    .btn-prim {
+      display: inline-flex; align-items: center;
+      background: #A88456; color: #0D0B08;
+      border: 1px solid #A88456;
+      padding: 0.85rem 2.2rem;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.74rem; font-weight: 600;
+      letter-spacing: 0.13em; text-transform: uppercase;
+      cursor: pointer; text-decoration: none;
+      transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-prim:hover {
+      background: #C9A96E; border-color: #C9A96E;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(168,132,86,0.3);
+    }
+    .btn-ghost {
+      display: inline-flex; align-items: center;
+      background: transparent; color: rgba(249,244,234,0.75);
+      border: 1px solid rgba(249,244,234,0.3);
+      padding: 0.85rem 2.2rem;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.74rem; font-weight: 500;
+      letter-spacing: 0.13em; text-transform: uppercase;
+      cursor: pointer; text-decoration: none;
+      transition: border-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+    }
+    .btn-ghost:hover { border-color: #A88456; color: #A88456; transform: translateY(-2px); }
+
+    .btn-copper-out {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: #A88456;
+      border: 1px solid rgba(168,132,86,0.5);
+      padding: 0.7rem 1.6rem;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      cursor: pointer; text-decoration: none;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+    .btn-copper-out:hover {
+      background: rgba(168,132,86,0.08);
+      border-color: #A88456;
+      transform: translateY(-1px);
+    }
+
+    /* ── Menu list rows ── */
+    .menu-row {
+      display: flex; align-items: baseline; gap: 0.5rem;
+      padding: 1rem 0.5rem;
+      border-bottom: 1px solid rgba(168,132,86,0.1);
+      transition: background 0.2s ease;
+      margin: 0 -0.5rem;
+    }
+    .menu-row:hover { background: rgba(168,132,86,0.04); }
+    .menu-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 1.8vw, 1.3rem);
+      color: #F9F4EA;
+    }
+    .menu-dots {
+      flex: 1; border-bottom: 1px dotted rgba(168,132,86,0.28);
+      margin-bottom: 5px; min-width: 16px;
+    }
+    .menu-price {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-size: 1.05rem;
+      color: #A88456; white-space: nowrap;
+    }
+    .menu-sub {
+      display: block;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.76rem; color: #7A6E66;
+      margin-top: 0.15rem; line-height: 1.4;
+    }
+
+    /* ── Line-only form inputs ── */
+    .line-input {
+      width: 100%; background: transparent;
+      border: none; border-bottom: 1px solid rgba(168,132,86,0.28);
+      color: #F9F4EA;
+      font-family: 'Karla', sans-serif; font-size: 0.95rem;
+      padding: 0.7rem 0; outline: none;
+      transition: border-color 0.2s ease; -webkit-appearance: none;
+    }
+    .line-input::placeholder { color: #4A4038; }
+    .line-input:focus { border-bottom-color: #A88456; }
+    .line-input option { background: #1A1410; color: #F9F4EA; }
+    .line-label {
+      display: block;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.64rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: #7A6E66;
+      margin-bottom: 0.2rem;
+    }
+
+    /* ── Photo hover caption ── */
+    .photo-w { position: relative; overflow: hidden; }
+    .photo-cap {
+      position: absolute; inset: 0;
+      background: rgba(13,11,8,0.72);
+      display: flex; flex-direction: column;
+      justify-content: flex-end; padding: 1.5rem;
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .photo-w:hover .photo-cap { opacity: 1; }
+
+    /* ── Fade-up (sections) ── */
+    .fade-up {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+    }
+    .fade-up.in-view { opacity: 1; transform: translateY(0); }
+
+    /* ════════════════════════════════
+       HERO ENTRANCE ANIMATIONS
+    ════════════════════════════════ */
+    @keyframes heroPhotoIn {
+      from { opacity: 0; transform: scale(1.1); }
+      to   { opacity: 0.4; transform: scale(1.0); }
+    }
+    @keyframes clipReveal {
+      from { clip-path: inset(0 0 100% 0); transform: translateY(22px); }
+      to   { clip-path: inset(0 0 0% 0);   transform: translateY(0); }
+    }
+    @keyframes fadeRise {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes ornExpand {
+      from { opacity: 0; transform: scaleX(0.3); }
+      to   { opacity: 1; transform: scaleX(1); }
+    }
+    @keyframes sideStripIn {
+      from { opacity: 0; transform: scaleY(0); }
+      to   { opacity: 1; transform: scaleY(1); }
+    }
+
+    /* Staggered hero element classes */
+    .h-e1 { animation: fadeRise   0.9s cubic-bezier(0.16,1,0.3,1) 0.1s  both; }
+    .h-e2 { animation: clipReveal 1.2s cubic-bezier(0.16,1,0.3,1) 0.4s  both; }
+    .h-e3 { animation: ornExpand  0.8s ease-out                    1.0s  both; transform-origin: center; }
+    .h-e4 { animation: fadeRise   0.8s ease-out                    1.25s both; }
+    .h-e5 { animation: fadeRise   0.7s ease-out                    1.6s  both; }
+    .h-e6 { animation: fadeRise   0.6s ease-out                    2.0s  both; }
+    .h-photo { animation: heroPhotoIn 2.8s cubic-bezier(0.16,1,0.3,1) 0s both; }
+    .h-strip { animation: sideStripIn 1.2s ease-out 0.8s both; transform-origin: top; }
+
+    /* ════════════════════════════════
+       SECTION SPLIT + STAGGER
+    ════════════════════════════════ */
+    .fade-left {
+      opacity: 0; transform: translateX(-30px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .fade-right {
+      opacity: 0; transform: translateX(30px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .fade-left.in-view  { opacity: 1; transform: translateX(0); }
+    .fade-right.in-view { opacity: 1; transform: translateX(0); }
+
+    .stagger > * {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .stagger.in-view > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0ms; }
+    .stagger.in-view > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 120ms; }
+    .stagger.in-view > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 240ms; }
+    .stagger.in-view > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 360ms; }
+    .stagger.in-view > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 480ms; }
+    .stagger.in-view > *:nth-child(n+6) { opacity: 1; transform: none; transition-delay: 600ms; }
+
+    /* Reduced motion: disable all */
+    @media (prefers-reduced-motion: reduce) {
+      .h-e1,.h-e2,.h-e3,.h-e4,.h-e5,.h-e6,.h-photo,.h-strip {
+        animation: none !important; opacity: 1 !important;
+        transform: none !important; clip-path: none !important;
+      }
+      .fade-left,.fade-right { opacity: 1 !important; transform: none !important; transition: none !important; }
+      .stagger > * { opacity: 1 !important; transform: none !important; transition: none !important; }
+      .fade-up { transition: none !important; }
+    }
+
+    @keyframes scrollHint {
+      0%, 100% { opacity: 0.25; }
+      50% { opacity: 0.85; }
+    }
+
+    /* ── Sticky call ── */
+    #sticky-call {
+      position: fixed; bottom: 2rem; right: 2rem;
+      z-index: 400; width: 50px; height: 50px;
+      border-radius: 50%; background: #A88456; color: #0D0B08;
+      display: none; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(168,132,86,0.4);
+      transition: transform 0.2s ease; text-decoration: none;
+    }
+    @media (min-width: 768px) { #sticky-call { display: flex; } }
+    #sticky-call:hover { transform: scale(1.1); }
+
+    /* ── Mobile bar ── */
+    #mobile-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      z-index: 400; background: #0D0B08;
+      border-top: 1px solid rgba(168,132,86,0.18);
+      display: flex;
+    }
+    @media (min-width: 768px) { #mobile-bar { display: none; } }
+    #mobile-bar a {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 3px; padding: 0.6rem 0;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.68rem; letter-spacing: 0.06em;
+      text-decoration: none;
+    }
+
+    /* ── Cookie banner ── */
+    #cookie-banner {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      z-index: 900; background: rgba(26,20,16,0.98);
+      border-top: 1px solid rgba(168,132,86,0.18);
+      padding: 1rem 1.5rem; backdrop-filter: blur(8px);
+    }
+    #cookie-banner.hidden { display: none; }
+
+    /* ── Reduced motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1; transform: none; transition: none; }
+      * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "В Коломне-Есть!",
+    "description": "Ресторан авторской русской кухни XV–XVII века. Дровяная печь, самовар, исторические интерьеры.",
+    "url": "https://v-kolomne-est.ru/",
+    "telephone": "+79263645582",
+    "image": "https://v-kolomne-est.ru/img/interior-gerby.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Лажечникова, 1",
+      "addressLocality": "Коломна",
+      "addressRegion": "Московская область",
+      "postalCode": "140400",
+      "addressCountry": "RU"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 55.0938, "longitude": 38.7651 },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "819",
+      "bestRating": "5"
+    },
+    "servesCuisine": ["Русская кухня", "Авторская кухня"],
+    "priceRange": "₽₽",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "11:00", "closes": "22:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday"], "opens": "11:00", "closes": "23:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "09:00", "closes": "23:00" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+
+<!-- ════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════ -->
+<nav id="navbar" aria-label="Основная навигация">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between" style="height: 64px;">
+    <a href="#" class="font-display text-warm-wh" style="font-size: 0.9rem; letter-spacing: 0.06em;">
+      В&nbsp;Коломне&#8209;Есть!
+    </a>
+    <div class="hidden md:flex items-center gap-7">
+      <a href="#about"    class="nav-a">О нас</a>
+      <a href="#booking"  class="nav-a">Бронь</a>
+      <a href="#menu"     class="nav-a">Меню</a>
+      <a href="#events"   class="nav-a">Вечера</a>
+      <a href="#catering" class="nav-a">Банкеты</a>
+      <a href="#contacts" class="nav-a">Контакты</a>
+    </div>
+    <a href="tel:+79263645582" class="btn-prim" style="padding: 0.5rem 1.1rem; font-size: 0.7rem;">Позвонить</a>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════
+     1. HERO — EDITORIAL + ANIMATIONS
+════════════════════════════════════════ -->
+<section id="hero" class="relative" style="min-height: 100vh; background: #0D0B08; overflow: hidden;">
+
+  <!-- Параллакс-обёртка — translateY через JS -->
+  <div id="hero-parallax" class="absolute"
+       style="top: -12%; left: 0; right: 0; bottom: -12%; overflow: hidden;"
+       aria-hidden="true">
+    <!-- Фото: Ken Burns через CSS animation -->
+    <img src="img/interior-gerby.jpg"
+         alt=""
+         class="w-full h-full object-cover h-photo"
+         style="will-change: transform; object-position: center 40%;"
+         loading="eager"
+         onerror="this.style.display='none'">
+  </div>
+
+  <!-- Виньетка — светлее в центре, темнее по краям -->
+  <div class="absolute inset-0 z-10"
+       style="background: radial-gradient(ellipse at 50% 50%,
+                rgba(13,11,8,0.1) 0%,
+                rgba(13,11,8,0.6) 50%,
+                rgba(13,11,8,0.95) 100%);"
+       aria-hidden="true"></div>
+
+  <!-- Редакционная боковая полоса — слева -->
+  <div class="h-strip absolute left-0 top-0 bottom-0 z-20 hidden md:flex flex-col items-center justify-center"
+       style="width: 2.75rem;
+              background: rgba(168,132,86,0.05);
+              border-right: 1px solid rgba(168,132,86,0.12);"
+       aria-hidden="true">
+    <span style="writing-mode: vertical-rl; transform: rotate(180deg);
+                 font-family: 'Karla', sans-serif; font-size: 0.52rem;
+                 letter-spacing: 0.22em; text-transform: uppercase;
+                 color: rgba(168,132,86,0.55);">
+      Коломна · ул. Лажечникова, 1 · XV–XVII&nbsp;век
+    </span>
+  </div>
+
+  <!-- Редакционная боковая полоса — справа -->
+  <div class="h-strip absolute right-0 top-0 bottom-0 z-20 hidden md:flex flex-col items-center justify-center"
+       style="width: 2.75rem;
+              background: rgba(168,132,86,0.05);
+              border-left: 1px solid rgba(168,132,86,0.12);"
+       aria-hidden="true">
+    <span style="writing-mode: vertical-rl;
+                 font-family: 'Karla', sans-serif; font-size: 0.52rem;
+                 letter-spacing: 0.22em; text-transform: uppercase;
+                 color: rgba(168,132,86,0.55);">
+      ★&nbsp;4.8 · 819 отзывов · Яндекс.Карты
+    </span>
+  </div>
+
+  <!-- Контент -->
+  <div class="relative z-20 flex flex-col items-center justify-center text-center px-4 sm:px-8"
+       style="min-height: 100vh; padding-top: 5rem; padding-bottom: 5rem;">
+
+    <!-- 1 — Caveat overline -->
+    <p class="font-script mb-5 h-e1" style="color: #A88456; font-size: clamp(1rem, 2vw, 1.35rem);">
+      Авторская русская кухня · XV–XVII век
+    </p>
+
+    <!-- 2 — Главный заголовок: clip-path reveal -->
+    <h1 class="font-display text-warm-wh mb-4 h-e2"
+        style="font-size: clamp(2.6rem, 11vw, 10rem);
+               line-height: 0.9;
+               letter-spacing: 0.06em;
+               text-shadow: 0 4px 40px rgba(0,0,0,0.8);">
+      В КОЛОМНЕ&#8209;ЕСТЬ!
+    </h1>
+
+    <!-- 3 — Орнамент: expand -->
+    <div class="orn mb-5 h-e3" style="width: min(460px, 82%);" aria-hidden="true">
+      <span class="orn-sym">◆</span>
+    </div>
+
+    <!-- 4 — Подзаголовок -->
+    <p class="font-heading italic mb-10 h-e4"
+       style="font-size: clamp(1rem, 2.2vw, 1.45rem);
+              color: rgba(249,244,234,0.65);
+              max-width: 38rem;
+              line-height: 1.55;">
+      «Готовим без спешки. Без выпендрёжа.<br class="hidden md:block">
+      Просто еда, которую хочется есть медленно.»
+    </p>
+
+    <!-- 5 — Кнопки -->
+    <div class="flex flex-wrap gap-4 justify-center mb-16 h-e5">
+      <a href="#booking" class="btn-prim">Забронировать стол</a>
+      <a href="#menu" class="btn-ghost">Посмотреть меню</a>
+    </div>
+
+    <!-- 6 — Адрес/часы -->
+    <div class="flex flex-wrap gap-4 justify-center items-center h-e6"
+         style="font-family: 'Karla', sans-serif; font-size: 0.75rem;
+                letter-spacing: 0.08em; color: rgba(201,188,176,0.45);">
+      <span>ул. Лажечникова, 1 · Коломна</span>
+      <span style="color: rgba(168,132,86,0.3);">·</span>
+      <span>Пн–Чт 11–22 &nbsp;Пт 11–23 &nbsp;Сб–Вс 9–23</span>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5"
+       style="opacity: 0.4;" aria-hidden="true">
+    <span class="font-script text-copper" style="font-size: 0.82rem;">листайте</span>
+    <div style="width: 1px; height: 28px; background: #A88456; animation: scrollHint 2s ease-in-out infinite;"></div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     2. О НАС — МАНИФЕСТ
+════════════════════════════════════════ -->
+<section id="about" class="relative" style="background: #F4EDD3; padding: 7rem 0;">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Ghost number -->
+    <span class="ghost-num" style="font-size: clamp(7rem, 16vw, 14rem); top: 2rem; right: 1rem; color: rgba(168,132,86,0.07);" aria-hidden="true">I</span>
+
+    <div class="relative">
+      <span class="sec-label mb-2" style="color: #A88456;">I · О нас</span>
+      <h2 class="font-display text-noir mb-8"
+          style="font-size: clamp(1.8rem, 4.5vw, 3.2rem); letter-spacing: 0.04em; line-height: 1.05; color: #0D0B08;">
+        Зачем мы здесь
+      </h2>
+
+      <!-- Pull quote -->
+      <div class="pull-quote mb-8 max-w-3xl"
+           style="font-size: clamp(1.25rem, 2.8vw, 1.9rem); color: #1A1410;">
+        «Мы готовим русскую кухню так, как она задумывалась —
+        без спешки. Пряженина томится в печи почти сутки.
+        Сом запекается на берёзовом бревне.»
+      </div>
+
+      <div class="orn mb-10" style="opacity: 0.4;" aria-hidden="true"><span class="orn-sym">◆</span></div>
+
+      <!-- Two-column text -->
+      <div class="grid md:grid-cols-2 gap-10 lg:gap-16">
+        <p class="font-body drop-cap" style="font-size: 1rem; line-height: 1.82; color: #3A2E24;">
+          Без выпендрёжа. Без матрёшек для туристов. Просто хорошая еда, которую хочется есть медленно и с удовольствием. Мы берём рецепты из старых поварских книг, адаптируем под современный вкус — и готовим на дровяной печи, как делали триста лет назад.
+        </p>
+        <p class="font-body" style="font-size: 1rem; line-height: 1.82; color: #5A4F47;">
+          Мы в самом начале улицы Лажечникова, в двух шагах от Коломенского Кремля. Зал расписан под старые русские палаты. Самовар на подоконнике — настоящий, работает. Заходите. Накормим вкусно.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     3. ШЕФ
+════════════════════════════════════════ -->
+<section id="chef" class="relative" style="background: #0D0B08; padding: 0;">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" style="padding-top: 7rem; padding-bottom: 7rem;">
+
+    <div class="grid lg:grid-cols-2 gap-0 items-stretch"
+         style="box-shadow: 0 0 0 1px rgba(168,132,86,0.1);">
+
+      <!-- Фото -->
+      <div class="photo-w fade-left" style="min-height: 460px;">
+        <img src="img/chef-denis.jpg"
+             alt="Денис Барыков, бренд-шеф ресторана В Коломне-Есть"
+             class="w-full h-full object-cover object-top"
+             loading="lazy"
+             style="min-height: 460px;"
+             onerror="this.parentElement.style.background='#1A1410'">
+        <div class="photo-cap">
+          <span class="font-script text-copper" style="font-size: 1rem;">бренд-шеф</span>
+        </div>
+      </div>
+
+      <!-- Текст -->
+      <div class="relative overflow-hidden flex flex-col justify-center fade-right"
+           style="background: #1A1410; padding: 3.5rem 3rem;
+                  border-left: 1px solid rgba(168,132,86,0.1);">
+
+        <span class="ghost-num" style="font-size: clamp(7rem, 12vw, 11rem); bottom: -1rem; right: -0.5rem;" aria-hidden="true">II</span>
+
+        <div class="relative z-10">
+          <span class="sec-label mb-3">II · Шеф</span>
+          <h2 class="font-display text-warm-wh mb-1"
+              style="font-size: clamp(1.6rem, 3vw, 2.6rem); letter-spacing: 0.04em; line-height: 1.05;">
+            Денис Барыков
+          </h2>
+          <p class="font-script mb-5" style="color: #A88456; font-size: 1rem;">
+            Бренд-шеф ресторана
+          </p>
+
+          <div class="orn mb-5" style="opacity: 0.3;" aria-hidden="true"><span class="orn-sym">◆</span></div>
+
+          <p class="font-body mb-6" style="color: #9A8E80; font-size: 0.88rem; line-height: 1.82; max-width: 380px;">
+            Денис задаёт характер нашей кухни и формирует её стиль. Превращает русские традиции в современную гастрономию — не делает реконструкцию ради реконструкции, а ищет вкус, который имеет смысл сегодня.
+          </p>
+
+          <ol style="list-style: none; padding: 0; margin: 0;" class="space-y-2.5">
+            <li class="flex items-start gap-3">
+              <span class="font-display text-copper flex-shrink-0" style="font-size: 0.72rem; margin-top: 0.15rem;">I</span>
+              <span class="font-body text-muted" style="font-size: 0.83rem;">Археология русской кухни</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="font-display text-copper flex-shrink-0" style="font-size: 0.72rem; margin-top: 0.15rem;">II</span>
+              <span class="font-body text-muted" style="font-size: 0.83rem;">Локальные продукты Коломенского уезда</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="font-display text-copper flex-shrink-0" style="font-size: 0.72rem; margin-top: 0.15rem;">III</span>
+              <span class="font-body text-muted" style="font-size: 0.83rem;">Дровяная печь</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="font-display text-copper flex-shrink-0" style="font-size: 0.72rem; margin-top: 0.15rem;">IV</span>
+              <span class="font-body text-muted" style="font-size: 0.83rem;">Копчение</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="font-display text-copper flex-shrink-0" style="font-size: 0.72rem; margin-top: 0.15rem;">V</span>
+              <span class="font-body text-muted" style="font-size: 0.83rem;">Собственный хлеб</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="font-display text-copper flex-shrink-0" style="font-size: 0.72rem; margin-top: 0.15rem;">VI</span>
+              <span class="font-body text-muted" style="font-size: 0.83rem;">Смелые сочетания</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     4. МЕНЮ — СПИСОК С DOTTED LEADERS
+════════════════════════════════════════ -->
+<section id="menu" class="relative" style="background: #0D0B08; padding: 7rem 0;
+  border-top: 1px solid rgba(168,132,86,0.1);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="relative">
+      <span class="ghost-num" style="font-size: clamp(7rem, 16vw, 14rem); top: -2rem; right: -1rem;" aria-hidden="true">III</span>
+
+      <div class="relative z-10">
+        <span class="sec-label mb-2">III · Меню</span>
+        <h2 class="font-display text-warm-wh mb-2"
+            style="font-size: clamp(1.8rem, 4.5vw, 3.2rem); letter-spacing: 0.04em; line-height: 1.05;">
+          Из чугунка
+        </h2>
+        <p class="font-script mb-8" style="color: #A88456; font-size: 1.05rem;">
+          Главное у нас на печи
+        </p>
+
+        <div class="orn mb-8" style="opacity: 0.35;" aria-hidden="true"><span class="orn-sym">◆</span></div>
+
+        <!-- ПУПЫГА — featured с фото -->
+        <div class="grid lg:grid-cols-2 mb-px" style="border: 1px solid rgba(168,132,86,0.15); overflow: hidden;">
+          <div class="photo-w" style="min-height: 240px; aspect-ratio: 4/3;">
+            <img src="img/pupyga.jpg"
+                 alt="Пупыга коломенская — блюдо XV века"
+                 class="w-full h-full object-cover" loading="lazy"
+                 onerror="this.parentElement.style.background='#1A1410'">
+          </div>
+          <div style="background: rgba(168,132,86,0.05); padding: 2rem; display: flex; flex-direction: column; justify-content: center;">
+            <span class="sec-label mb-2" style="font-size: 0.6rem;">Только у нас · Коломенское блюдо XV века</span>
+            <span class="font-heading text-warm-wh" style="font-size: clamp(1.3rem, 2.5vw, 1.8rem); display: block; margin-bottom: 0.75rem; line-height: 1.1;">Пупыга коломенская</span>
+            <p class="font-body text-muted" style="font-size: 0.83rem; line-height: 1.65; margin-bottom: 1.2rem;">
+              Не модная придумка и не авторский эксперимент. Просто еда, которую здесь готовили задолго до того, как Коломна стала туристической. Свинина пряженая, крапива, лисички и белые грибы, квашеная капуста, крепкий куриный бульон. Всё томится вместе и подаётся в глиняном горшочке прямо из печи.
+            </p>
+            <span class="font-heading italic text-copper" style="font-size: 1.4rem;">860 ₽</span>
+            <details class="mt-3">
+              <summary class="font-body text-copper cursor-pointer" style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; list-style: none;">
+                ⊕ Историческая справка
+              </summary>
+              <p class="font-body text-faint mt-2" style="font-size: 0.77rem; line-height: 1.6;">
+                Старое русское слово «пряжить» означало «жарить в раскалённом масле». До XVII века так и говорили — потом забыли. Мы не забыли.
+              </p>
+            </details>
+          </div>
+        </div>
+
+        <!-- 4 блюда — сетка 2×2 с фотографиями -->
+        <!-- Наведение показывает историческую справку -->
+        <div class="grid sm:grid-cols-2 gap-px mb-3 stagger" style="background: rgba(168,132,86,0.1); overflow: hidden;">
+
+          <!-- Пряженина -->
+          <div class="photo-w" style="aspect-ratio: 4/3;">
+            <img src="img/pryazhenina.jpg"
+                 alt="Пряженина суточная — томлёная свиная лопатка"
+                 class="w-full h-full object-cover" loading="lazy"
+                 onerror="this.parentElement.style.background='#1A1410'">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem 1.2rem;
+                        background: linear-gradient(to top, rgba(13,11,8,0.92) 0%, transparent 100%); pointer-events: none;">
+              <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 0.5rem;">
+                <span class="font-display text-warm-wh" style="font-size: 0.9rem; letter-spacing: 0.04em;">Пряженина суточная</span>
+                <span class="font-heading italic text-copper" style="font-size: 0.95rem; flex-shrink: 0;">890 ₽</span>
+              </div>
+              <p class="font-body text-dim" style="font-size: 0.68rem; margin-top: 0.2rem;">Свиная лопатка · томится в печи почти сутки</p>
+            </div>
+            <div class="photo-cap" style="justify-content: center; align-items: center; text-align: center; padding: 1.5rem;">
+              <p class="font-body" style="font-size: 0.77rem; color: #C9BCB0; line-height: 1.65;">
+                То блюдо, ради которого не жалко подождать. Мясо становится таким мягким, что разбирается вилкой. Подаём с румяным хлебом и домашними соленьями.
+              </p>
+            </div>
+          </div>
+
+          <!-- Солянка лютая -->
+          <div class="photo-w" style="aspect-ratio: 4/3;">
+            <img src="img/solyanka-lyutaya.jpg"
+                 alt="Солянка Лютая с копчёным ребром вепря"
+                 class="w-full h-full object-cover" loading="lazy"
+                 onerror="this.parentElement.style.background='#1A1410'">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem 1.2rem;
+                        background: linear-gradient(to top, rgba(13,11,8,0.92) 0%, transparent 100%); pointer-events: none;">
+              <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 0.5rem;">
+                <span class="font-display text-warm-wh" style="font-size: 0.9rem; letter-spacing: 0.04em;">Солянка «Лютая»</span>
+                <span class="font-heading italic text-copper" style="font-size: 0.95rem; flex-shrink: 0;">1 270 ₽</span>
+              </div>
+              <p class="font-body text-dim" style="font-size: 0.68rem; margin-top: 0.2rem;">С копчёным ребром вепря · Домострой 1547</p>
+            </div>
+            <div class="photo-cap" style="justify-content: center; align-items: center; text-align: center; padding: 1.5rem;">
+              <p class="font-body" style="font-size: 0.77rem; color: #C9BCB0; line-height: 1.65;">
+                Крепкий наваристый бульон, кислинка, дымный дух — и копчёное ребро вепря прямо в тарелке. Говорят, от такого супа проходит всякая хворь. Мы не врачи, но спорить не будем.
+              </p>
+            </div>
+          </div>
+
+          <!-- Сом на берёзовом бревне -->
+          <div class="photo-w" style="aspect-ratio: 4/3;">
+            <img src="img/som-karelskiy.jpg"
+                 alt="Рыба на бревне — филе сома по карельскому рецепту"
+                 class="w-full h-full object-cover" loading="lazy"
+                 onerror="this.parentElement.style.background='#1A1410'">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem 1.2rem;
+                        background: linear-gradient(to top, rgba(13,11,8,0.92) 0%, transparent 100%); pointer-events: none;">
+              <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 0.5rem;">
+                <span class="font-display text-warm-wh" style="font-size: 0.9rem; letter-spacing: 0.04em;">Рыба на бревне</span>
+                <span class="font-heading italic text-copper" style="font-size: 0.95rem; flex-shrink: 0;">1 350 ₽</span>
+              </div>
+              <p class="font-body text-dim" style="font-size: 0.68rem; margin-top: 0.2rem;">Сом по-карельски · печь · берёзовое бревно</p>
+            </div>
+            <div class="photo-cap" style="justify-content: center; align-items: center; text-align: center; padding: 1.5rem;">
+              <p class="font-body" style="font-size: 0.77rem; color: #C9BCB0; line-height: 1.65;">
+                Готовим в печи на берёзовом бревне. Спокойно потомиться, чтобы рыба получилась мягкой и сочной. Брусника для лёгкой кислинки, лимон для свежести. Ничего лишнего.
+              </p>
+            </div>
+          </div>
+
+          <!-- Рёбра вепря -->
+          <div class="photo-w" style="aspect-ratio: 4/3;">
+            <img src="img/ribro-vepra.jpg"
+                 alt="Бычий бок на огне — обжаренное филе быка"
+                 class="w-full h-full object-cover" loading="lazy"
+                 onerror="this.parentElement.style.background='#1A1410'">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem 1.2rem;
+                        background: linear-gradient(to top, rgba(13,11,8,0.92) 0%, transparent 100%); pointer-events: none;">
+              <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 0.5rem;">
+                <span class="font-display text-warm-wh" style="font-size: 0.9rem; letter-spacing: 0.04em;">Бычий бок на огне</span>
+                <span class="font-heading italic text-copper" style="font-size: 0.95rem; flex-shrink: 0;">980 ₽</span>
+              </div>
+              <p class="font-body text-dim" style="font-size: 0.68rem; margin-top: 0.2rem;">Филе быка · печёные грибы · томатный соус</p>
+            </div>
+            <div class="photo-cap" style="justify-content: center; align-items: center; text-align: center; padding: 1.5rem;">
+              <p class="font-body" style="font-size: 0.77rem; color: #C9BCB0; line-height: 1.65;">
+                Обжаренное в печи филе быка с травами. Подаётся с печёными грибами и острым томатным соусом. Главное мясное блюдо нашей карты.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="menu-row flex-col items-stretch" style="display: block; padding: 1rem 0.5rem;">
+          <div style="display: flex; align-items: baseline; gap: 0.5rem;">
+            <span class="menu-name">Уха из петуха с сомом</span>
+            <span class="menu-dots"></span>
+            <span class="menu-price">555 ₽</span>
+          </div>
+          <span class="menu-sub">Тройная уха на курином бульоне со сливками</span>
+        </div>
+
+        <div class="menu-row flex-col items-stretch" style="display: block; padding: 1rem 0.5rem;">
+          <div style="display: flex; align-items: baseline; gap: 0.5rem;">
+            <span class="menu-name">Угольные пельмени</span>
+            <span class="menu-dots"></span>
+            <span class="menu-price">590 ₽</span>
+          </div>
+          <span class="menu-sub">Фирменное · тесто на четверговой соли</span>
+        </div>
+
+        <div class="menu-row flex-col items-stretch" style="display: block; padding: 1rem 0.5rem;">
+          <div style="display: flex; align-items: baseline; gap: 0.5rem;">
+            <span class="menu-name">Салат «Белкин орех»</span>
+            <span class="menu-dots"></span>
+            <span class="menu-price">710 ₽</span>
+          </div>
+          <span class="menu-sub">Суточная пряженина · ореховый соус · цветы</span>
+        </div>
+
+        <div class="menu-row flex-col items-stretch" style="display: block; padding: 1rem 0.5rem; border-bottom: none;">
+          <div style="display: flex; align-items: baseline; gap: 0.5rem;">
+            <span class="menu-name">Коломенская коврижка</span>
+            <span class="menu-dots"></span>
+            <span class="menu-price">510 ₽</span>
+          </div>
+          <span class="menu-sub">Восстановленный рецепт IX века · с мороженым из белых грибов</span>
+        </div>
+
+        <div class="mt-8 flex justify-start">
+          <a href="https://vk.com/v_kolomne_est" target="_blank" rel="noopener"
+             class="btn-copper-out" style="font-size: 0.7rem;">
+            Полное меню в ВКонтакте
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     5. БРОНИРОВАНИЕ
+════════════════════════════════════════ -->
+<section id="booking" class="relative" style="background: #0D0B08; padding: 7rem 0;
+  border-top: 1px solid rgba(168,132,86,0.1);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="grid lg:grid-cols-2 gap-0" style="box-shadow: 0 0 0 1px rgba(168,132,86,0.1);">
+
+      <!-- Левая — фото интерьера -->
+      <div class="photo-w" style="min-height: 500px;">
+        <img src="img/interior-glavnyj.jpg"
+             alt="Главный зал ресторана В Коломне-Есть"
+             class="absolute inset-0 w-full h-full object-cover"
+             loading="lazy"
+             onerror="this.parentElement.style.background='#1A1410'">
+        <div class="absolute inset-0"
+             style="background: linear-gradient(to top, rgba(13,11,8,0.9) 0%, rgba(13,11,8,0.2) 60%);"
+             aria-hidden="true"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8" style="position: absolute;">
+          <p class="font-heading italic text-warm-wh" style="font-size: 1.1rem; line-height: 1.55;">
+            «Когда стол забронирован — на нём появляется деревянная табличка с надписью
+            <span class="font-script text-copper">застолблено</span>»
+          </p>
+        </div>
+      </div>
+
+      <!-- Правая — форма -->
+      <div style="background: #1A1410; padding: 3.5rem 3rem;
+                  border-left: 1px solid rgba(168,132,86,0.1);">
+        <span class="sec-label mb-3">IV · Бронь</span>
+        <h2 class="font-display text-warm-wh mb-2"
+            style="font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: 0.04em; line-height: 1.05;">
+          Бронирование
+        </h2>
+        <p class="font-script mb-6" style="color: #A88456; font-size: 1rem;">застолбите свой стол</p>
+
+        <p class="font-body text-muted mb-8" style="font-size: 0.85rem; line-height: 1.65;">
+          Перезвоним в течение 15 минут для подтверждения.
+          Или сразу: <a href="tel:+79263645582" class="text-copper" style="font-weight: 600;">+7 (926) 364-55-82</a>
+        </p>
+
+        <form id="booking-form" class="space-y-6" novalidate>
+
+          <div>
+            <label for="bk-name" class="line-label">Ваше имя</label>
+            <input type="text" id="bk-name" name="name"
+                   class="line-input" placeholder="Например, Денис"
+                   autocomplete="given-name">
+          </div>
+
+          <div>
+            <label for="bk-phone" class="line-label">Телефон <span style="color:#8B2A2A;">*</span></label>
+            <input type="tel" id="bk-phone" name="phone" required
+                   class="line-input" placeholder="+7 (___) ___-__-__"
+                   autocomplete="tel">
+          </div>
+
+          <div class="grid grid-cols-2 gap-6">
+            <div>
+              <label for="bk-date" class="line-label">Дата</label>
+              <input type="date" id="bk-date" name="date" class="line-input">
+            </div>
+            <div>
+              <label for="bk-time" class="line-label">Время</label>
+              <select id="bk-time" name="time" class="line-input">
+                <option value="">—</option>
+                <option>11:00</option><option>12:00</option><option>13:00</option>
+                <option>14:00</option><option>15:00</option><option>16:00</option>
+                <option>17:00</option><option>18:00</option><option>19:00</option>
+                <option>20:00</option><option>21:00</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="bk-guests" class="line-label">Гостей</label>
+            <select id="bk-guests" name="guests" class="line-input">
+              <option value="">—</option>
+              <option value="1">1 гость</option><option value="2">2 гостя</option>
+              <option value="3">3 гостя</option><option value="4">4 гостя</option>
+              <option value="5">5 гостей</option><option value="6">6 гостей</option>
+              <option value="7">7 гостей</option><option value="8">8 гостей</option>
+              <option value="banquet">Банкет (от 10)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="bk-note" class="line-label">Комментарий</label>
+            <textarea id="bk-note" name="note" rows="2"
+                      class="line-input resize-none" style="padding-top: 0.7rem;"
+                      placeholder="День рождения? Тихий стол?"></textarea>
+          </div>
+
+          <div class="flex items-start gap-2.5" style="font-size: 0.78rem; line-height: 1.5;">
+            <input type="checkbox" id="bk-consent" name="consent" required
+                   class="mt-1 flex-shrink-0 cursor-pointer"
+                   style="accent-color: #A88456; width: 15px; height: 15px;">
+            <label for="bk-consent" class="text-muted cursor-pointer">
+              Согласен на обработку персональных данных для целей бронирования.
+              <a href="/policy.html" class="text-copper" style="text-decoration: underline;">Подробнее</a>
+            </label>
+          </div>
+
+          <button type="submit" class="btn-prim w-full" style="justify-content: center; padding: 1rem;">
+            Забронировать стол
+          </button>
+
+          <div id="bk-success" class="hidden text-center py-6"
+               style="border: 1px solid rgba(168,132,86,0.3); background: rgba(168,132,86,0.05);">
+            <p class="font-script text-copper mb-1" style="font-size: 1.5rem; letter-spacing: 0.1em;">застолблено</p>
+            <p class="font-body text-dim" style="font-size: 0.85rem;">
+              Спасибо! Перезвоним в течение 15 минут.
+            </p>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     6. ИНТЕРЬЕР
+════════════════════════════════════════ -->
+<section id="interior" class="relative" style="background: #0D0B08; padding: 7rem 0;
+  border-top: 1px solid rgba(168,132,86,0.1);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="mb-10">
+      <span class="sec-label mb-2">V · Интерьер</span>
+      <h2 class="font-display text-warm-wh"
+          style="font-size: clamp(1.8rem, 4.5vw, 3.2rem); letter-spacing: 0.04em; line-height: 1.05;">
+        Где мы вас ждём
+      </h2>
+      <p class="font-script mt-2" style="color: #A88456; font-size: 1rem;">
+        Пять зон — на любое настроение
+      </p>
+    </div>
+
+    <!-- Desktop: 3-column grid; mobile: single column -->
+    <div class="grid md:grid-cols-3 gap-1 stagger">
+
+      <!-- Большое фото — 2 строки слева на десктопе -->
+      <div class="photo-w md:row-span-2" style="min-height: 320px;">
+        <img src="img/interior-gerby.jpg"
+             alt="Парадный зал с историческими гербами"
+             class="w-full h-full object-cover" loading="lazy"
+             style="min-height: 320px;"
+             onerror="this.style.background='#1A1410'">
+        <div class="photo-cap">
+          <p class="font-display text-warm-wh" style="font-size: 0.9rem; letter-spacing: 0.04em;">Зал с гербами</p>
+          <p class="font-body text-dim mt-1" style="font-size: 0.74rem;">Парадная роспись · исторические элементы</p>
+        </div>
+      </div>
+
+      <div class="photo-w" style="aspect-ratio: 4/3;">
+        <img src="img/interior-kabinka.jpg"
+             alt="Уединённые кабинки"
+             class="w-full h-full object-cover" loading="lazy"
+             onerror="this.style.background='#1A1410'">
+        <div class="photo-cap">
+          <p class="font-display text-warm-wh" style="font-size: 0.9rem; letter-spacing: 0.04em;">Кабинки</p>
+          <p class="font-body text-dim mt-1" style="font-size: 0.74rem;">Витражные окна · тишина и уют</p>
+        </div>
+      </div>
+
+      <div class="photo-w" style="aspect-ratio: 4/3;">
+        <img src="img/samovar.jpg"
+             alt="Самовар на подоконнике"
+             class="w-full h-full object-cover" loading="lazy"
+             onerror="this.style.background='#1A1410'">
+        <div class="photo-cap">
+          <p class="font-display text-warm-wh" style="font-size: 0.9rem; letter-spacing: 0.04em;">Самовар</p>
+          <p class="font-body text-dim mt-1" style="font-size: 0.74rem;">Настоящий · на дровах · работает</p>
+        </div>
+      </div>
+
+      <div class="photo-w" style="aspect-ratio: 4/3;">
+        <img src="img/terrasa-tea.jpg"
+             alt="Летняя терраса с видом на церковь"
+             class="w-full h-full object-cover" loading="lazy"
+             onerror="this.style.background='#1A1410'">
+        <div class="photo-cap">
+          <p class="font-display text-warm-wh" style="font-size: 0.9rem; letter-spacing: 0.04em;">Терраса</p>
+          <p class="font-body text-dim mt-1" style="font-size: 0.74rem;">Летняя · вид на колокольню</p>
+        </div>
+      </div>
+
+      <div class="photo-w" style="aspect-ratio: 4/3;">
+        <img src="img/interior-potolok.jpg"
+             alt="Расписной потолок"
+             class="w-full h-full object-cover" loading="lazy"
+             onerror="this.style.background='#1A1410'">
+        <div class="photo-cap">
+          <p class="font-display text-warm-wh" style="font-size: 0.9rem; letter-spacing: 0.04em;">Потолок</p>
+          <p class="font-body text-dim mt-1" style="font-size: 0.74rem;">Расписные своды · ручная работа</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     7. ОТЗЫВЫ — EDITORIAL
+════════════════════════════════════════ -->
+<section id="reviews" class="relative" style="background: #F4EDD3; padding: 7rem 0;">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="mb-12 text-center">
+      <span class="sec-label mb-2" style="justify-content: center; display: block;">VI · Отзывы</span>
+      <h2 class="font-display text-noir mb-6"
+          style="font-size: clamp(1.8rem, 4.5vw, 3.2rem); letter-spacing: 0.04em; color: #0D0B08; line-height: 1.05;">
+        Что говорят гости
+      </h2>
+      <div class="flex items-center gap-3 justify-center">
+        <span class="font-display text-copper-dk" style="font-size: 2.8rem; line-height: 1; color: #A88456;">4,8</span>
+        <div>
+          <div style="color: #A88456; font-size: 1.05rem; letter-spacing: 0.08em;">★★★★★</div>
+          <p class="font-body" style="font-size: 0.76rem; color: #7A6E66; letter-spacing: 0.06em;">
+            819 отзывов на Яндекс.Картах
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 stagger">
+
+      <!-- Отзыв 1 -->
+      <div style="border-top: 2px solid rgba(168,132,86,0.3); padding-top: 1.5rem;">
+        <div style="color: #A88456; font-size: 0.9rem; letter-spacing: 0.12em; margin-bottom: 0.75rem;">★★★★★</div>
+        <p class="font-heading italic text-noir mb-4"
+           style="font-size: 1rem; line-height: 1.7; color: #2A1F1A;">
+          «Прекрасное место. Очень понравился интерьер. Официанты внимательные.
+          Сначала — облепиховый морс, просто блаженство. Минут через 5–7 подали первые блюда — всё горячее, ароматное, очень вкусно.»
+        </p>
+        <div class="flex items-center justify-between" style="border-top: 1px solid rgba(168,132,86,0.2); padding-top: 0.75rem;">
+          <p class="font-body" style="font-size: 0.82rem; font-weight: 600; color: #A88456;">Татьяна Б.</p>
+          <p class="font-body text-muted" style="font-size: 0.72rem;">Москва · 27 января</p>
+        </div>
+      </div>
+
+      <!-- Отзыв 2 -->
+      <div style="border-top: 2px solid rgba(168,132,86,0.3); padding-top: 1.5rem;">
+        <div style="color: #A88456; font-size: 0.9rem; letter-spacing: 0.12em; margin-bottom: 0.75rem;">★★★★★</div>
+        <p class="font-heading italic text-noir mb-4"
+           style="font-size: 1rem; line-height: 1.7; color: #2A1F1A;">
+          «Заходили с мужем по дороге к Кремлю. Заказали пупыгу — никогда такого не пробовали.
+          Шеф действительно знает что делает. Будем ехать в Коломну специально ради этого места.»
+        </p>
+        <div class="flex items-center justify-between" style="border-top: 1px solid rgba(168,132,86,0.2); padding-top: 0.75rem;">
+          <p class="font-body" style="font-size: 0.82rem; font-weight: 600; color: #A88456;">Галина М.</p>
+          <p class="font-body text-muted" style="font-size: 0.72rem;">Подольск · 1 декабря</p>
+        </div>
+      </div>
+
+      <!-- Отзыв 3 -->
+      <div style="border-top: 2px solid rgba(168,132,86,0.3); padding-top: 1.5rem;">
+        <div style="color: #A88456; font-size: 0.9rem; letter-spacing: 0.12em; margin-bottom: 0.75rem;">★★★★★</div>
+        <p class="font-heading italic text-noir mb-4"
+           style="font-size: 1rem; line-height: 1.7; color: #2A1F1A;">
+          «Были на музыкальном лото в субботу. Народ собрался отличный, программа весёлая,
+          безлимит на пиве и медовухе — всё как обещали. За такие деньги — лучшее развлечение в Коломне.»
+        </p>
+        <div class="flex items-center justify-between" style="border-top: 1px solid rgba(168,132,86,0.2); padding-top: 0.75rem;">
+          <p class="font-body" style="font-size: 0.82rem; font-weight: 600; color: #A88456;">Сергей К.</p>
+          <p class="font-body text-muted" style="font-size: 0.72rem;">Коломна · 15 ноября</p>
+        </div>
+      </div>
+
+      <!-- Отзыв 4 -->
+      <div style="border-top: 2px solid rgba(168,132,86,0.3); padding-top: 1.5rem;">
+        <div style="color: #A88456; font-size: 0.9rem; letter-spacing: 0.12em; margin-bottom: 0.75rem;">★★★★★</div>
+        <p class="font-heading italic text-noir mb-4"
+           style="font-size: 1rem; line-height: 1.7; color: #2A1F1A;">
+          «Заказывали выездной банкет на корпоратив (40 человек). Всё привезли, сервировали,
+          подавали — никаких хлопот. Гости спрашивали контакты ресторана. Будем заказывать ещё.»
+        </p>
+        <div class="flex items-center justify-between" style="border-top: 1px solid rgba(168,132,86,0.2); padding-top: 0.75rem;">
+          <p class="font-body" style="font-size: 0.82rem; font-weight: 600; color: #A88456;">Ольга П.</p>
+          <p class="font-body text-muted" style="font-size: 0.72rem;">Москва · 8 октября</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="https://yandex.ru/maps/org/180815962748/reviews/"
+         target="_blank" rel="noopener"
+         class="btn-copper-out" style="color: #6E5530; border-color: rgba(110,85,48,0.4);"
+         onmouseover="this.style.color='#A88456'; this.style.borderColor='#A88456'"
+         onmouseout="this.style.color='#6E5530'; this.style.borderColor='rgba(110,85,48,0.4)'">
+        Все 819 отзывов на Яндекс.Картах →
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     8. ЗАСТОЛБЛЕНО — TYPOGRAPHIC FULLSCREEN
+════════════════════════════════════════ -->
+<section class="relative" style="background: #0D0B08; padding: 7rem 0; text-align: center;
+  border-top: 1px solid rgba(168,132,86,0.1);">
+
+  <img src="img/zastobleno.jpg"
+       alt=""
+       class="absolute inset-0 w-full h-full object-cover"
+       style="opacity: 0.1; mix-blend-mode: luminosity;"
+       loading="lazy" aria-hidden="true"
+       onerror="this.style.display='none'">
+
+  <div class="relative z-10 px-4 sm:px-6">
+    <span class="sec-label mb-6" style="display: block; text-align: center;">Наш бренд-знак</span>
+    <p class="font-display text-warm-wh"
+       style="font-size: clamp(2.5rem, 10vw, 9rem);
+              letter-spacing: 0.12em;
+              line-height: 1;
+              color: #F9F4EA;
+              text-shadow: 0 0 60px rgba(168,132,86,0.2);">
+      ЗАСТОЛБЛЕНО
+    </p>
+    <div class="orn mt-6 mb-6" style="opacity: 0.4; max-width: 400px; margin-left: auto; margin-right: auto;" aria-hidden="true">
+      <span class="orn-sym">◆</span>
+    </div>
+    <p class="font-body text-muted" style="font-size: 0.85rem; max-width: 38rem; margin: 0 auto; line-height: 1.7;">
+      Когда вы бронируете стол — на нём появляется деревянная табличка с этим словом.
+      Это наш способ сказать: ваше место уже ждёт вас.
+    </p>
+    <p class="font-script text-copper mt-4" style="font-size: 1.05rem;">— наш бренд-знак</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     9. МУЗЫКАЛЬНОЕ ЛОТО
+════════════════════════════════════════ -->
+<section id="events" class="relative" style="background: #0D0B08; padding: 7rem 0;
+  border-top: 1px solid rgba(168,132,86,0.1);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+      <!-- Фото коллаж -->
+      <div class="grid grid-cols-2 gap-1">
+        <div class="photo-w col-span-2" style="aspect-ratio: 16/7;">
+          <img src="img/muz-loto-people.jpg"
+               alt="Музыкальное лото в ресторане"
+               class="w-full h-full object-cover" loading="lazy"
+               onerror="this.style.background='#1A1410'">
+        </div>
+        <div class="photo-w" style="aspect-ratio: 4/3;">
+          <img src="img/muz-loto-vintage.jpg"
+               alt="Винтажная афиша музыкального лото"
+               class="w-full h-full object-cover" loading="lazy"
+               onerror="this.style.background='#1A1410'">
+        </div>
+        <div class="photo-w" style="aspect-ratio: 4/3;">
+          <img src="img/muz-loto-barrel.jpg"
+               alt="Музыкальное лото с бочкой"
+               class="w-full h-full object-cover" loading="lazy"
+               onerror="this.style.background='#1A1410'">
+        </div>
+      </div>
+
+      <!-- Текст -->
+      <div>
+        <span class="sec-label mb-3">VII · Вечера</span>
+        <h2 class="font-display text-warm-wh mb-3"
+            style="font-size: clamp(1.6rem, 3.5vw, 2.8rem); letter-spacing: 0.04em; line-height: 1.05;">
+          Музыкальное лото
+        </h2>
+        <p class="font-script mb-6" style="color: #A88456; font-size: 1rem;">регулярные вечера у нас</p>
+
+        <div class="orn mb-6" style="opacity: 0.3;" aria-hidden="true"><span class="orn-sym">◆</span></div>
+
+        <p class="font-body text-dim mb-6" style="font-size: 0.88rem; line-height: 1.8;">
+          Угадывай мелодии, подпевай знакомым строчкам, смейся вместе с соседями по столу. Это не просто игра — это вечер, когда незнакомые люди становятся соседями по столу, а знакомые открываются с новой стороны.
+        </p>
+
+        <p class="font-heading italic mb-6" style="color: #C9BCB0; font-size: 1rem; line-height: 1.6;">
+          «Вечера, о которых потом вспоминают, начинаются именно так»
+        </p>
+
+        <div style="background: rgba(168,132,86,0.06); border: 1px solid rgba(168,132,86,0.2); padding: 1.25rem; margin-bottom: 1.5rem;">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="font-body text-dim" style="font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;">Стоимость</p>
+              <p class="font-heading italic text-copper" style="font-size: 1.6rem;">1 990 ₽</p>
+              <p class="font-body text-muted" style="font-size: 0.7rem;">с человека</p>
+            </div>
+            <div class="text-right">
+              <p class="font-body text-muted" style="font-size: 0.78rem;">Пиво и медовуха</p>
+              <p class="font-body text-copper" style="font-size: 0.85rem; font-weight: 600;">безлимит</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="font-body text-muted mb-6" style="font-size: 0.78rem; line-height: 1.6;">
+          Сбор гостей: 18:30 · Начало программы: 19:00<br>
+          Следующая дата — следите в нашем <a href="https://vk.com/v_kolomne_est" target="_blank" rel="noopener" style="color: #A88456;">ВКонтакте</a>
+        </p>
+
+        <a href="tel:+79933645582" class="btn-prim">Записаться · +7 (993) 364-55-82</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     10. БАНКЕТЫ
+════════════════════════════════════════ -->
+<section id="catering" class="relative" style="background: #0D0B08; padding: 7rem 0;
+  border-top: 1px solid rgba(168,132,86,0.1);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Большое фото -->
+    <div class="photo-w mb-12" style="aspect-ratio: 16/5; min-height: 200px;">
+      <img src="img/banket-collage.jpg"
+           alt="Выездные банкеты и корпоративы от ресторана В Коломне-Есть"
+           class="w-full h-full object-cover" loading="lazy"
+           onerror="this.style.background='#1A1410'">
+      <div class="absolute inset-0 flex items-end"
+           style="background: linear-gradient(to top, rgba(13,11,8,0.85) 0%, transparent 60%);">
+        <div class="px-8 pb-6">
+          <span class="font-display text-warm-wh" style="font-size: clamp(1.2rem, 3vw, 2rem); letter-spacing: 0.06em;">
+            Выездные банкеты
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <div>
+        <span class="sec-label mb-3">VIII · Банкеты</span>
+        <h2 class="font-display text-warm-wh mb-4"
+            style="font-size: clamp(1.6rem, 3.5vw, 2.8rem); letter-spacing: 0.04em; line-height: 1.05;">
+          Корпоративы<br>и праздники
+        </h2>
+        <p class="font-body text-dim mb-6" style="font-size: 0.88rem; line-height: 1.8;">
+          Привезём всё с собой: изысканные закуски, свежие салаты, горячие блюда по фирменным рецептам, домашние десерты. Сервируем, оформим, подадим. Останется только наслаждаться вечером.
+        </p>
+        <p class="font-heading italic mb-6" style="color: #C9BCB0; font-size: 0.95rem; line-height: 1.6;">
+          «Мы работаем аккуратно, красиво и профессионально: сервировка, подача, оформление — каждая деталь продумана»
+        </p>
+        <div style="background: rgba(168,132,86,0.06); border: 1px solid rgba(168,132,86,0.2); padding: 1.25rem; margin-bottom: 1rem;">
+          <p class="font-body text-muted mb-1" style="font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;">
+            Менеджер банкетов
+          </p>
+          <p class="font-body text-warm-wh" style="font-size: 0.95rem; font-weight: 500;">
+            Александр Геннадьевич Костин
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="https://t.me/kostin_ag" target="_blank" rel="noopener" class="btn-prim">
+            Написать в Telegram
+          </a>
+          <a href="tel:+79933645582" class="btn-copper-out">
+            +7 (993) 364-55-82
+          </a>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <div class="flex items-start gap-4">
+          <span class="font-display text-copper flex-shrink-0" style="font-size: 0.85rem; margin-top: 0.1rem;">I</span>
+          <div>
+            <p class="font-body text-warm-wh" style="font-size: 0.9rem; font-weight: 500;">Изысканные закуски и канапе</p>
+            <p class="font-body text-muted" style="font-size: 0.8rem;">Индивидуальная подача в стаканчиках</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="font-display text-copper flex-shrink-0" style="font-size: 0.85rem; margin-top: 0.1rem;">II</span>
+          <div>
+            <p class="font-body text-warm-wh" style="font-size: 0.9rem; font-weight: 500;">Свежие салаты в порциях</p>
+            <p class="font-body text-muted" style="font-size: 0.8rem;">Цезарь, фирменные авторские</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="font-display text-copper flex-shrink-0" style="font-size: 0.85rem; margin-top: 0.1rem;">III</span>
+          <div>
+            <p class="font-body text-warm-wh" style="font-size: 0.9rem; font-weight: 500;">Горячие блюда из печи</p>
+            <p class="font-body text-muted" style="font-size: 0.8rem;">Фирменные рецепты Дениса</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="font-display text-copper flex-shrink-0" style="font-size: 0.85rem; margin-top: 0.1rem;">IV</span>
+          <div>
+            <p class="font-body text-warm-wh" style="font-size: 0.9rem; font-weight: 500;">Сервировка под формат</p>
+            <p class="font-body text-muted" style="font-size: 0.8rem;">От камерного до большого</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     11. КОНТАКТЫ И КАРТА
+════════════════════════════════════════ -->
+<section id="contacts" class="relative" style="background: #0D0B08; padding: 7rem 0;
+  border-top: 1px solid rgba(168,132,86,0.1);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="mb-10">
+      <span class="sec-label mb-2">IX · Контакты</span>
+      <h2 class="font-display text-warm-wh"
+          style="font-size: clamp(1.8rem, 4.5vw, 3.2rem); letter-spacing: 0.04em; line-height: 1.05;">
+        Как нас найти
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12">
+
+      <div>
+        <div class="mb-8 space-y-6">
+
+          <div style="border-bottom: 1px solid rgba(168,132,86,0.1); padding-bottom: 1.25rem;">
+            <span class="sec-label mb-1" style="font-size: 0.6rem;">Адрес</span>
+            <p class="font-heading text-warm-wh" style="font-size: 1.2rem;">ул. Лажечникова, 1</p>
+            <p class="font-body text-muted" style="font-size: 0.82rem; line-height: 1.6;">
+              Коломна, Московская обл. · В начале главной туристической улицы,<br>в двух шагах от Коломенского Кремля
+            </p>
+          </div>
+
+          <div style="border-bottom: 1px solid rgba(168,132,86,0.1); padding-bottom: 1.25rem;">
+            <span class="sec-label mb-1" style="font-size: 0.6rem;">Телефоны</span>
+            <p class="font-body" style="font-size: 0.9rem;">
+              <a href="tel:+79263645582" class="text-warm-wh" style="font-weight: 500; transition: color 0.2s ease;"
+                 onmouseover="this.style.color='#A88456'" onmouseout="this.style.color='#F9F4EA'">
+                +7 (926) 364-55-82
+              </a>
+              <span class="text-muted" style="font-size: 0.78rem; margin-left: 0.5rem;">основной</span>
+            </p>
+            <p class="font-body mt-1" style="font-size: 0.9rem;">
+              <a href="tel:+74966196901" class="text-dim" style="transition: color 0.2s ease;"
+                 onmouseover="this.style.color='#A88456'" onmouseout="this.style.color='#C9BCB0'">
+                +7 (496) 619-69-01
+              </a>
+              <span class="text-muted" style="font-size: 0.78rem; margin-left: 0.5rem;">городской</span>
+            </p>
+          </div>
+
+          <div style="border-bottom: 1px solid rgba(168,132,86,0.1); padding-bottom: 1.25rem;">
+            <span class="sec-label mb-2" style="font-size: 0.6rem;">Часы работы</span>
+            <div class="space-y-1" style="font-size: 0.85rem;">
+              <div class="flex justify-between">
+                <span class="text-muted">Пн — Чт</span>
+                <span class="font-body text-warm-wh">11:00 — 22:00</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-muted">Пятница</span>
+                <span class="font-body text-warm-wh">11:00 — 23:00</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-muted">Сб — Вс</span>
+                <span class="font-body text-warm-wh">9:00 — 23:00</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <span class="sec-label mb-2" style="font-size: 0.6rem;">Мы в соцсетях</span>
+            <a href="https://vk.com/v_kolomne_est" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 text-copper"
+               style="font-family: 'Karla', sans-serif; font-size: 0.82rem; letter-spacing: 0.05em; font-weight: 500;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.525-2.046-1.71-1.033-1.01-1.49-.989-1.744-.989-.356 0-.457.101-.457.584v1.558c0 .415-.132.664-1.226.664-1.81 0-3.818-1.096-5.23-3.141C5.275 11.41 4.61 9.186 4.61 8.723c0-.253.101-.49.584-.49h1.744c.435 0 .6.203.765.676.844 2.437 2.258 4.574 2.843 4.574.218 0 .316-.101.316-.66V10.16c-.066-1.186-.693-1.287-.693-1.71 0-.203.168-.41.437-.41h2.741c.37 0 .5.203.5.64v3.446c0 .37.168.5.27.5.218 0 .402-.13.802-.53 1.245-1.397 2.137-3.548 2.137-3.548.117-.254.32-.49.754-.49h1.744c.525 0 .64.27.525.64-.22 1.01-2.34 4.005-2.34 4.005-.185.303-.253.437 0 .776.185.254.793.792 1.2 1.27.743.845 1.312 1.557 1.464 2.047.152.48-.101.726-.584.726z"/>
+              </svg>
+              ВКонтакте · @v_kolomne_est
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карта -->
+      <div>
+        <iframe
+          src="https://yandex.ru/map-widget/v1/?ll=38.765100%2C55.093800&mode=poi&poi%5Bpoint%5D=38.765100%2C55.093800&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D180815962748&z=16"
+          title="Карта — ресторан В Коломне-Есть"
+          style="width:100%;height:380px;border:1px solid rgba(168,132,86,0.18);filter:grayscale(0.4) brightness(0.75);"
+          frameborder="0" loading="lazy"
+          allow="geolocation"
+          aria-label="Расположение ресторана на карте"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer style="background: #0A0806; border-top: 1px solid rgba(168,132,86,0.12); padding: 3rem 0 2.5rem;">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-6">
+
+      <div>
+        <p class="font-display text-warm-wh mb-1" style="font-size: 1rem; letter-spacing: 0.06em;">
+          В Коломне&#8209;Есть!
+        </p>
+        <p class="font-body text-muted" style="font-size: 0.75rem; letter-spacing: 0.06em;">
+          Авторская русская кухня · Коломна
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-5">
+        <a href="#about"   class="nav-a" style="font-size: 0.68rem;">О нас</a>
+        <a href="#menu"    class="nav-a" style="font-size: 0.68rem;">Меню</a>
+        <a href="#booking" class="nav-a" style="font-size: 0.68rem;">Бронь</a>
+        <a href="#events"  class="nav-a" style="font-size: 0.68rem;">Вечера</a>
+        <a href="#contacts" class="nav-a" style="font-size: 0.68rem;">Контакты</a>
+      </div>
+    </div>
+
+    <div class="orn mb-5" style="opacity: 0.2;" aria-hidden="true"><span class="orn-sym">◆</span></div>
+
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+      <p class="font-body text-faint" style="font-size: 0.72rem; line-height: 1.5;">
+        © 2026 «В Коломне-Есть!» · ул. Лажечникова, 1, Коломна ·
+        <a href="/policy.html" style="color: #4A4038; text-decoration: underline;">Политика конфиденциальности</a>
+      </p>
+      <p class="font-body text-faint" style="font-size: 0.7rem;">
+        Все права защищены
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════
+     FLOATING BUTTONS
+════════════════════════════════════════ -->
+<a id="sticky-call" href="tel:+79263645582" aria-label="Позвонить в ресторан">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 6.73 19.79 19.79 0 01.42 2.1 2 2 0 012.4 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+  </svg>
+</a>
+
+<div id="mobile-bar" role="navigation" aria-label="Быстрые действия">
+  <a href="tel:+79263645582" style="color: #F9F4EA;">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 6.73 19.79 19.79 0 01.42 2.1 2 2 0 012.4 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+    </svg>
+    Позвонить
+  </a>
+  <a href="https://vk.com/v_kolomne_est" target="_blank" rel="noopener"
+     style="color: #A88456; border-left: 1px solid rgba(168,132,86,0.2);">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.525-2.046-1.71-1.033-1.01-1.49-.989-1.744-.989-.356 0-.457.101-.457.584v1.558c0 .415-.132.664-1.226.664-1.81 0-3.818-1.096-5.23-3.141C5.275 11.41 4.61 9.186 4.61 8.723c0-.253.101-.49.584-.49h1.744c.435 0 .6.203.765.676.844 2.437 2.258 4.574 2.843 4.574.218 0 .316-.101.316-.66V10.16c-.066-1.186-.693-1.287-.693-1.71 0-.203.168-.41.437-.41h2.741c.37 0 .5.203.5.64v3.446c0 .37.168.5.27.5.218 0 .402-.13.802-.53 1.245-1.397 2.137-3.548 2.137-3.548.117-.254.32-.49.754-.49h1.744c.525 0 .64.27.525.64-.22 1.01-2.34 4.005-2.34 4.005-.185.303-.253.437 0 .776.185.254.793.792 1.2 1.27.743.845 1.312 1.557 1.464 2.047.152.48-.101.726-.584.726z"/>
+    </svg>
+    ВКонтакте
+  </a>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     COOKIE BANNER (152-ФЗ)
+════════════════════════════════════════ -->
+<div id="cookie-banner" role="dialog" aria-labelledby="ck-title" aria-live="polite">
+  <div class="max-w-5xl mx-auto flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+    <div class="flex-1">
+      <p id="ck-title" class="font-body text-warm-wh mb-1" style="font-size: 0.82rem; font-weight: 600;">Мы используем cookies</p>
+      <p class="font-body text-muted" style="font-size: 0.75rem; line-height: 1.5;">
+        Метрики и аналитика подключаются только после вашего согласия.
+      </p>
+    </div>
+    <div class="flex flex-wrap gap-2 flex-shrink-0">
+      <button onclick="cookieConsent('all')" class="btn-prim" style="padding: 0.45rem 1rem; font-size: 0.72rem;">
+        Принять всё
+      </button>
+      <button onclick="cookieConsent('necessary')"
+              class="font-body text-dim hover:text-warm-wh transition-colors"
+              style="font-size: 0.72rem; background: none; border: 1px solid rgba(168,132,86,0.3);
+                     cursor: pointer; padding: 0.45rem 1rem;">
+        Только необходимые
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════ -->
+<script>
+  /* ── Navbar scroll ── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 80);
+  }, { passive: true });
+
+  /* ── Booking form ── */
+  const bkDate = document.getElementById('bk-date');
+  if (bkDate) bkDate.min = new Date().toISOString().split('T')[0];
+
+  const bookingForm = document.getElementById('booking-form');
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const consent = document.getElementById('bk-consent');
+      if (!consent.checked) {
+        consent.parentElement.style.color = '#8B2A2A';
+        return;
+      }
+      const data = {
+        name:   document.getElementById('bk-name').value,
+        phone:  document.getElementById('bk-phone').value,
+        date:   bkDate ? bkDate.value : '',
+        time:   document.getElementById('bk-time').value,
+        guests: document.getElementById('bk-guests').value,
+        note:   document.getElementById('bk-note').value
+      };
+      console.log('Booking:', data);
+      this.querySelectorAll('input, select, textarea, button[type=submit]').forEach(el => el.style.display = 'none');
+      document.getElementById('bk-success').classList.remove('hidden');
+    });
+  }
+
+  /* ── Cookie consent ── */
+  function cookieConsent(level) {
+    localStorage.setItem('cookie_consent', level);
+    document.getElementById('cookie-banner').classList.add('hidden');
+    if (level === 'all') {
+      /* Yandex.Metrika — вставьте ID счётчика после согласования с заказчиком */
+    }
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('cookie_consent')) {
+      document.getElementById('cookie-banner').classList.add('hidden');
+    }
+  });
+
+  /* ── Fade-up on scroll (skip sections that use child-level animations) ── */
+  const SKIP_SECTIONS = new Set(['hero', 'chef', 'reviews', 'interior']);
+
+  const fadeObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        fadeObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -80px 0px' });
+
+  document.querySelectorAll('section').forEach(s => {
+    if (!SKIP_SECTIONS.has(s.id)) {
+      s.classList.add('fade-up');
+      fadeObs.observe(s);
+    }
+  });
+
+  /* ── Split animations (.fade-left / .fade-right) ── */
+  const splitObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        splitObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.fade-left, .fade-right').forEach(el => splitObs.observe(el));
+
+  /* ── Stagger grids ── */
+  const staggerObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        staggerObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.stagger').forEach(el => staggerObs.observe(el));
+
+  /* ── Hero parallax ── */
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReducedMotion) {
+    const heroParallax = document.getElementById('hero-parallax');
+    if (heroParallax) {
+      window.addEventListener('scroll', () => {
+        heroParallax.style.transform = `translateY(${window.scrollY * 0.2}px)`;
+      }, { passive: true });
+    }
+  }
+
+  /* ── Smooth scroll ── */
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
