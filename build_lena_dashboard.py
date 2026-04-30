@@ -24,6 +24,11 @@ BASEROW_API_TOKEN = os.environ.get("BASEROW_API_TOKEN", "")
 BASEROW_URL = "https://leads.vebkuznitsa.ru/api/database/rows/table/580/?user_field_names=true&size=100"
 OUT_FILE = Path(__file__).parent / "lena" / "index.html"
 
+DEMO_URLS = {
+    1: "https://viktorialiubitskaya-coder.github.io/vebkuznitsa/restaurants/barin-i-barash/",
+    3: "https://viktorialiubitskaya-coder.github.io/vebkuznitsa/restaurants/lazhechnikov/",
+}
+
 CITY_RU = {
     "Kolomna": "Коломна", "Moscow": "Москва",
     "Saint Petersburg": "Санкт-Петербург", "Kazan": "Казань",
@@ -276,13 +281,13 @@ def build_card(lead):
     banquets = sel_val(lead.get("Банкеты") or {})
     events = sel_val(lead.get("Афиша событий") or {})
 
-    # Badge
-    if has_site in ("no", "No"):
-        badge = '<span class="badge badge-hot">Нет сайта 🔥</span>'
-    elif "platform" in has_site.lower():
-        badge = '<span class="badge badge-warm">Только платформа</span>'
-    else:
-        badge = ""
+    # Badges (combinable)
+    badges = []
+    if has_site in ("no", "No") or "platform" in has_site.lower():
+        badges.append('<span class="badge badge-hot">🔥 Без своего сайта</span>')
+    if demo_url:
+        badges.append('<span class="badge badge-demo">✅ Демо готово</span>')
+    badge = "".join(badges)
 
     stars = f"★ {rating:.1f}".rstrip("0").rstrip(".")
     photo_style = (
@@ -303,6 +308,38 @@ def build_card(lead):
     if events in ("yes regular", "Yes"):
         notes.append("📅 Регулярные мероприятия")
     notes_html = "".join(f'<div class="note-item">{n}</div>' for n in notes)
+
+    # Demo highlight block (prominent CTA above contacts)
+    if demo_url:
+        demo_hl_html = (
+            '<section class="section demo-hl-section">'
+            '<div class="demo-hl-block">'
+            '<div class="demo-hl-label">'
+            '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
+            '<circle cx="12" cy="12" r="10"/>'
+            '<path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/>'
+            '</svg>'
+            'Готовое демо для показа клиенту'
+            '</div>'
+            f'<a href="{h(demo_url)}" target="_blank" rel="noopener" class="demo-open-btn">'
+            'Открыть демо ↗'
+            '</a>'
+            '<div class="demo-hl-footer">'
+            f'<button class="copy-url-btn" onclick="copyUrl(\'{h(demo_url)}\', this)">📋 Скопировать ссылку</button>'
+            '<span class="demo-hl-hint">Покажи это клиенту в первом разговоре</span>'
+            '</div>'
+            '</div>'
+            '</section>'
+        )
+    else:
+        demo_hl_html = (
+            '<section class="section demo-hl-section">'
+            '<div class="demo-wip-block">'
+            '<span class="demo-wip-icon">⏳</span>'
+            '<span>Демо в работе — появится скоро</span>'
+            '</div>'
+            '</section>'
+        )
 
     # Contact rows
     def info_row(icon, label, inner):
@@ -396,6 +433,8 @@ def build_card(lead):
 
     <div class="lead-detail" id="detail-{lid}" style="display:none">
       <div class="detail-inner">
+
+        {demo_hl_html}
 
         <section class="section">
           <h3 class="section-title">Контакты</h3>
@@ -497,6 +536,7 @@ CSS = """
     .badge{font-size:.68rem;font-weight:600;padding:.25rem .6rem;border-radius:100px;letter-spacing:.02em}
     .badge-hot{background:var(--terra);color:white}
     .badge-warm{background:var(--gold);color:white}
+    .badge-demo{background:var(--sage);color:white}
 
     .card-body{padding:1rem 1rem 1.25rem}
     .card-header-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.6rem}
@@ -533,6 +573,19 @@ CSS = """
     .demo-link{font-size:.9rem;color:var(--sage);font-weight:500;text-decoration:none}
     .demo-link:hover{text-decoration:underline}
     .demo-wip{font-size:.85rem;color:var(--muted);font-style:italic}
+
+    .demo-hl-section{padding-bottom:0}
+    .demo-hl-block{background:linear-gradient(135deg,rgba(92,140,106,.08),rgba(92,140,106,.04));border:1.5px solid rgba(92,140,106,.35);border-radius:12px;padding:1.1rem 1rem 1rem;margin-bottom:1.5rem}
+    .demo-hl-label{display:flex;align-items:center;gap:.45rem;font-size:.78rem;font-weight:600;color:var(--sage);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem}
+    .demo-open-btn{display:block;width:100%;text-align:center;background:transparent;color:var(--terra);border:2px solid var(--terra);border-radius:10px;padding:.8rem 1rem;font-size:.95rem;font-weight:700;text-decoration:none;transition:background .15s,color .15s;letter-spacing:.02em;cursor:pointer}
+    .demo-open-btn:hover{background:var(--terra);color:white}
+    .demo-hl-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-top:.75rem}
+    .demo-hl-hint{font-size:.75rem;color:var(--muted);font-style:italic}
+    .copy-url-btn{background:var(--terra-lt);color:var(--terra);border:1px solid rgba(200,80,42,.3);border-radius:7px;padding:.35rem .8rem;font-size:.78rem;font-weight:500;cursor:pointer;font-family:'Onest',sans-serif;transition:background .15s;white-space:nowrap}
+    .copy-url-btn:hover{background:#e8c4b8}
+    .copy-url-btn.copied{background:var(--sage-lt);color:var(--sage);border-color:rgba(92,140,106,.4)}
+    .demo-wip-block{display:flex;align-items:center;gap:.5rem;font-size:.88rem;color:var(--muted);font-style:italic;background:var(--cream);border:1px dashed var(--border);border-radius:10px;padding:.85rem 1rem;margin-bottom:1.5rem}
+    .demo-wip-icon{font-size:1.1rem}
 
     .stats-row{display:flex;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:.75rem}
     .stat-item{flex:1;text-align:center;padding:.65rem .5rem;border-right:1px solid var(--border)}
@@ -608,6 +661,19 @@ function toggleLead(id) {
   t.textContent = open ? 'Открыть детали' : 'Закрыть';
   ic.textContent = open ? '↓' : '↑';
 }
+function copyUrl(url, btn) {
+  const doMark = () => {
+    btn.textContent = '✓ Скопировано';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '📋 Скопировать ссылку'; btn.classList.remove('copied'); }, 2000);
+    showToast('Скопировано ✓');
+  };
+  navigator.clipboard.writeText(url).then(doMark).catch(() => {
+    const tmp = document.createElement('textarea');
+    tmp.value = url; document.body.appendChild(tmp); tmp.select();
+    document.execCommand('copy'); document.body.removeChild(tmp); doMark();
+  });
+}
 function copyText(id) {
   const el = document.getElementById(id);
   const text = el.textContent;
@@ -670,7 +736,8 @@ def render_html(leads_data):
     total = len(leads_data)
     demos_ready = sum(1 for l in leads_data if l.get("demo_url"))
     commissions = [l["_package"]["commission"] for l in leads_data]
-    comm_range = f"{fmtnum(min(commissions))} – {fmtnum(max(commissions))} ₽"
+    total_comm = sum(commissions)
+    comm_range = f"{fmtnum(total_comm)} ₽"
 
     cards_html = "\n".join(build_card(l) for l in leads_data)
     lead_ids_json = json.dumps([l["id"] for l in leads_data])
@@ -834,7 +901,7 @@ def main():
         city_en = sel_val(lead.get("Город"))
         avg_check = lead.get("Средний чек, ₽") or 0
         lead["_package"] = recommend_package(city_en, avg_check)
-        lead["demo_url"] = ""
+        lead["demo_url"] = DEMO_URLS.get(lead.get("id", 0), lead.get("demo_url", ""))
         leads_data.append(lead)
 
     print("\n🤖 Генерируем питчи через Claude...")
