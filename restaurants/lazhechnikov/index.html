@@ -10,7 +10,7 @@
   <meta property="og:image" content="https://viktorialiubitskaya-coder.github.io/vebkuznitsa/restaurants/lazhechnikov/photos/11.jpg">
   <meta property="og:type" content="website">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Restaurant","name":"Литературное кафе Лажечников","address":{"@type":"PostalAddress","streetAddress":"ул. Лажечникова, 13А","addressLocality":"Коломна","addressRegion":"Московская область","addressCountry":"RU"},"telephone":"+79165831382","aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"1477"},"servesCuisine":"Russian"}
+  {"@context":"https://schema.org","@type":"Restaurant","name":"Литературное кафе Лажечников","address":{"@type":"PostalAddress","streetAddress":"ул. Лажечникова, 13","addressLocality":"Коломна","addressRegion":"Московская область","addressCountry":"RU"},"telephone":"+79165831382","aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"1477"},"servesCuisine":"Russian"}
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,15 +90,17 @@
     .reveal.visible { opacity: 1; transform: none; }
 
     /* ─── Nav ─── */
-    #main-nav { transition: background 0.3s, box-shadow 0.3s; }
+    #main-nav {
+      transition: box-shadow 0.3s;
+      background-color: #F5EFE0;
+      border-bottom: 1px solid rgba(176,141,87,0.3);
+    }
     #main-nav.scrolled {
-      background-color: rgba(245,237,214,0.97) !important;
-      backdrop-filter: blur(6px);
       box-shadow: 0 2px 20px rgba(26,18,8,0.1);
     }
 
     /* ─── Hero ─── */
-    #hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+    #hero { position: relative; min-height: 85vh; display: flex; align-items: center; justify-content: center; }
     #hero-bg {
       position: absolute; inset: 0;
       background: url('photos/11.jpg') center top / cover no-repeat;
@@ -107,10 +109,7 @@
     #hero-bg::after {
       content: '';
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom,
-        rgba(245,237,214,0.60) 0%,
-        rgba(245,237,214,0.48) 50%,
-        rgba(245,237,214,0.68) 100%);
+      background: linear-gradient(180deg, rgba(43,24,16,0.55) 0%, rgba(43,24,16,0.75) 100%);
     }
 
     /* ─── Menu cards ─── */
@@ -186,13 +185,13 @@
 <body class="parchment-bg">
 
   <!-- ═══ NAV ═══ -->
-  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-40 bg-parchment/0">
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-40">
     <div class="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between">
       <a href="#">
         <img src="assets/logo.png"
              alt="Литературное кафе Лажечников"
              class="w-auto object-contain"
-             style="height:52px;mix-blend-mode:multiply;">
+             style="height:48px;mix-blend-mode:multiply;">
       </a>
       <div class="hidden md:flex items-center gap-7 font-body text-sm text-ink-mid tracking-wide">
         <a href="#about"    class="hover:text-bordeaux transition-colors cursor-pointer">О кафе</a>
@@ -200,7 +199,7 @@
         <a href="#events"   class="hover:text-bordeaux transition-colors cursor-pointer">События</a>
         <a href="#contacts" class="hover:text-bordeaux transition-colors cursor-pointer">Контакты</a>
       </div>
-      <a href="tel:+79165831382" class="btn-bx hidden md:inline-block">Забронировать столик</a>
+      <a href="#contacts" class="btn-bx hidden md:inline-block">Забронировать столик</a>
       <a href="tel:+79165831382" class="md:hidden font-body text-sm text-bordeaux">☎ Позвонить</a>
     </div>
   </nav>
@@ -213,26 +212,32 @@
         <img src="assets/logo.png"
              alt="Литературное кафе Лажечников — логотип"
              class="w-auto object-contain"
-             style="height:140px;mix-blend-mode:multiply;">
+             style="height:140px;filter:invert(1) brightness(1.1);">
       </div>
-      <p class="font-body text-xs tracking-[0.22em] uppercase text-ink-muted mb-5">
-        Коломенский кремль · ул. Лажечникова, 13А
-      </p>
-      <h1 class="font-serif font-light leading-tight text-ink mb-5"
-          style="font-size: clamp(2.4rem, 6vw, 4.5rem);">
+      <h1 class="font-serif font-light leading-tight mb-5"
+          style="font-size: clamp(2.4rem, 6vw, 4.5rem); color:#F5EFE0;">
         Литературное кафе<br><em>Лажечников</em>
       </h1>
-      <p class="font-body text-base md:text-lg text-ink-mid mb-7">
+      <p class="font-body text-base md:text-lg mb-7" style="color:#B08D57;">
         На улице писателя, напротив древних башен
       </p>
-      <div class="flex flex-wrap items-center justify-center gap-2 md:gap-4 mb-9 font-body text-sm text-ink-mid">
+      <div class="flex flex-wrap items-center justify-center gap-2 md:gap-4 mb-9 font-body text-sm" style="color:rgba(245,239,224,0.75);">
         <span class="text-gold font-medium">★ 5.0</span>
-        <span class="text-ink-muted">·</span>
+        <span style="opacity:0.5;">·</span>
         <span>1&nbsp;477 оценок · Яндекс.Карты</span>
-        <span class="text-ink-muted">·</span>
+        <span style="opacity:0.5;">·</span>
         <span>Top-5 ресторанов Подмосковья</span>
       </div>
-      <a href="tel:+79165831382" class="btn-bx">Забронировать столик</a>
+      <a href="#contacts" class="btn-bx">Забронировать столик</a>
+    </div>
+  </section>
+
+  <!-- ═══ ADDRESS STRIP ═══ -->
+  <section style="background:#2B1810;">
+    <div class="max-w-6xl mx-auto px-5 py-4 text-center">
+      <p class="font-body text-xs tracking-[0.15em] uppercase" style="color:#B08D57;">
+        Коломенский кремль · ул. Лажечникова, 13
+      </p>
     </div>
   </section>
 
@@ -280,7 +285,7 @@
           <p class="font-body text-sm md:text-base text-ink-mid leading-relaxed mb-7">
             Меню составлено по мотивам произведений русской классики. Каждое блюдо — это цитата, воспоминание, маленькое путешествие в XIX&nbsp;век.
           </p>
-          <a href="tel:+79165831382" class="btn-bx">Забронировать столик</a>
+          <a href="#contacts" class="btn-bx">Забронировать столик</a>
         </div>
         <div class="reveal">
           <div class="relative">
@@ -571,7 +576,7 @@
         <div class="reveal space-y-6">
           <div>
             <p class="font-body text-[0.65rem] tracking-[0.18em] uppercase text-gold mb-1">Адрес</p>
-            <p class="font-serif text-lg text-ink">ул. Лажечникова, 13А, Коломна</p>
+            <p class="font-serif text-lg text-ink">ул. Лажечникова, 13, Коломна</p>
             <p class="font-body text-sm text-ink-muted mt-0.5">В Коломенском кремле, напротив Соборной площади</p>
           </div>
 
@@ -581,6 +586,7 @@
                class="font-serif text-xl text-ink hover:text-bordeaux transition-colors">
               +7 (916) 583-13-82
             </a>
+            <p style="font-style:italic;color:#6B1F2C;font-size:0.9rem;margin-top:0.4rem;">Бронирование столиков — только по телефону</p>
           </div>
 
           <div>
@@ -610,14 +616,14 @@
             <span class="font-body text-xs text-ink-muted ml-2">· 800 подписчиков</span>
           </div>
 
-          <a href="tel:+79165831382" class="btn-bx inline-block">Забронировать столик</a>
+          <a href="#contacts" class="btn-bx inline-block">Забронировать столик</a>
         </div>
 
         <!-- Map -->
         <div class="reveal">
           <iframe
-            src="https://yandex.ru/map-widget/v1/?ol=biz&oid=100397037904&lang=ru_RU"
-            width="100%" height="420" frameborder="0" allowfullscreen
+            src="https://yandex.ru/map-widget/v1/?ll=38.7574,55.1037&z=17&pt=38.7574,55.1037,pm2rdm&utm_source=share"
+            width="100%" height="450" frameborder="0" allowfullscreen
             title="Литературное кафе Лажечников на карте Коломны"
             loading="lazy"
             class="border border-gold/20 block">
@@ -632,7 +638,7 @@
   <footer class="py-8" style="background:#1A1208;">
     <div class="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-4">
       <p class="font-serif text-base text-paper/90">Литературное кафе Лажечников</p>
-      <p class="font-body text-xs text-paper/40">ул. Лажечникова, 13А · Коломна · В Коломенском кремле</p>
+      <p class="font-body text-xs text-paper/40">ул. Лажечникова, 13 · Коломна · В Коломенском кремле</p>
       <div class="flex gap-5 font-body text-sm">
         <a href="https://vk.com/cafelazhechnikov" target="_blank" rel="noopener"
            class="text-paper/55 hover:text-paper/90 transition-colors">ВКонтакте</a>
