@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Литературное кафе Лажечников — Коломна</title>
+  <meta name="description" content="Литературное меню по мотивам русской классики и «Длинные вечера» с немым кино и тапёром. В Коломенском кремле. ★ 5.0 · 1 477 оценок.">
+  <meta property="og:title" content="Литературное кафе Лажечников — Коломна">
+  <meta property="og:description" content="Литературное меню по мотивам русской классики, «Длинные вечера» с немым кино и коломенская пастила в Коломенском кремле.">
+  <meta property="og:image" content="https://viktorialiubitskaya-coder.github.io/vebkuznitsa/restaurants/lazhechnikov/photos/11.jpg">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Restaurant","name":"Литературное кафе Лажечников","address":{"@type":"PostalAddress","streetAddress":"ул. Лажечникова, 13А","addressLocality":"Коломна","addressRegion":"Московская область","addressCountry":"RU"},"telephone":"+79165831382","aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"1477"},"servesCuisine":"Russian"}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'parchment':     '#F5EDD6',
+            'parchment-alt': '#EDE0C0',
+            'paper':         '#FAF5E8',
+            'bordeaux':      '#7D1F2E',
+            'bordeaux-hov':  '#9E2B3C',
+            'forest':        '#2C4A35',
+            'forest-mid':    '#3D6B4F',
+            'gold':          '#B8860B',
+            'gold-warm':     '#CC8800',
+            'ink':           '#1A1208',
+            'ink-mid':       '#3A2E1C',
+            'ink-muted':     '#7A6240',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            body:  ['Lora', 'Georgia', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      background-color: #F5EDD6;
+      color: #1A1208;
+      font-family: 'Lora', Georgia, serif;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+    /* Paper texture via SVG noise */
+    .paper-bg {
+      background-color: #FAF5E8;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    }
+    .parchment-bg {
+      background-color: #F5EDD6;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+
+    /* ─── Ornamental divider ─── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: #B8860B;
+      margin: 1.25rem 0;
+    }
+    .ornament::before, .ornament::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.35;
+    }
+
+    /* ─── Scroll reveal ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── Nav ─── */
+    #main-nav { transition: background 0.3s, box-shadow 0.3s; }
+    #main-nav.scrolled {
+      background-color: rgba(245,237,214,0.97) !important;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 20px rgba(26,18,8,0.1);
+    }
+
+    /* ─── Hero ─── */
+    #hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+    #hero-bg {
+      position: absolute; inset: 0;
+      background: url('photos/11.jpg') center top / cover no-repeat;
+      background-attachment: fixed;
+    }
+    #hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(245,237,214,0.60) 0%,
+        rgba(245,237,214,0.48) 50%,
+        rgba(245,237,214,0.68) 100%);
+    }
+
+    /* ─── Menu cards ─── */
+    .menu-card {
+      background: #FAF5E8;
+      border: 1px solid rgba(184,134,11,0.22);
+      padding: 1.75rem;
+      position: relative;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .menu-card::before {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      border: 1px solid rgba(184,134,11,0.10);
+      pointer-events: none;
+    }
+    .menu-card:hover {
+      border-color: rgba(184,134,11,0.55);
+      box-shadow: 0 6px 24px rgba(184,134,11,0.12);
+    }
+
+    /* ─── Buttons ─── */
+    .btn-bx {
+      display: inline-block;
+      background: #7D1F2E;
+      color: #FAF5E8;
+      font-family: 'Lora', serif;
+      font-size: 0.8125rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.8125rem 2rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-bx:hover { background: #9E2B3C; }
+
+    .btn-bx-outline {
+      display: inline-block;
+      border: 1.5px solid rgba(250,245,232,0.7);
+      color: #FAF5E8;
+      font-family: 'Lora', serif;
+      font-size: 0.8125rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.8125rem 2rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-bx-outline:hover { background: rgba(250,245,232,0.12); border-color: #FAF5E8; }
+
+    /* ─── Events section ─── */
+    #events { background: #7D1F2E; color: #FAF5E8; }
+
+    /* ─── Pastila cards ─── */
+    .pastila-card {
+      padding: 1.25rem 1rem;
+      border: 1px solid rgba(184,134,11,0.2);
+      background: rgba(255,255,255,0.25);
+    }
+
+    /* ─── Mobile CTA ─── */
+    #mob-cta { display: none; }
+    @media (max-width: 767px) {
+      #mob-cta { display: block; position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; }
+      body { padding-bottom: 56px; }
+      #hero-bg { background-attachment: scroll; }
+    }
+  </style>
+</head>
+<body class="parchment-bg">
+
+  <!-- ═══ NAV ═══ -->
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-40 bg-parchment/0">
+    <div class="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between">
+      <a href="#" class="font-serif text-xl font-light tracking-wide text-ink">
+        <span class="text-bordeaux font-normal">Л</span>ажечников
+      </a>
+      <div class="hidden md:flex items-center gap-7 font-body text-sm text-ink-mid tracking-wide">
+        <a href="#about"    class="hover:text-bordeaux transition-colors cursor-pointer">О кафе</a>
+        <a href="#menu"     class="hover:text-bordeaux transition-colors cursor-pointer">Меню</a>
+        <a href="#events"   class="hover:text-bordeaux transition-colors cursor-pointer">События</a>
+        <a href="#contacts" class="hover:text-bordeaux transition-colors cursor-pointer">Контакты</a>
+      </div>
+      <a href="tel:+79165831382" class="btn-bx hidden md:inline-block">Забронировать столик</a>
+      <a href="tel:+79165831382" class="md:hidden font-body text-sm text-bordeaux">☎ Позвонить</a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="hero">
+    <div id="hero-bg"></div>
+    <div class="relative z-10 text-center px-5 max-w-3xl mx-auto pt-24 pb-16">
+      <p class="font-body text-xs tracking-[0.22em] uppercase text-ink-muted mb-5">
+        Коломенский кремль · ул. Лажечникова, 13А
+      </p>
+      <h1 class="font-serif font-light leading-tight text-ink mb-5"
+          style="font-size: clamp(2.4rem, 6vw, 4.5rem);">
+        Литературное кафе<br><em>Лажечников</em>
+      </h1>
+      <p class="font-body text-base md:text-lg text-ink-mid mb-7">
+        На улице писателя, напротив древних башен
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-2 md:gap-4 mb-9 font-body text-sm text-ink-mid">
+        <span class="text-gold font-medium">★ 5.0</span>
+        <span class="text-ink-muted">·</span>
+        <span>1&nbsp;477 оценок · Яндекс.Карты</span>
+        <span class="text-ink-muted">·</span>
+        <span>Top-5 ресторанов Подмосковья</span>
+      </div>
+      <a href="tel:+79165831382" class="btn-bx">Забронировать столик</a>
+    </div>
+  </section>
+
+  <!-- ═══ PROOF STRIP ═══ -->
+  <section class="bg-bordeaux py-8 md:py-10">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="reveal">
+          <div class="font-serif text-3xl md:text-4xl text-gold font-light">★ 5.0</div>
+          <div class="font-body text-[0.65rem] tracking-[0.18em] uppercase text-paper/60 mt-1">Яндекс.Карты</div>
+        </div>
+        <div class="reveal">
+          <div class="font-serif text-3xl md:text-4xl text-gold font-light">1&thinsp;477</div>
+          <div class="font-body text-[0.65rem] tracking-[0.18em] uppercase text-paper/60 mt-1">оценок</div>
+        </div>
+        <div class="reveal">
+          <div class="font-serif text-3xl md:text-4xl text-gold font-light">Top-5</div>
+          <div class="font-body text-[0.65rem] tracking-[0.18em] uppercase text-paper/60 mt-1">ресторанов Подмосковья</div>
+        </div>
+        <div class="reveal">
+          <div class="font-serif text-3xl md:text-4xl text-gold font-light">1790</div>
+          <div class="font-body text-[0.65rem] tracking-[0.18em] uppercase text-paper/60 mt-1">год рождения Лажечникова</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ О КАФЕ ═══ -->
+  <section id="about" class="py-20 md:py-24 paper-bg">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div class="reveal">
+          <p class="font-body text-[0.7rem] tracking-[0.2em] uppercase text-gold mb-3">Наша история</p>
+          <h2 class="font-serif font-light text-ink leading-tight mb-2"
+              style="font-size: clamp(2rem, 4vw, 3.25rem);">
+            Иван Иванович<br><em>Лажечников</em>
+          </h2>
+          <div class="ornament max-w-[160px]"><span>❧</span></div>
+          <p class="font-body text-sm md:text-base text-ink-mid leading-relaxed mb-4">
+            Первый русский исторический романист, уроженец Коломны (1790–1869). Автор «Ледяного дома», «Басурмана», «Последнего Новика» — романов, которые Пушкин ставил образцом исторической прозы.
+          </p>
+          <p class="font-body text-sm md:text-base text-ink-mid leading-relaxed mb-4">
+            Кафе его имени живёт в историческом здании в сердце Коломенского кремля — напротив Соборной площади, у подножия древних башен. Здесь всё имеет свою историю: мебель, посуда, самовары, книги на полках.
+          </p>
+          <p class="font-body text-sm md:text-base text-ink-mid leading-relaxed mb-7">
+            Меню составлено по мотивам произведений русской классики. Каждое блюдо — это цитата, воспоминание, маленькое путешествие в XIX&nbsp;век.
+          </p>
+          <a href="tel:+79165831382" class="btn-bx">Забронировать столик</a>
+        </div>
+        <div class="reveal">
+          <div class="relative">
+            <img src="photos/15.jpg"
+                 alt="Интерьер кафе Лажечников — вход в зал, книжная полка и драпировки"
+                 class="w-full object-cover object-center"
+                 style="max-height: 560px;">
+            <div class="absolute -bottom-3 -right-3 inset-0 border border-gold/25 pointer-events-none"
+                 style="top:auto;left:auto;width:calc(100% - 8px);height:calc(100% - 8px);position:absolute;bottom:-12px;right:-12px;z-index:-1;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ЛИТЕРАТУРНОЕ МЕНЮ ═══ -->
+  <section id="menu" class="py-20 md:py-24" style="background-color:#EDE0C0;">
+    <div class="max-w-6xl mx-auto px-5">
+
+      <!-- Heading -->
+      <div class="text-center mb-12 reveal">
+        <p class="font-body text-[0.7rem] tracking-[0.2em] uppercase text-gold mb-3">Звезда нашего меню</p>
+        <h2 class="font-serif font-light text-ink leading-none mb-4"
+            style="font-size: clamp(2.2rem, 5vw, 4rem);">
+          Литературное меню
+        </h2>
+        <p class="font-body text-sm text-ink-muted max-w-lg mx-auto leading-relaxed">
+          Блюда по мотивам произведений русской классики. Каждая карточка — страница из книги.
+        </p>
+        <div class="ornament max-w-[180px] mx-auto mt-5"><span>✦</span></div>
+      </div>
+
+      <!-- Accent food photo -->
+      <div class="reveal mb-10">
+        <img src="photos/08.jpg"
+             alt="Блюдо с открытой старинной книгой на столе кафе"
+             class="w-full object-cover object-center"
+             style="max-height: 280px;">
+      </div>
+
+      <!-- 8 Menu cards -->
+      <div class="grid md:grid-cols-2 gap-5">
+
+        <div class="menu-card reveal">
+          <p class="font-body text-[0.65rem] tracking-[0.18em] uppercase text-ink-muted mb-2">Завтраки</p>
+          <h3 class="font-serif text-2xl italic font-light text-ink mb-2">Английский завтрак по Карамзину</h3>
+          <p class="font-body text-xs text-gold tracking-wide mb-3">«Письма русского путешественника» · Н.М. Карамзин, 1791</p>
+          <div class="w-8 border-t border-gold/35 mb-3"></div>
+          <p class="font-body text-sm text-ink-mid leading-relaxed">
+            Холодная телятина, яйца и тосты — завтрак, который Карамзин описал как образец английской умеренности и вкуса. Подаётся так, как в XVIII веке путешественник встречал утро в Лондоне.
+          </p>
+        </div>
+
+        <div class="menu-card reveal">
+          <p class="font-body text-[0.65rem] tracking-[0.18em] uppercase text-ink-muted mb-2">Горячее</p>
+          <h3 class="font-serif text-2xl italic font-light text-ink mb-2">Котлета от князя-гурмана Одоевского</h3>
+          <p class="font-body text-xs text-gold tracking-wide mb-3">«Лекции господина Пуфа» · В.Ф. Одоевский, 1844</p>
+          <div class="w-8 border-t border-gold/35 mb-3"></div>
+          <p class="font-body text-sm text-ink-mid leading-relaxed">
+            Рецепт из кулинарного цикла самого утончённого гастронома русской словесности. Князь Одоевский лично испытывал блюда на гостях своего петербургского литературного салона.
+          </p>
+        </div>
+
+        <div class="menu-card reveal">
+          <p class="font-body text-[0.65rem] tracking-[0.18em] uppercase text-ink-muted mb-2">Супы</p>
+          <h3 class="font-serif text-2xl italic font-light text-ink mb-2">Капустняк «Щи старорусские»</h3>
+          <p class="font-body text-xs text-gold tracking-wide mb-3">«Домострой» · XVI в.</p>
+          <div class="w-8 border-t border-gold/35 mb-3"></div>
+          <p class="font-body text-sm text-ink-mid leading-relaxed">
+            Щи из квашеной капусты с говяжьей грудинкой, приготовленные по старорусскому обычаю, с добавлением репы и ароматных кореньев. Со сметаной и чёрным хлебом.
+          </p>
+        </div>
+
+        <div class="menu-card reveal">
+          <p class="font-body text-[0.65rem] tracking-[0.18em] uppercase text-ink-muted mb-2">Салаты</p>
+          <h3 class="font-serif text-2xl italic font-light text-ink mb-2">Салат английской королевы</h3>
+          <p class="font-body text-xs text-gold tracking-wide mb-3">Из русской кулинарной традиции · XIX в.</p>
+          <div class="w-8 border-t border-gold/35 mb-3"></div>
+          <p class="font-body text-sm text-ink-mid leading-relaxed">
+            Лёгкий зимний салат с пикантной заправкой — любимый в петербургских ресторанах и дворянских домах позапрошлого века.
+          </p>
+        </div>
+
+        <div class="menu-card reveal">
+          <p class="font-body text-[0.65rem] tracking-[0.18em] uppercase text-ink-muted mb-2">Завтраки</p>
+          <h3 class="font-serif text-2xl italic font-light text-ink mb-2">Блины по Чехову</h3>
+          <p class="font-body text-xs text-gold tracking-wide mb-3">«О бренности» · А.П. Чехов, 1886</p>
+          <div class="w-8 border-t border-gold/35 mb-3"></div>
+          <p class="font-body text-sm text-ink-mid leading-relaxed italic">
+            «Блины были поджаристые, пористые, пухлые, как плечо купеческой дочки...» — Антон Павлович умел писать о еде так, что читатель ощущал запах масла.
+          </p>
+        </div>
+
+        <div class="menu-card reveal">
+          <p class="font-body text-[0.65rem] tracking-[0.18em] uppercase text-ink-muted mb-2">Напитки</p>
+          <h3 class="font-serif text-2xl italic font-light text-ink mb-2">Кисель крестьян из имения Достоевских</h3>
+          <p class="font-body text-xs text-gold tracking-wide mb-3">Имение Даровое · XIX в.</p>
+          <div class="w-8 border-t border-gold/35 mb-3"></div>
+          <p class="font-body text-sm text-ink-mid leading-relaxed">
+            По воспоминаниям Фёдора Михайловича о детстве в отцовском имении. Густой, терпкий, с лесными ягодами — сваренный по деревенскому рецепту.
+          </p>
+        </div>
+
+        <div class="menu-card reveal">
+          <p class="font-body text-[0.65rem] tracking-[0.18em] uppercase text-ink-muted mb-2">Горячее</p>
+          <h3 class="font-serif text-2xl italic font-light text-ink mb-2">Домашняя лапша</h3>
+          <p class="font-body text-xs text-gold tracking-wide mb-3">Ручной работы · Музейное производство</p>
+          <div class="w-8 border-t border-gold/35 mb-3"></div>
+          <p class="font-body text-sm text-ink-mid leading-relaxed">
+            Тянутая вручную лапша по рецепту музея пастилы — такая, какой она была в купеческих домах старой Коломны. Подаётся с наваристым бульоном.
+          </p>
+        </div>
+
+        <div class="menu-card reveal">
+          <p class="font-body text-[0.65rem] tracking-[0.18em] uppercase text-ink-muted mb-2">Закуски</p>
+          <h3 class="font-serif text-2xl italic font-light text-ink mb-2">Гусиный риет с зернистой икрой</h3>
+          <p class="font-body text-xs text-gold tracking-wide mb-3">По мотивам «Ледяного дома» · И.И. Лажечников, 1835</p>
+          <div class="w-8 border-t border-gold/35 mb-3"></div>
+          <p class="font-body text-sm text-ink-mid leading-relaxed">
+            Изысканная закуска, достойная пышного стола императрицы Анны Иоанновны — главной героини главного романа нашего писателя.
+          </p>
+        </div>
+
+      </div><!-- /grid -->
+
+      <!-- Food gallery -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8 reveal">
+        <img src="photos/01.jpg" alt="Блины с самоваром и вареньем"   class="w-full aspect-square object-cover object-top">
+        <img src="photos/03.jpg" alt="Щи со сметаной и гречкой"       class="w-full aspect-square object-cover object-top">
+        <img src="photos/10.jpg" alt="Сырники с открытой книгой"       class="w-full aspect-square object-cover object-top">
+        <img src="photos/13.jpg" alt="Пельмени собственного приготовления" class="w-full aspect-square object-cover object-top">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ ДЛИННЫЕ ВЕЧЕРА ═══ -->
+  <section id="events">
+    <div class="max-w-6xl mx-auto px-5 py-16 md:py-20">
+      <div class="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+
+        <!-- Poster image -->
+        <div class="reveal">
+          <img src="photos/14.jpg"
+               alt="Театральная афиша «Длинных вечеров» — фильм Стачка"
+               class="w-full object-cover object-top shadow-lg"
+               style="max-height:620px;">
+        </div>
+
+        <!-- Info -->
+        <div class="reveal">
+          <p class="font-body text-[0.7rem] tracking-[0.22em] uppercase text-gold/80 mb-4">
+            По субботам · Начало в 19:00
+          </p>
+          <h2 class="font-serif font-light text-paper leading-tight mb-5"
+              style="font-size: clamp(2.2rem, 4.5vw, 3.5rem);">
+            «Длинные<br><em>вечера»</em>
+          </h2>
+          <div class="w-10 border-t border-paper/25 mb-6"></div>
+          <p class="font-body text-sm text-paper/85 leading-relaxed mb-5">
+            Вечер немого кино с живым тапёром в историческом зале. Смотрим редкие фильмы, связанные с историей Коломны и русской литературой. Обсуждаем вместе с ведущей вечера.
+          </p>
+
+          <ul class="font-body text-sm text-paper/80 space-y-3 mb-7">
+            <li class="flex items-start gap-3">
+              <span class="text-gold mt-0.5 shrink-0">◆</span>
+              <span>«Ледяной дом» (1916) — по роману И.И. Лажечникова</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-gold mt-0.5 shrink-0">◆</span>
+              <span>«Стачка» (1924, Эйзенштейн) — снят в Коломне, золотая медаль Канна 1925</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-gold mt-0.5 shrink-0">◆</span>
+              <span>С горячим чаем, коломенской пастилой и антрактом с пирогами</span>
+            </li>
+          </ul>
+
+          <div class="flex gap-8 mb-8">
+            <div>
+              <p class="font-body text-[0.65rem] tracking-widest uppercase text-paper/45 mb-1">Взрослый</p>
+              <p class="font-serif text-2xl text-paper">1&thinsp;500 ₽</p>
+            </div>
+            <div>
+              <p class="font-body text-[0.65rem] tracking-widest uppercase text-paper/45 mb-1">Детский</p>
+              <p class="font-serif text-2xl text-paper">1&thinsp;300 ₽</p>
+            </div>
+          </div>
+
+          <a href="tel:+79165831382" class="btn-bx-outline">Забронировать места</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ КОЛОМЕНСКАЯ ПАСТИЛА ═══ -->
+  <section id="pastila" class="py-20 md:py-24 paper-bg">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
+
+        <div>
+          <p class="font-body text-[0.7rem] tracking-[0.2em] uppercase text-gold mb-3 reveal">При кафе</p>
+          <h2 class="font-serif font-light text-ink leading-tight mb-4 reveal"
+              style="font-size: clamp(2rem, 4vw, 3.25rem);">
+            Коломенская<br><em>пастила</em>
+          </h2>
+          <div class="ornament max-w-[160px] reveal"><span>❧</span></div>
+          <p class="font-body text-sm md:text-base text-ink-mid leading-relaxed mb-7 reveal">
+            Коломенская пастила была возрождена благодаря упоминанию в романе Лажечникова «Ледяной дом». В нашем магазинчике — несколько сортов из натуральных фруктов по историческим рецептам.
+          </p>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="pastila-card reveal">
+              <div class="text-gold text-base mb-2">◆</div>
+              <p class="font-serif text-base text-ink mb-1">Несколько сортов</p>
+              <p class="font-body text-xs text-ink-muted leading-relaxed">Яблочная, смородинная, малиновая и другие — из натуральных фруктов</p>
+            </div>
+            <div class="pastila-card reveal">
+              <div class="text-gold text-base mb-2">◆</div>
+              <p class="font-serif text-base text-ink mb-1">Подарочные наборы</p>
+              <p class="font-body text-xs text-ink-muted leading-relaxed">Коробки ручной работы — лучший сувенир из Коломны</p>
+            </div>
+            <div class="pastila-card reveal">
+              <div class="text-gold text-base mb-2">◆</div>
+              <p class="font-serif text-base text-ink mb-1">Магазинчик при кафе</p>
+              <p class="font-body text-xs text-ink-muted leading-relaxed">Работает в часы кафе, без отдельного входа</p>
+            </div>
+            <div class="pastila-card reveal">
+              <div class="text-gold text-base mb-2">◆</div>
+              <p class="font-serif text-base text-ink mb-1">История с характером</p>
+              <p class="font-body text-xs text-ink-muted leading-relaxed">Упомянута Лажечниковым в «Ледяном доме», 1835 год</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <img src="photos/04.jpg"
+               alt="Антикварный буфет с пастилой и старинной посудой в кафе Лажечников"
+               class="w-full object-cover object-center"
+               style="max-height: 560px;">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ КНИЖНЫЙ УГОЛОК ═══ -->
+  <section id="books" style="background-color:#EDE0C0;" class="py-16">
+    <div class="max-w-3xl mx-auto px-5 text-center reveal">
+      <div class="ornament justify-center mb-5"><span class="text-xl">❧</span></div>
+      <h2 class="font-serif font-light text-ink mb-4"
+          style="font-size: clamp(1.8rem, 3.5vw, 2.75rem);">
+        Книжный уголок
+      </h2>
+      <p class="font-body text-sm md:text-base text-ink-mid leading-relaxed mb-4">
+        На полке у входа — романы Лажечникова в старых и современных изданиях и серия «Коломенский текст»: книги о городе, его истории и людях. Берите читать за чаем. Некоторые можно купить.
+      </p>
+      <p class="font-body text-sm text-ink-muted italic">
+        «Рекомендую в ней мою землячку, коломенскую пастильницу» — И.И. Лажечников, «Ледяной дом»
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ ATMOSPHERE STRIP ═══ -->
+  <section aria-hidden="true">
+    <div class="grid grid-cols-1 md:grid-cols-3">
+      <img src="photos/09.jpg" alt="Антикварное пианино в красном зале кафе"
+           class="w-full object-cover object-center" style="height:280px;">
+      <img src="photos/11.jpg" alt="Портреты русских писателей и самовар в зале кафе"
+           class="w-full object-cover object-top"    style="height:280px;">
+      <img src="photos/15.jpg" alt="Зал кафе с книжной полкой и бархатными занавесями"
+           class="w-full object-cover object-center" style="height:280px;">
+    </div>
+  </section>
+
+  <!-- ═══ КОНТАКТЫ ═══ -->
+  <section id="contacts" class="py-20 md:py-24 paper-bg">
+    <div class="max-w-6xl mx-auto px-5">
+
+      <div class="text-center mb-12 reveal">
+        <p class="font-body text-[0.7rem] tracking-[0.2em] uppercase text-gold mb-3">Найти нас</p>
+        <h2 class="font-serif font-light text-ink" style="font-size: clamp(2rem, 4vw, 3rem);">Контакты</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-10 md:gap-14">
+
+        <!-- Info -->
+        <div class="reveal space-y-6">
+          <div>
+            <p class="font-body text-[0.65rem] tracking-[0.18em] uppercase text-gold mb-1">Адрес</p>
+            <p class="font-serif text-lg text-ink">ул. Лажечникова, 13А, Коломна</p>
+            <p class="font-body text-sm text-ink-muted mt-0.5">В Коломенском кремле, напротив Соборной площади</p>
+          </div>
+
+          <div>
+            <p class="font-body text-[0.65rem] tracking-[0.18em] uppercase text-gold mb-1">Телефон</p>
+            <a href="tel:+79165831382"
+               class="font-serif text-xl text-ink hover:text-bordeaux transition-colors">
+              +7 (916) 583-13-82
+            </a>
+          </div>
+
+          <div>
+            <p class="font-body text-[0.65rem] tracking-[0.18em] uppercase text-gold mb-2">Часы работы</p>
+            <div class="font-body text-sm text-ink-mid space-y-1.5">
+              <div class="flex gap-6">
+                <span class="w-28 text-ink-muted">Пн – Чт</span>
+                <span>10:00 — 20:00</span>
+              </div>
+              <div class="flex gap-6">
+                <span class="w-28 text-ink-muted">Пт – Сб</span>
+                <span>10:00 — 21:00</span>
+              </div>
+              <div class="flex gap-6">
+                <span class="w-28 text-ink-muted">Воскресенье</span>
+                <span>10:00 — 20:00</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="font-body text-[0.65rem] tracking-[0.18em] uppercase text-gold mb-1">ВКонтакте</p>
+            <a href="https://vk.com/cafelazhechnikov" target="_blank" rel="noopener"
+               class="font-body text-sm text-bordeaux hover:text-bordeaux-hov transition-colors">
+              vk.com/cafelazhechnikov
+            </a>
+            <span class="font-body text-xs text-ink-muted ml-2">· 800 подписчиков</span>
+          </div>
+
+          <a href="tel:+79165831382" class="btn-bx inline-block">Забронировать столик</a>
+        </div>
+
+        <!-- Map -->
+        <div class="reveal">
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?ol=biz&oid=100397037904&lang=ru_RU"
+            width="100%" height="420" frameborder="0" allowfullscreen
+            title="Литературное кафе Лажечников на карте Коломны"
+            loading="lazy"
+            class="border border-gold/20 block">
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="py-8" style="background:#1A1208;">
+    <div class="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="font-serif text-base text-paper/90">Литературное кафе Лажечников</p>
+      <p class="font-body text-xs text-paper/40">ул. Лажечникова, 13А · Коломна · В Коломенском кремле</p>
+      <div class="flex gap-5 font-body text-sm">
+        <a href="https://vk.com/cafelazhechnikov" target="_blank" rel="noopener"
+           class="text-paper/55 hover:text-paper/90 transition-colors">ВКонтакте</a>
+        <a href="https://yandex.com/maps/org/lazhechnikov_literary_cafe/100397037904/"
+           target="_blank" rel="noopener"
+           class="text-paper/55 hover:text-paper/90 transition-colors">★ 5.0 Яндекс.Карты</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ MOBILE STICKY CTA ═══ -->
+  <div id="mob-cta" style="background:#7D1F2E;">
+    <a href="tel:+79165831382"
+       class="block w-full py-4 text-center font-body text-sm tracking-wide text-paper/95">
+      Забронировать столик — +7 (916) 583-13-82
+    </a>
+  </div>
+
+  <script>
+    // Nav scroll state
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        const target = id === '#' ? document.documentElement : document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Scroll reveals
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // iOS parallax fix
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+      const bg = document.getElementById('hero-bg');
+      if (bg) bg.style.backgroundAttachment = 'scroll';
+    }
+  </script>
+</body>
+</html>

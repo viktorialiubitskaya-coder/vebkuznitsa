@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Барин &amp; Бараш — ресторан в Коломенском кремле</title>
+<meta name="description" content="Ресторан «Барин &amp; Бараш» в Коломенском кремле. Блюда на углях, пельмени ручной лепки, кальцоне, медовуха. ★ 4.9 · 2 280 оценок. Ул. Лажечникова, 3, Коломна.">
+<meta property="og:title" content="Барин &amp; Бараш — ресторан в Коломенском кремле">
+<meta property="og:description" content="Блюда на углях, пельмени ручной лепки, медовуха. В сердце Коломенского кремля. ★ 4.9 · 2 280 оценок.">
+<meta property="og:type" content="restaurant.restaurant">
+<meta property="og:image" content="photos/12.webp">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://viktorialiubitskaya-coder.github.io/vebkuznitsa/restaurants/barin-i-barash/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Барин &amp; Бараш — ресторан в Коломенском кремле">
+<meta name="twitter:description" content="Блюда на углях, пельмени ручной лепки. В Коломенском кремле. ★ 4.9">
+<meta name="twitter:image" content="photos/12.webp">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Барин и Бараш","servesCuisine":["Русская кухня","Европейская кухня"],"address":{"@type":"PostalAddress","streetAddress":"ул. Лажечникова, 3","addressLocality":"Коломна","addressCountry":"RU"},"telephone":"+79015776777","priceRange":"₽₽","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Sunday"],"opens":"12:00","closes":"23:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"12:00","closes":"00:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"2280","bestRating":"5"},"sameAs":["https://www.instagram.com/barinandbarash/","https://vk.com/barinandbarash"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{'navy-900':'#0B1929','navy-800':'#0F2235','navy-700':'#152B42','navy-600':'#1E3A52','gold':'#C4A253','gold-light':'#D9B96A','cream':'#F0E8D8','muted':'#8A7E6E'},fontFamily:{serif:['"Cormorant Garamond"','Georgia','serif'],sans:['Montserrat','system-ui','sans-serif']}}}}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',system-ui,sans-serif;background:#0B1929;color:#F0E8D8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif}
+::selection{background:#C4A253;color:#0B1929}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:#0B1929}
+::-webkit-scrollbar-thumb{background:#C4A253;border-radius:3px}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+#main-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;transition:background .4s,padding .3s,backdrop-filter .4s}
+#main-nav.scrolled{background:rgba(11,25,41,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:13px clamp(20px,5vw,64px);border-bottom:1px solid rgba(196,162,83,.15)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;letter-spacing:.05em;color:#F0E8D8;transition:color .2s}
+.nav-logo:hover{color:#C4A253}
+.nav-links{display:flex;gap:30px;align-items:center}
+@media(max-width:860px){.nav-links{display:none}}
+.nav-link{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,232,216,.68);position:relative;transition:color .2s;padding:4px 0}
+.nav-link::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:1px;background:#C4A253;transition:width .22s ease}
+.nav-link:hover{color:#F0E8D8}
+.nav-link:hover::after{width:100%}
+.nav-cta{display:none}
+@media(min-width:860px){.nav-cta{display:inline-flex}}
+
+/* BUTTONS */
+.btn-gold{display:inline-flex;align-items:center;gap:8px;background:#C4A253;color:#0B1929;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:15px 36px;min-height:50px;cursor:pointer;border:none;transition:background .2s,box-shadow .2s,transform .15s}
+.btn-gold:hover{background:#D9B96A;box-shadow:0 0 28px rgba(196,162,83,.38);transform:translateY(-1px)}
+.btn-gold:active{transform:translateY(0)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#F0E8D8;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:14px 36px;min-height:50px;cursor:pointer;border:1px solid rgba(240,232,216,.38);transition:border-color .2s,color .2s}
+.btn-ghost:hover{border-color:#C4A253;color:#C4A253}
+
+/* GLOW PULSE */
+@keyframes glow{0%,100%{box-shadow:0 0 0 rgba(196,162,83,.2)}50%{box-shadow:0 0 24px rgba(196,162,83,.5)}}
+.glow-pulse{animation:glow 3s infinite ease-in-out}
+
+/* SCROLL ARROW */
+@keyframes bounce-down{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+.scroll-arrow{animation:bounce-down 1.8s infinite ease-in-out}
+
+/* HERO */
+#hero{height:100dvh;min-height:600px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#hero-bg{position:absolute;inset:0;background:url('photos/12.webp') center 60%/cover no-repeat;will-change:transform}
+@media(min-width:768px) and (hover:hover){#hero-bg{background-attachment:fixed}}
+#hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(11,25,41,.25) 0%,rgba(11,25,41,.5) 45%,rgba(11,25,41,.78) 100%)}
+#hero-content{position:relative;z-index:1;text-align:center;padding:20px;max-width:860px}
+
+/* PROOF STRIP */
+#proof-strip{background:rgba(196,162,83,.07);border-top:1px solid rgba(196,162,83,.18);border-bottom:1px solid rgba(196,162,83,.18);padding:13px clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:500;letter-spacing:.07em;color:rgba(240,232,216,.78)}
+.proof-sep{width:1px;height:15px;background:rgba(196,162,83,.35);flex-shrink:0}
+@media(max-width:560px){.proof-sep{display:none}#proof-strip{flex-direction:column;gap:6px;text-align:center}}
+
+/* SECTIONS */
+.section-pad{padding:80px clamp(20px,5vw,80px)}
+@media(max-width:768px){.section-pad{padding:60px 20px}}
+.section-label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:#C4A253;display:block;margin-bottom:14px}
+.section-title{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:600;line-height:1.1;color:#F0E8D8;margin-bottom:18px}
+
+/* GOLD LINE */
+.gold-line{height:1px;background:#C4A253;width:0;transition:width .8s ease-out;margin:22px 0}
+.gold-line.center{margin:22px auto}
+.gold-line.visible{width:56px}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease-out,transform .65s ease-out}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.gold-line{width:56px;transition:none}}
+
+/* ABOUT GRID */
+.about-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:70px;align-items:center;max-width:1100px;margin:0 auto}
+@media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:44px}}
+@media(max-width:820px){.about-img{max-height:380px;overflow:hidden}}
+@media(max-width:820px){.about-img img{max-height:380px;object-fit:cover;width:100%}}
+
+/* GALLERY */
+.gallery-grid{columns:3;column-gap:10px}
+@media(max-width:860px){.gallery-grid{columns:2}}
+@media(max-width:480px){.gallery-grid{columns:1}}
+.gallery-item{break-inside:avoid;margin-bottom:10px;position:relative;overflow:hidden;cursor:default}
+.gallery-item img{width:100%;display:block;transition:transform .45s ease}
+@media(hover:hover){.gallery-item:hover img{transform:scale(1.05)}}
+.gallery-cap{position:absolute;bottom:0;left:0;right:0;padding:28px 14px 11px;background:linear-gradient(transparent,rgba(11,25,41,.88));font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#F0E8D8;opacity:0;transform:translateY(5px);transition:opacity .25s,transform .25s}
+@media(hover:hover){.gallery-item:hover .gallery-cap{opacity:1;transform:translateY(0)}}
+@media(hover:none){.gallery-cap{opacity:1;transform:translateY(0)}}
+
+/* FULLWIDTH */
+.fw-section{position:relative;min-height:520px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+@media(max-width:768px){.fw-section{min-height:420px}}
+.fw-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat}
+.fw-overlay{position:absolute;inset:0}
+.fw-content{position:relative;z-index:1;text-align:center;padding:60px 20px;max-width:680px}
+
+/* BAR */
+.bar-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1100px;margin:0 auto}
+@media(max-width:820px){.bar-grid{grid-template-columns:1fr;gap:40px}}
+.bar-img{overflow:hidden}
+.bar-img img{width:100%;object-fit:cover;max-height:500px;transition:transform .5s ease}
+@media(hover:hover){.bar-img:hover img{transform:scale(1.03)}}
+
+/* ATM DETAIL */
+.atm-detail{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:1100px;margin:0 auto;padding-bottom:80px}
+@media(max-width:640px){.atm-detail{grid-template-columns:1fr}}
+.atm-detail-img{overflow:hidden}
+.atm-detail-img img{width:100%;height:280px;object-fit:cover;transition:transform .5s ease}
+@media(hover:hover){.atm-detail-img:hover img{transform:scale(1.04)}}
+
+/* CONTACTS */
+.contacts-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:1100px;margin:0 auto}
+@media(max-width:820px){.contacts-grid{grid-template-columns:1fr;gap:40px}}
+.contact-row{display:flex;gap:14px;align-items:flex-start;margin-bottom:22px}
+.contact-icon{width:18px;height:18px;flex-shrink:0;margin-top:3px;fill:#C4A253}
+.hours-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(196,162,83,.1);font-size:13px}
+.hours-row:last-child{border-bottom:none}
+.map-wrap{overflow:hidden;border:1px solid rgba(196,162,83,.15)}
+.map-frame{width:100%;height:390px;border:0;display:block;filter:brightness(.85) contrast(1.1)}
+@media(max-width:768px){.map-frame{height:280px}}
+
+/* SOCIAL */
+.social-link{display:inline-flex;align-items:center;gap:9px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:500;letter-spacing:.07em;color:rgba(240,232,216,.68);transition:color .2s}
+.social-link svg{fill:currentColor;flex-shrink:0}
+.social-link:hover{color:#C4A253}
+
+/* RATING BADGE */
+.rating-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(196,162,83,.08);border:1px solid rgba(196,162,83,.2);padding:12px 18px}
+
+/* FOOTER */
+footer{background:#060D17;padding:36px clamp(20px,5vw,64px);border-top:1px solid rgba(196,162,83,.1)}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;max-width:1100px;margin:0 auto}
+
+/* MOBILE CTA */
+#mob-cta{position:fixed;bottom:0;left:0;right:0;z-index:90;background:#080F19;border-top:1px solid rgba(196,162,83,.22);padding:11px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;transform:translateY(100%);transition:transform .35s ease}
+#mob-cta.show{transform:translateY(0)}
+@media(min-width:768px){#mob-cta{display:none!important}}
+
+/* BULLET DOT */
+.dot{width:5px;height:5px;background:#C4A253;border-radius:50%;flex-shrink:0}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav id="main-nav" role="navigation" aria-label="Основная навигация">
+  <a href="#" class="nav-logo" aria-label="Барин и Бараш — на главную">БАРИН &amp; БАРАШ</a>
+  <div class="nav-links">
+    <a href="#about" class="nav-link">О нас</a>
+    <a href="#menu" class="nav-link">Меню</a>
+    <a href="#atmosphere" class="nav-link">Атмосфера</a>
+    <a href="#banquet" class="nav-link">Банкеты</a>
+    <a href="#contacts" class="nav-link">Контакты</a>
+  </div>
+  <a href="tel:+79015776777" class="btn-gold nav-cta" aria-label="Позвонить и забронировать стол">Забронировать стол</a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero" aria-label="Ресторан Барин и Бараш">
+  <div id="hero-bg" role="img" aria-label="Блюда ресторана при свечах — мясо на углях и бокалы вина"></div>
+  <div id="hero-overlay" aria-hidden="true"></div>
+  <div id="hero-content" class="reveal">
+    <!-- Rating -->
+    <div style="display:flex;justify-content:center;margin-bottom:24px">
+      <a href="https://yandex.com/maps/org/barin_and_barash/88986911340/" target="_blank" rel="noopener"
+         style="display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(196,162,83,.4);background:rgba(196,162,83,.1);color:#C4A253;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:500;letter-spacing:.07em;padding:7px 16px;transition:background .2s"
+         aria-label="Рейтинг 4.9 на Яндекс.Картах, 2280 оценок">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="#C4A253" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        4.9 &nbsp;·&nbsp; 2&nbsp;280 оценок Яндекс.Карты
+      </a>
+    </div>
+    <!-- H1 -->
+    <h1 style="font-size:clamp(3rem,9vw,7rem);font-weight:700;letter-spacing:.03em;color:#F0E8D8;line-height:.95;margin-bottom:16px;text-shadow:0 2px 40px rgba(0,0,0,.5)">
+      БАРИН<br><span style="color:#C4A253">&amp;</span> БАРАШ
+    </h1>
+    <!-- Tagline -->
+    <p style="font-family:'Montserrat',sans-serif;font-size:clamp(.75rem,1.8vw,.9rem);font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:rgba(240,232,216,.78);margin-bottom:44px">
+      Ресторан в сердце Коломенского кремля
+    </p>
+    <!-- CTAs -->
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px">
+      <a href="tel:+79015776777" class="btn-gold glow-pulse" aria-label="Позвонить и забронировать стол">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        Забронировать стол
+      </a>
+      <a href="#menu" class="btn-ghost" aria-label="Перейти к меню">Смотреть меню</a>
+    </div>
+    <!-- Scroll -->
+    <div style="margin-top:56px;display:flex;justify-content:center" aria-hidden="true">
+      <svg class="scroll-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(196,162,83,.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SOCIAL PROOF STRIP ═══ -->
+<div id="proof-strip" role="banner" aria-label="Ключевые факты">
+  <a href="https://yandex.com/maps/org/barin_and_barash/88986911340/" target="_blank" rel="noopener"
+     style="display:inline-flex;align-items:center;gap:6px;color:#C4A253;transition:opacity .2s"
+     aria-label="Открыть страницу на Яндекс.Картах">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="#C4A253" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <strong>4.9</strong>&nbsp;на Яндекс.Картах &middot; 2&nbsp;280 оценок
+  </a>
+  <div class="proof-sep" aria-hidden="true"></div>
+  <span>Коломенский кремль, ул.&nbsp;Лажечникова,&nbsp;3</span>
+  <div class="proof-sep" aria-hidden="true"></div>
+  <a href="tel:+79015776777" style="color:rgba(240,232,216,.78);transition:color .2s" aria-label="Позвонить в ресторан">+7&nbsp;(901)&nbsp;577-67-77</a>
+</div>
+
+<!-- ═══ О НАС ═══ -->
+<section id="about" class="section-pad" aria-labelledby="about-h">
+  <div class="about-grid reveal">
+    <div class="about-img">
+      <img src="photos/02.jpg"
+           alt="Логотип ресторана Барин и Бараш — дворянин в цилиндре и ягнёнок, золото на тёмно-синем фоне"
+           style="width:100%;object-fit:cover">
+    </div>
+    <div>
+      <span class="section-label">О ресторане</span>
+      <h2 id="about-h" class="section-title" style="text-align:left">
+        Имя — как<br>русская поговорка
+      </h2>
+      <div class="gold-line"></div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;font-weight:400;line-height:1.75;color:rgba(240,232,216,.9);margin-bottom:18px">
+        Каждый прочтёт по-своему.
+      </p>
+      <p style="font-size:15px;line-height:1.85;color:rgba(240,232,216,.7);margin-bottom:16px;font-weight:300">
+        Готовим на углях и лепим пельмени руками. Русская кухня и европейские техники — без компромисса в сторону простоты. В меню кальцоне, борщ, люля-кебаб и рёбра ягнёнка. Каждое блюдо — честное.
+      </p>
+      <p style="font-size:15px;line-height:1.85;color:rgba(240,232,216,.7);margin-bottom:30px;font-weight:300">
+        Мы находимся прямо в Коломенском кремле — на главной пешеходной улице города. Приходят туристы, возвращаются местные.
+      </p>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:32px">
+        <div style="width:3px;height:40px;background:#C4A253;flex-shrink:0" aria-hidden="true"></div>
+        <p style="font-size:14px;color:rgba(196,162,83,.85);font-weight:400;letter-spacing:.03em">Средний чек — около 1&nbsp;500&nbsp;₽</p>
+      </div>
+      <a href="tel:+79015776777" class="btn-gold" aria-label="Позвонить и забронировать стол">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        Забронировать стол
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ МЕНЮ ═══ -->
+<section id="menu" style="background:#0F2235;padding:80px clamp(20px,5vw,80px)" aria-labelledby="menu-h">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="reveal" style="text-align:center;margin-bottom:48px">
+      <span class="section-label">Меню</span>
+      <h2 id="menu-h" class="section-title" style="text-align:center">Что мы готовим</h2>
+      <div class="gold-line center"></div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(240,232,216,.65);letter-spacing:.03em">
+        На углях. Руками. По-настоящему.
+      </p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <img src="photos/14.webp" alt="Борщ в горшочке с чёрным хлебом и рюмкой — классическое блюдо" loading="lazy">
+        <div class="gallery-cap">Борщ в горшочке</div>
+      </div>
+      <div class="gallery-item">
+        <img src="photos/10.webp" alt="Люля-кебаб на лаваше с картофелем" loading="lazy">
+        <div class="gallery-cap">Люля-кебаб</div>
+      </div>
+      <div class="gallery-item">
+        <img src="photos/01.jpg" alt="Сельдь на ржаном хлебе — холодная закуска" loading="lazy">
+        <div class="gallery-cap">Сельдь на ржаном</div>
+      </div>
+      <div class="gallery-item">
+        <img src="photos/15.webp" alt="Рёбра ягнёнка с картофелем и маринованным луком" loading="lazy">
+        <div class="gallery-cap">Рёбра ягнёнка</div>
+      </div>
+      <div class="gallery-item">
+        <img src="photos/11.webp" alt="Кальцоне с курицей, помидорами черри и пармезаном" loading="lazy">
+        <div class="gallery-cap">Кальцоне</div>
+      </div>
+      <div class="gallery-item">
+        <img src="photos/09.webp" alt="Салат с грушей, зеленью и бальзамическим соусом" loading="lazy">
+        <div class="gallery-cap">Салат с грушей</div>
+      </div>
+      <div class="gallery-item">
+        <img src="photos/16.webp" alt="Котлеты из ягнёнка с соусом" loading="lazy">
+        <div class="gallery-cap">Котлеты из ягнёнка</div>
+      </div>
+      <div class="gallery-item">
+        <img src="photos/13.webp" alt="Курица на углях на деревянной доске с овощами гриль" loading="lazy">
+        <div class="gallery-cap">Курица на углях</div>
+      </div>
+      <div class="gallery-item">
+        <img src="photos/05.webp" alt="Сырная доска с мёдом, орехами и розмарином" loading="lazy">
+        <div class="gallery-cap">Сырная доска</div>
+      </div>
+      <div class="gallery-item">
+        <img src="photos/07.webp" alt="Авторский десерт в стеклянной банке с кокосовой стружкой" loading="lazy">
+        <div class="gallery-cap">Авторский десерт</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ БАР ═══ -->
+<section id="bar" style="background:#0B1929;padding:80px clamp(20px,5vw,80px)" aria-labelledby="bar-h">
+  <div class="bar-grid reveal">
+    <div class="bar-img">
+      <img src="photos/04.webp"
+           alt="Белый авторский коктейль и Апероль Шпритц на дубовом столе ресторана"
+           loading="lazy">
+    </div>
+    <div>
+      <span class="section-label">Бар</span>
+      <h2 id="bar-h" class="section-title" style="text-align:left;font-size:clamp(2rem,4vw,3rem)">Напитки</h2>
+      <div class="gold-line"></div>
+      <p style="font-size:15px;line-height:1.85;color:rgba(240,232,216,.7);margin-bottom:14px;font-weight:300">
+        Медовуха из Коломны, авторские чаи на травах и лимонады, которые меняются с сезоном.
+      </p>
+      <p style="font-size:15px;line-height:1.85;color:rgba(240,232,216,.7);margin-bottom:34px;font-weight:300">
+        Никаких сложных формул — только то, что хочется пить в хорошем месте.
+      </p>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;gap:13px"><div class="dot"></div><span style="font-size:14px;color:rgba(240,232,216,.82)">Медовуха — местная, живая</span></div>
+        <div style="display:flex;align-items:center;gap:13px"><div class="dot"></div><span style="font-size:14px;color:rgba(240,232,216,.82)">Авторские чаи на травах</span></div>
+        <div style="display:flex;align-items:center;gap:13px"><div class="dot"></div><span style="font-size:14px;color:rgba(240,232,216,.82)">Сезонные лимонады</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ АТМОСФЕРА fullwidth ═══ -->
+<div id="atmosphere" class="fw-section" style="min-height:580px" aria-labelledby="atm-h">
+  <div class="fw-bg" style="background-image:url('photos/08.webp')" role="img" aria-label="Кованая люстра с лампами Эдисона на фоне тёмно-синей стены ресторана"></div>
+  <div class="fw-overlay" style="background:linear-gradient(to bottom,rgba(11,25,41,.55),rgba(11,25,41,.72))" aria-hidden="true"></div>
+  <div class="fw-content reveal">
+    <span class="section-label">Атмосфера</span>
+    <h2 id="atm-h" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.1rem,5vw,3.6rem);font-weight:600;color:#F0E8D8;margin-bottom:18px;line-height:1.12">
+      Кованые люстры.<br>Дубовые столы.
+    </h2>
+    <div class="gold-line center visible" style="width:56px;margin:18px auto 22px"></div>
+    <p style="font-size:15px;line-height:1.85;color:rgba(240,232,216,.8);font-weight:300;margin-bottom:22px">
+      Каждая деталь интерьера сделана под заказ. Фарфор с фирменным рисунком, ручная ковка, натуральные материалы.
+    </p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:rgba(240,232,216,.92);margin-bottom:38px;line-height:1.55">
+      «По пятницам и субботам — до полуночи.<br>В кремле, который ночью только наш.»
+    </p>
+    <a href="tel:+79015776777" class="btn-gold" aria-label="Забронировать стол на вечер">Забронировать на вечер</a>
+  </div>
+</div>
+
+<!-- АТМОСФЕРА деталь -->
+<div style="background:#0B1929;padding:0 clamp(20px,5vw,80px)">
+  <div class="atm-detail">
+    <div class="atm-detail-img reveal">
+      <img src="photos/03.webp"
+           alt="Брендированные деревянные подставки и перечница на столе ресторана Барин и Бараш"
+           loading="lazy"
+           style="width:100%;height:280px;object-fit:cover">
+    </div>
+    <div style="display:flex;align-items:center;padding:24px 0" class="reveal">
+      <div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;color:#F0E8D8;margin-bottom:14px;line-height:1.3">
+          Место знают туристы.<br>Любят местные.
+        </p>
+        <p style="font-size:14px;line-height:1.8;color:rgba(240,232,216,.6);font-weight:300">
+          Ресторан прямо на главной пешеходной улице кремля. Рядом — белокаменные стены, соборы, история. Хорошее место для первого визита в Коломну и повода вернуться.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ БАНКЕТЫ ═══ -->
+<section id="banquet" style="padding:0" aria-labelledby="banquet-h">
+  <div class="fw-section" style="min-height:600px">
+    <div class="fw-bg" style="background-image:url('photos/06.jpg');background-position:center 40%"
+         role="img" aria-label="Банкетный мраморный стол на 20 персон с бокалами и сервировкой"></div>
+    <div class="fw-overlay" style="background:rgba(11,25,41,.7)" aria-hidden="true"></div>
+    <div class="fw-content reveal">
+      <span class="section-label">Банкеты и мероприятия</span>
+      <h2 id="banquet-h" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.1rem,5vw,3.6rem);font-weight:600;color:#F0E8D8;margin-bottom:18px;line-height:1.12">
+        Мраморный зал<br>на 20 персон
+      </h2>
+      <div class="gold-line center visible" style="width:56px;margin:18px auto 22px"></div>
+      <p style="font-size:15px;line-height:1.85;color:rgba(240,232,216,.8);font-weight:300;margin-bottom:14px">
+        Корпоративы, свадьбы, юбилеи. Собственное банкетное меню, живая музыка по запросу, медовуха для тостов.
+      </p>
+      <p style="font-size:13px;color:rgba(240,232,216,.5);margin-bottom:38px;letter-spacing:.04em">
+        Обсуждаем детали индивидуально.
+      </p>
+      <a href="tel:+79015776777" class="btn-gold" aria-label="Позвонить и обсудить проведение банкета">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        Обсудить банкет
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ КОНТАКТЫ ═══ -->
+<section id="contacts" style="background:#0F2235;padding:80px clamp(20px,5vw,80px)" aria-labelledby="contacts-h">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="reveal" style="text-align:center;margin-bottom:56px">
+      <span class="section-label">Контакты</span>
+      <h2 id="contacts-h" class="section-title" style="text-align:center">Как нас найти</h2>
+      <div class="gold-line center"></div>
+    </div>
+    <div class="contacts-grid reveal">
+      <!-- Info -->
+      <div>
+        <div class="contact-row">
+          <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <div>
+            <p style="font-size:13px;font-weight:600;color:#F0E8D8;margin-bottom:5px;letter-spacing:.04em">Адрес</p>
+            <a href="https://yandex.com/maps/org/barin_and_barash/88986911340/" target="_blank" rel="noopener"
+               style="font-size:14px;color:rgba(240,232,216,.65);line-height:1.6;transition:color .2s"
+               aria-label="Открыть адрес на Яндекс.Картах">
+              ул. Лажечникова, 3, Коломна<br>
+              <span style="color:rgba(196,162,83,.75);font-size:13px">В Коломенском кремле</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <div>
+            <p style="font-size:13px;font-weight:600;color:#F0E8D8;margin-bottom:5px;letter-spacing:.04em">Телефон</p>
+            <a href="tel:+79015776777" style="font-size:14px;color:rgba(240,232,216,.65);transition:color .2s" aria-label="Позвонить в ресторан">+7 (901) 577-67-77</a>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+          <div>
+            <p style="font-size:13px;font-weight:600;color:#F0E8D8;margin-bottom:10px;letter-spacing:.04em">Часы работы</p>
+            <div>
+              <div class="hours-row">
+                <span style="color:rgba(240,232,216,.58)">Пн – Чт, Вс</span>
+                <span style="color:rgba(240,232,216,.85);font-weight:500">12:00 – 23:00</span>
+              </div>
+              <div class="hours-row">
+                <span style="color:rgba(240,232,216,.58)">Пт – Сб</span>
+                <span style="color:#C4A253;font-weight:600">12:00 – 00:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px;margin:20px 0 28px 32px">
+          <a href="https://www.instagram.com/barinandbarash/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram ресторана Барин и Бараш">
+            <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @barinandbarash
+          </a>
+          <a href="https://vk.com/barinandbarash" target="_blank" rel="noopener" class="social-link" aria-label="ВКонтакте страница ресторана">
+            <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.709-1.033-1.01-1.49-1.135-1.745-1.135-.356 0-.458.102-.458.593v1.558c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.27-1.422 2.168-3.608 2.168-3.608.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.78 1.203 1.253.745.847 1.32 1.558 1.473 2.049.17.474-.085.712-.576.712z"/></svg>
+            ВКонтакте
+          </a>
+        </div>
+
+        <div class="rating-badge" style="display:inline-flex">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#C4A253" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:#C4A253;line-height:1">4.9</div>
+            <div style="font-size:10px;color:rgba(240,232,216,.45);letter-spacing:.08em;margin-top:2px">2 280 оценок · Яндекс.Карты</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div>
+        <div class="map-wrap">
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?ol=biz&oid=88986911340&lang=ru_RU"
+            class="map-frame"
+            allowfullscreen="true"
+            title="Ресторан Барин и Бараш на карте Коломны"
+            loading="lazy">
+          </iframe>
+        </div>
+        <p style="font-size:11px;color:rgba(240,232,216,.35);margin-top:9px;text-align:center;letter-spacing:.04em">
+          <a href="https://yandex.com/maps/org/barin_and_barash/88986911340/" target="_blank" rel="noopener"
+             style="color:rgba(196,162,83,.55);transition:color .2s"
+             aria-label="Открыть полную карту на Яндекс.Картах">Открыть на Яндекс.Картах</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:#F0E8D8;letter-spacing:.05em;margin-bottom:4px">БАРИН &amp; БАРАШ</div>
+      <div style="font-size:10px;color:rgba(240,232,216,.35);letter-spacing:.12em;text-transform:uppercase">Ресторан в Коломенском кремле</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap">
+      <a href="https://www.instagram.com/barinandbarash/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+        <svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram
+      </a>
+      <a href="https://vk.com/barinandbarash" target="_blank" rel="noopener" class="social-link" aria-label="ВКонтакте">
+        <svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.709-1.033-1.01-1.49-1.135-1.745-1.135-.356 0-.458.102-.458.593v1.558c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.27-1.422 2.168-3.608 2.168-3.608.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.78 1.203 1.253.745.847 1.32 1.558 1.473 2.049.17.474-.085.712-.576.712z"/></svg>
+        ВКонтакте
+      </a>
+      <a href="tel:+79015776777"
+         style="font-size:13px;font-weight:600;color:#C4A253;letter-spacing:.05em;transition:color .2s"
+         aria-label="Позвонить в ресторан">+7 (901) 577-67-77</a>
+    </div>
+    <div style="font-size:10px;color:rgba(240,232,216,.25);letter-spacing:.06em">&copy; 2025 Барин &amp; Бараш</div>
+  </div>
+</footer>
+
+<!-- ═══ STICKY MOBILE CTA ═══ -->
+<div id="mob-cta" role="complementary" aria-label="Быстрое бронирование">
+  <div>
+    <div style="font-size:10px;color:rgba(240,232,216,.45);letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px">Забронировать</div>
+    <div style="font-size:14px;font-weight:600;color:#F0E8D8">+7 (901) 577-67-77</div>
+  </div>
+  <a href="tel:+79015776777" class="btn-gold" style="padding:12px 24px;font-size:12px;min-height:46px" aria-label="Позвонить в ресторан Барин и Бараш">Позвонить</a>
+</div>
+
+<script>
+(function(){
+  // iOS: disable background-attachment:fixed
+  var isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream;
+  if(isIOS){
+    var heroBg=document.getElementById('hero-bg');
+    if(heroBg){heroBg.style.backgroundAttachment='scroll';heroBg.style.transform='scale(1.08)'}
+  }
+
+  // Nav scroll state
+  var nav=document.getElementById('main-nav');
+  function onScroll(){
+    if(window.scrollY>80) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+    updateMobCta();
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+
+  // Smooth anchor scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=a.getAttribute('href');
+      if(id==='#')return;
+      var el=document.querySelector(id);
+      if(!el)return;
+      e.preventDefault();
+      window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-70,behavior:'smooth'});
+    });
+  });
+
+  // IntersectionObserver — reveal
+  var revObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}
+    });
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(function(el){revObs.observe(el);});
+
+  // IntersectionObserver — gold lines
+  var lineObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');lineObs.unobserve(e.target);}
+    });
+  },{threshold:0.5});
+  document.querySelectorAll('.gold-line:not(.visible)').forEach(function(el){lineObs.observe(el);});
+
+  // Mobile CTA
+  var mobCta=document.getElementById('mob-cta');
+  var heroEl=document.getElementById('hero');
+  function updateMobCta(){
+    var threshold=heroEl?heroEl.offsetHeight*0.65:400;
+    if(window.scrollY>threshold) mobCta.classList.add('show');
+    else mobCta.classList.remove('show');
+  }
+
+  // Hero content initial reveal
+  window.addEventListener('load',function(){
+    var hc=document.getElementById('hero-content');
+    if(hc) setTimeout(function(){hc.classList.add('visible');},150);
+    onScroll();
+  });
+})();
+</script>
+</body>
+</html>
