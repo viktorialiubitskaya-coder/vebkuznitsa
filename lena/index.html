@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Лена · Лиды ВебКузница</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --cream:   #FFF8F1;
+      --card-bg: #FFFFFF;
+      --terra:   #C8502A;
+      --terra-lt:#F2E5DF;
+      --sage:    #5C8C6A;
+      --sage-lt: #E3EFE7;
+      --text:    #2A2017;
+      --muted:   #7A6E65;
+      --border:  #EAE0D8;
+      --gold:    #C8961E;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Onest',sans-serif;background:var(--cream);color:var(--text);-webkit-font-smoothing:antialiased}
+
+    .hero{background:linear-gradient(135deg,#3D1F0E 0%,#5C2D16 50%,#3D1F0E 100%);color:#FFF8F1;padding:2.5rem 1.5rem 2rem;text-align:center}
+    .hero-emoji{font-size:2.5rem;margin-bottom:.5rem}
+    .hero-title{font-size:clamp(1.6rem,5vw,2.4rem);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-bottom:.4rem}
+    .hero-sub{font-size:1rem;color:#D4A34A;font-weight:500;margin-bottom:.8rem}
+    .hero-date{font-size:.8rem;color:rgba(255,248,241,.5)}
+
+    .stats-bar{display:grid;grid-template-columns:repeat(2,1fr);background:#fff;border-bottom:1px solid var(--border);max-width:860px;margin:0 auto}
+    @media(min-width:640px){.stats-bar{grid-template-columns:repeat(4,1fr)}}
+    .stat-cell{padding:1rem .75rem;text-align:center;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .stat-cell:last-child{border-right:none}
+    .stat-cell .sv{font-size:1.4rem;font-weight:700;color:var(--terra)}
+    .stat-cell .sl{font-size:.72rem;color:var(--muted);margin-top:.15rem}
+
+    .main{max-width:860px;margin:0 auto;padding:1.5rem 1rem 4rem}
+    .section-header{font-size:1.1rem;font-weight:600;margin:2rem 0 1rem;color:var(--text)}
+
+    .cards-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
+    @media(min-width:640px){.cards-grid{grid-template-columns:1fr 1fr}}
+
+    .card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(42,32,23,.06);transition:box-shadow .2s}
+    .card:hover{box-shadow:0 4px 20px rgba(42,32,23,.10)}
+    .card-hero{height:170px;background-size:cover;background-position:center;position:relative;background-color:var(--terra-lt)}
+    .card-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(42,32,23,.45) 0%,transparent 50%);display:flex;align-items:flex-start;padding:.75rem}
+    .card-badges{display:flex;gap:.4rem;flex-wrap:wrap}
+    .badge{font-size:.68rem;font-weight:600;padding:.25rem .6rem;border-radius:100px;letter-spacing:.02em}
+    .badge-hot{background:var(--terra);color:white}
+    .badge-warm{background:var(--gold);color:white}
+
+    .card-body{padding:1rem 1rem 1.25rem}
+    .card-header-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.6rem}
+    .card-title{font-size:1.05rem;font-weight:700;line-height:1.25;color:var(--text)}
+    .card-meta{font-size:.78rem;color:var(--muted);margin-top:.2rem}
+    .card-rating{text-align:right;flex-shrink:0;margin-left:.5rem}
+    .stars{font-size:.9rem;font-weight:600;color:var(--gold)}
+    .reviews{display:block;font-size:.7rem;color:var(--muted);margin-top:.1rem;white-space:nowrap}
+
+    .pkg-teaser{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;background:var(--sage-lt);border-radius:8px;padding:.5rem .75rem;margin-bottom:.75rem;font-size:.82rem}
+    .pkg-name{font-weight:600;color:var(--sage)}
+    .pkg-sep{color:var(--muted)}
+    .pkg-price{color:var(--muted)}
+    .pkg-arrow{color:var(--muted)}
+    .pkg-comm{color:var(--text)}
+    .pkg-comm strong{color:var(--terra)}
+
+    .expand-btn{width:100%;background:var(--terra);color:white;border:none;border-radius:10px;padding:.65rem 1rem;font-size:.875rem;font-weight:600;cursor:pointer;font-family:'Onest',sans-serif;display:flex;align-items:center;justify-content:center;gap:.5rem;transition:background .15s,transform .1s}
+    .expand-btn:hover{background:#a8401e}
+    .expand-btn:active{transform:scale(.98)}
+
+    .lead-detail{border-top:1px solid var(--border)}
+    .detail-inner{padding:1.25rem 1rem}
+    .section{margin-bottom:1.5rem}
+    .section-title{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.75rem;padding-bottom:.4rem;border-bottom:1px solid var(--border)}
+
+    .info-grid{display:flex;flex-direction:column;gap:.65rem}
+    .info-row{display:flex;gap:.65rem;align-items:flex-start}
+    .info-icon{font-size:1.1rem;flex-shrink:0;width:1.5rem;text-align:center}
+    .info-label{font-size:.72rem;color:var(--muted);margin-bottom:.1rem}
+    .info-val{font-size:.9rem;color:var(--text)}
+    .info-link{font-size:.9rem;color:var(--terra);text-decoration:none}
+    .info-link:hover{text-decoration:underline}
+    .demo-link{font-size:.9rem;color:var(--sage);font-weight:500;text-decoration:none}
+    .demo-link:hover{text-decoration:underline}
+    .demo-wip{font-size:.85rem;color:var(--muted);font-style:italic}
+
+    .stats-row{display:flex;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:.75rem}
+    .stat-item{flex:1;text-align:center;padding:.65rem .5rem;border-right:1px solid var(--border)}
+    .stat-item:last-child{border-right:none}
+    .stat-item .stat-val{font-size:1rem;font-weight:700;color:var(--terra)}
+    .stat-item .stat-label{font-size:.68rem;color:var(--muted);margin-top:.1rem}
+
+    .notes-list{display:flex;flex-direction:column;gap:.25rem;margin-top:.5rem}
+    .note-item{font-size:.82rem;color:var(--sage)}
+
+    .special-text{font-size:.88rem;color:var(--text);line-height:1.6;background:var(--cream);border-left:3px solid var(--terra);padding:.75rem 1rem;border-radius:0 8px 8px 0;white-space:pre-line}
+
+    .pkg-section .pkg-detail{background:var(--sage-lt);border-radius:10px;padding:.875rem 1rem}
+    .pkg-detail-name{font-size:1rem;font-weight:700;color:var(--sage);margin-bottom:.5rem}
+    .pkg-detail-row{display:flex;justify-content:space-between;font-size:.88rem;color:var(--muted);margin-top:.3rem}
+    .pkg-detail-row.highlight{margin-top:.5rem;padding-top:.5rem;border-top:1px solid rgba(92,140,106,.3);color:var(--text)}
+    .commission{color:var(--terra)!important;font-size:1.1rem}
+
+    .pitch-block{background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:.875rem 1rem;margin-bottom:.875rem}
+    .pitch-title{font-size:.82rem;font-weight:600;color:var(--muted);margin-bottom:.6rem}
+    .pitch-text{font-size:.875rem;color:var(--text);line-height:1.6;white-space:pre-line;margin-bottom:.6rem}
+    .copy-btn{background:var(--terra-lt);color:var(--terra);border:1px solid rgba(200,80,42,.3);border-radius:7px;padding:.4rem .9rem;font-size:.8rem;font-weight:500;cursor:pointer;font-family:'Onest',sans-serif;transition:background .15s}
+    .copy-btn:hover{background:#e8c4b8}
+    .copy-btn.copied{background:var(--sage-lt);color:var(--sage);border-color:rgba(92,140,106,.4)}
+
+    .status-row{display:flex;align-items:center;gap:.5rem;font-size:.9rem;margin-bottom:.75rem}
+    .status-btns{display:flex;flex-wrap:wrap;gap:.5rem}
+    .status-btn{background:white;border:1px solid var(--border);border-radius:8px;padding:.45rem .85rem;font-size:.8rem;font-weight:500;cursor:pointer;font-family:'Onest',sans-serif;color:var(--text);transition:all .15s}
+    .status-btn:hover{border-color:var(--terra);color:var(--terra)}
+    .status-btn-reply:hover{border-color:var(--sage);color:var(--sage)}
+    .status-btn-reset:hover{border-color:var(--muted);color:var(--muted)}
+
+    .pricing-section{margin-top:3rem;padding-top:2rem;border-top:2px solid var(--border)}
+    .pricing-section h2{font-size:1.25rem;font-weight:700;margin-bottom:1.25rem}
+    .pkg-cards{display:grid;grid-template-columns:1fr;gap:1rem}
+    @media(min-width:640px){.pkg-cards{grid-template-columns:repeat(3,1fr)}}
+    .pkg-card{background:white;border:1px solid var(--border);border-radius:14px;padding:1.25rem 1rem}
+    .pkg-card.featured{border-color:var(--terra);border-width:2px}
+    .pkg-card-name{font-size:1rem;font-weight:700;margin-bottom:.3rem}
+    .pkg-card-price{font-size:1.1rem;font-weight:700;color:var(--terra);margin-bottom:.25rem}
+    .pkg-card-comm{font-size:.82rem;color:var(--sage);font-weight:600;margin-bottom:.75rem}
+    .pkg-card-features{list-style:none;padding:0}
+    .pkg-card-features li{font-size:.8rem;color:var(--muted);padding:.2rem 0 .2rem 1.2rem;position:relative}
+    .pkg-card-features li::before{content:"•";position:absolute;left:0;color:var(--terra)}
+    .pkg-card-note{font-size:.75rem;margin-top:.5rem}
+    .pkg-card-note.warn{color:var(--muted);font-style:italic}
+    .pkg-card-note.good{color:var(--sage)}
+
+    .tips-section{margin-top:2.5rem}
+    .tips-section h2{font-size:1.1rem;font-weight:700;margin-bottom:1rem}
+    .tips-grid{display:grid;grid-template-columns:1fr;gap:.75rem}
+    @media(min-width:640px){.tips-grid{grid-template-columns:1fr 1fr}}
+    .tip-block{background:white;border:1px solid var(--border);border-radius:12px;padding:1rem}
+    .tip-block h4{font-size:.85rem;font-weight:700;margin-bottom:.5rem}
+    .tip-block ul{list-style:none;padding:0}
+    .tip-block li{font-size:.82rem;color:var(--muted);padding:.15rem 0 .15rem 1.3rem;position:relative}
+    .tip-block li::before{content:attr(data-b);position:absolute;left:0}
+
+    .footer{text-align:center;padding:2rem 1rem;border-top:1px solid var(--border);margin-top:2rem;font-size:.82rem;color:var(--muted)}
+    .footer a{color:var(--terra);text-decoration:none}
+
+    .toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);background:#2A2017;color:white;padding:.6rem 1.2rem;border-radius:100px;font-size:.85rem;opacity:0;transition:opacity .2s;pointer-events:none;z-index:999}
+    .toast.show{opacity:1}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-emoji">🤝</div>
+  <h1 class="hero-title">Лен, держи лиды!</h1>
+  <div class="hero-sub">Твоя комиссия 30% с каждой продажи</div>
+  <div class="hero-date">Обновлено: 30 апреля 2026</div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-cell"><div class="sv">2</div><div class="sl">Всего лидов</div></div>
+  <div class="stat-cell"><div class="sv">0</div><div class="sl">Готовых демо</div></div>
+  <div class="stat-cell"><div class="sv" id="stat-sent-val">0</div><div class="sl">Отправлено</div></div>
+  <div class="stat-cell"><div class="sv" style="font-size:1rem">4 500 – 4 500 ₽</div><div class="sl">Потенц. комиссия</div></div>
+</div>
+
+<div class="main">
+  <div class="section-header">🔥 Лиды в работе</div>
+  <div class="cards-grid">
+
+  <div class="card" id="card-1">
+    <div class="card-hero" style="background-image:url('https://leads.vebkuznitsa.ru/media/thumbnails/card_cover/mtxUOWwrpPzeN27B19l6WrzthnCmeLzo_fbba0ef0d7a6b5e1507deb89b6025d561a7733fdd73c922011a65caf1bb601b1.jpg')">
+      <div class="card-hero-overlay">
+        <div class="card-badges"><span class="badge badge-hot">Нет сайта 🔥</span></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-header-row">
+        <div>
+          <h2 class="card-title">Барин и Бараш</h2>
+          <div class="card-meta">Коломна · Русская, Европейская</div>
+        </div>
+        <div class="card-rating">
+          <span class="stars">★ 4.9</span>
+          <span class="reviews">2 280 отз.</span>
+        </div>
+      </div>
+      <div class="pkg-teaser">
+        <span class="pkg-name">Витрина+</span>
+        <span class="pkg-sep">·</span>
+        <span class="pkg-price">15 000 ₽</span>
+        <span class="pkg-arrow">→</span>
+        <span class="pkg-comm">твоих <strong>4 500 ₽</strong></span>
+      </div>
+      <button class="expand-btn" onclick="toggleLead(1)">
+        <span id="btn-text-1">Открыть детали</span>
+        <span id="btn-icon-1">↓</span>
+      </button>
+    </div>
+
+    <div class="lead-detail" id="detail-1" style="display:none">
+      <div class="detail-inner">
+
+        <section class="section">
+          <h3 class="section-title">Контакты</h3>
+          <div class="info-grid"><div class="info-row"><span class="info-icon">📍</span><div><div class="info-label">Адрес</div><div class="info-val">ул. Лажечникова, 3</div></div></div>
+<div class="info-row"><span class="info-icon">📞</span><div><div class="info-label">Телефон</div><a href="tel:+79015776777" class="info-link">+7 (901) 577-67-77</a></div></div>
+<div class="info-row"><span class="info-icon">🔵</span><div><div class="info-label">ВКонтакте</div><a href="https://vk.com/barinandbarash" target="_blank" class="info-link">vk.com/barinandbarash</a></div></div>
+<div class="info-row"><span class="info-icon">🗺</span><div><div class="info-label">Яндекс.Карты</div><a href="https://yandex.ru/maps/org/barin_and_barash/88986911340/" target="_blank" class="info-link">Открыть карту ↗</a></div></div>
+<div class="info-row"><span class="info-icon">🔧</span><div><div class="info-label">Демо-сайт</div><div class="demo-wip">В работе — будет скоро</div></div></div></div>
+        </section>
+
+        <section class="section">
+          <h3 class="section-title">Цифры</h3>
+          <div class="stats-row">
+            <div class="stat-item"><div class="stat-val">★ 4.9</div><div class="stat-label">Рейтинг</div></div>
+            <div class="stat-item"><div class="stat-val">2 280</div><div class="stat-label">Оценок</div></div>
+            <div class="stat-item"><div class="stat-val">1 500 ₽</div><div class="stat-label">Средний чек</div></div>
+          </div>
+          <div class="notes-list"><div class="note-item">🎉 Банкетный зал</div></div>
+        </section>
+
+        <section class="section">
+          <h3 class="section-title">🤖 Сильные сигналы</h3>
+          <div class="special-text">Ресторан и бар в Коломенском кремле — самой туристической локации города. Концепция «огонь вкуса»: блюда на углях, пельмени ручной лепки, кальцоне. Активные банкеты, медовуха, авторские чаи. Работают до полуночи в пт-сб.</div>
+        </section>
+
+        <section class="section pkg-section">
+          <h3 class="section-title">💰 Рекомендуемый пакет</h3>
+          <div class="pkg-detail">
+            <div class="pkg-detail-name">Витрина+</div>
+            <div class="pkg-detail-row"><span>Цена клиенту</span><strong>15 000 ₽</strong></div>
+            <div class="pkg-detail-row highlight">
+              <span>Твоя комиссия 30%</span>
+              <strong class="commission">4 500 ₽</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3 class="section-title">💬 Готовые питчи</h3>
+          <div class="pitch-block"><div class="pitch-title">ВКонтакте — сообщение в группу</div><div class="pitch-text" id="vk-1">Добрый день! Я Лена, работаю в сфере маркетинга и заметила ваше замечательное место прямо в сердце Кремля. Вижу, что вы активно развиваетесь — красивая афиша, интересные мероприятия, и это всё отлично смотрится во ВКонтакте и на Яндекс.Картах. Подумала, что простой демо-сайт мог бы помочь — туристы часто гуглят заведения перед визитом, и наличие собственного сайта добавляет доверия. Если интересно обсудить, пишите, помогу разобраться!</div><button class="copy-btn" onclick="copyText('vk-1')">📋 Скопировать</button></div>
+<div class="pitch-block"><div class="pitch-title">📞 Скрипт телефонного разговора</div><div class="pitch-text" id="phone-1"># Скрипт звонка для «Барин и Бараш»
+
+**Лена:** Здравствуйте! Это Лена, работаю в сфере маркетинга. Искала интересные места Коломны в Яндекс.Картах и увидела ваш ресторан — 4,8 звезды, прямо в кремле! Впечатлилась. Я как раз помогаю заведениям с их онлайн-присутствием. У нас есть готовый демо-сайт для ресторанов, показываю, как можно красиво представить ваше меню и банкеты. Можем быстро посмотреть вместе?
+
+---
+
+**Если говорят: «Нам сайт не нужен»**
+
+**Лена:** Понимаю! Обычно говорят то же самое. Но видите, люди перед тем как прийти — гуглят, ищут меню, время работы. Сайт — это не реклама, это просто витрина. Посмотрели демо — займёт 10 минут, поймёте, для чего он нужен.
+
+---
+
+**Если говорят: «Уже занимаемся с кем-то»**
+
+**Лена:** Норм, не настаиваю! Просто, когда переобсуждаете условия или ищете новый подход — помните о нас. Оставлю вам контакт в ВКонтакте, там можно быстро написать.
+
+---
+
+**Если говорят: «Позвоните позже»**
+
+**Лена:** Отлично, когда вам удобнее? А то я могу отправить ссылку на демо по email — посмотрите в спокойный момент, и обсудим, если интересно.</div><button class="copy-btn" onclick="copyText('phone-1')">📋 Скопировать</button></div>
+<div class="pitch-block"><div class="pitch-title">✉️ Email-версия</div><div class="pitch-text" id="email-1">Тема: Сайт для «Барина и Бараша» — готов демо
+
+Привет!
+
+Я Лена, работаю в ВебКузнице. Нашла ваш ресторан в Яндекс.Поиске и заметила, что своего сайта ещё нет — хотя «Барин и Бараш» в Кремле точно заслуживает отдельной витрины.
+
+Подумала, может быть полезно показать, как выглядит сайт с вашим контентом: афиша банкетов, меню с блюдами на углях, информация про авторские чаи и медовуху, удобная запись на мероприятия. Демо уже готов.
+
+Сайт поможет туристам и местным найти вас легче, забронировать столик онлайн, узнать про ваши события. Плюс — появитесь в поиске не только на картах.
+
+Если интересно посмотреть демо, пишите или звоните. Расскажу подробнее.
+
+Лена
+ВебКузница</div><button class="copy-btn" onclick="copyText('email-1')">📋 Скопировать</button></div>
+
+        </section>
+
+        <section class="section">
+          <h3 class="section-title">📤 Статус</h3>
+          <div class="status-row">
+            <span id="status-dot-1">🟡</span>
+            <span id="status-label-1">Не отправлено</span>
+          </div>
+          <div class="status-btns">
+            <button class="status-btn" onclick="setStatus(1, 'sent')">✅ Отметить отправлено</button>
+            <button class="status-btn status-btn-reply" onclick="setStatus(1, 'replied')">💬 Получен ответ</button>
+            <button class="status-btn status-btn-reset" onclick="setStatus(1, 'new')">↩ Сбросить</button>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-3">
+    <div class="card-hero" style="background-image:url('https://leads.vebkuznitsa.ru/media/thumbnails/card_cover/jevOmmCZ37qpRI45Ut8ocnJo95Hjyp3q_2fd02161a921a6d59128a31eae6a03a9eaae9c143b96bdcf3bff9bc8ff2de54e.jpg')">
+      <div class="card-hero-overlay">
+        <div class="card-badges"><span class="badge badge-warm">Только платформа</span></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-header-row">
+        <div>
+          <h2 class="card-title">Литературное кафе Лажечников</h2>
+          <div class="card-meta">Коломна · Русская</div>
+        </div>
+        <div class="card-rating">
+          <span class="stars">★ 5</span>
+          <span class="reviews">1 477 отз.</span>
+        </div>
+      </div>
+      <div class="pkg-teaser">
+        <span class="pkg-name">Витрина+</span>
+        <span class="pkg-sep">·</span>
+        <span class="pkg-price">15 000 ₽</span>
+        <span class="pkg-arrow">→</span>
+        <span class="pkg-comm">твоих <strong>4 500 ₽</strong></span>
+      </div>
+      <button class="expand-btn" onclick="toggleLead(3)">
+        <span id="btn-text-3">Открыть детали</span>
+        <span id="btn-icon-3">↓</span>
+      </button>
+    </div>
+
+    <div class="lead-detail" id="detail-3" style="display:none">
+      <div class="detail-inner">
+
+        <section class="section">
+          <h3 class="section-title">Контакты</h3>
+          <div class="info-grid"><div class="info-row"><span class="info-icon">📍</span><div><div class="info-label">Адрес</div><div class="info-val">улица Лажечникова, 13А</div></div></div>
+<div class="info-row"><span class="info-icon">📞</span><div><div class="info-label">Телефон</div><a href="tel:+79165831382" class="info-link">+7 (916) 583-13-82</a></div></div>
+<div class="info-row"><span class="info-icon">🔵</span><div><div class="info-label">ВКонтакте</div><a href="https://vk.com/cafelazhechnikov" target="_blank" class="info-link">vk.com/cafelazhechnikov</a></div></div>
+<div class="info-row"><span class="info-icon">🗺</span><div><div class="info-label">Яндекс.Карты</div><a href="https://yandex.ru/maps/org/lazhechnikov_literary_cafe/100397037904/" target="_blank" class="info-link">Открыть карту ↗</a></div></div>
+<div class="info-row"><span class="info-icon">🔧</span><div><div class="info-label">Демо-сайт</div><div class="demo-wip">В работе — будет скоро</div></div></div></div>
+        </section>
+
+        <section class="section">
+          <h3 class="section-title">Цифры</h3>
+          <div class="stats-row">
+            <div class="stat-item"><div class="stat-val">★ 5</div><div class="stat-label">Рейтинг</div></div>
+            <div class="stat-item"><div class="stat-val">1 477</div><div class="stat-label">Оценок</div></div>
+            <div class="stat-item"><div class="stat-val">не указан</div><div class="stat-label">Средний чек</div></div>
+          </div>
+          <div class="notes-list"><div class="note-item">📅 Регулярные мероприятия</div></div>
+        </section>
+
+        <section class="section">
+          <h3 class="section-title">🤖 Сильные сигналы</h3>
+          <div class="special-text">Литературное кафе в сердце Коломны — названо в честь писателя Лажечникова. Используют старорусские слова: «увеселения», «кушанья», «убранство». Регулярные театральные вечера с немым кино 1920-х, тапёром и коломенской пастилой. Место с историей — туристы идут специально.</div>
+        </section>
+
+        <section class="section pkg-section">
+          <h3 class="section-title">💰 Рекомендуемый пакет</h3>
+          <div class="pkg-detail">
+            <div class="pkg-detail-name">Витрина+</div>
+            <div class="pkg-detail-row"><span>Цена клиенту</span><strong>15 000 ₽</strong></div>
+            <div class="pkg-detail-row highlight">
+              <span>Твоя комиссия 30%</span>
+              <strong class="commission">4 500 ₽</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3 class="section-title">💬 Готовые питчи</h3>
+          <div class="pitch-block"><div class="pitch-title">ВКонтакте — сообщение в группу</div><div class="pitch-text" id="vk-3">Добрый день! 
+
+Я Лена, работаю в маркетинге и давно слежу за вашим кафе — такая атмосфера, такой вкус к деталям! Заметила, что основная жизнь заведения происходит тут, во ВКонтакте, а сайта пока нет. Хотела предложить создать простой демо-сайт — чтобы туристы и коломчане могли быстро узнать о ваших вечерах с немым кино, посмотреть афишу и даже забронировать столик. Уверена, это поможет привлечь ещё больше людей, которые ценят именно такие места с историей и характером.</div><button class="copy-btn" onclick="copyText('vk-3')">📋 Скопировать</button></div>
+<div class="pitch-block"><div class="pitch-title">📞 Скрипт телефонного разговора</div><div class="pitch-text" id="phone-3"># Скрипт звонка для «Литературного кафе Лажечников»
+
+**Лена:** Здравствуйте! Это Лена из маркетинг-студии. Я случайно нашла ваше кафе в Яндекс.Картах и просто поражена — у вас 4.8 звезды! Такие места не могут оставаться в тени. Я помогаю заведениям вроде вашего привлекать туристов через правильный сайт. У нас есть готовый демо-вариант, специально под атмосферу литературных увеселений. Могли бы вы уделить 15 минут на короткий просмотр?
+
+---
+
+**Если говорят: «У нас демо-сайт уже в работе»**
+
+Лена: Отлично! А вы учитываете в дизайне вашу фишку — театральные вечера с немым кино? Мой демо показывает, как это оформить так, чтобы туристы прямо из ленты нашли расписание. Может, посмотрите, что я предлагаю?
+
+---
+
+**Если говорят: «Сейчас некогда»**
+
+Лена: Очень понимаю! Я пришлю ссылку на демо по email или можно договориться на удобное время? Это займёт ровно столько, сколько нужно.
+
+---
+
+**Если говорят: «Какова стоимость?»**
+
+Лена: Сначала давайте посмотрим демо — там видно качество. Стоимость зависит от функций. Когда вам удобнее — завтра или в выходной?</div><button class="copy-btn" onclick="copyText('phone-3')">📋 Скопировать</button></div>
+<div class="pitch-block"><div class="pitch-title">✉️ Email-версия</div><div class="pitch-text" id="email-3">Тема: Сайт для «Литературного кафе Лажечников» — готов демо
+
+Привет!
+
+Я Лена, работаю в веб-студии ВебКузница. Нашла ваше кафе в Яндекс.Поиске и влюбилась в идею — такое атмосферное место достойно красивого сайта.
+
+Видно, что туристы ищут вас специально, но сейчас нет собственного сайта с афишей и информацией о вечерах немого кино. Это упущенная возможность — люди хотят заранее узнать о программе, увидеть фото убранства и меню.
+
+Мы подготовили демо-версию сайта специально для вас — с афишей мероприятий, галереей атмосферных снимков, информацией о коломенской пастиле и удобной формой для бронирования столиков. Всё в стиле вашего заведения.
+
+Хотелось бы показать вам, что получилось. Можем созвониться на удобное время?
+
+С уважением,
+Лена
+ВебКузница</div><button class="copy-btn" onclick="copyText('email-3')">📋 Скопировать</button></div>
+
+        </section>
+
+        <section class="section">
+          <h3 class="section-title">📤 Статус</h3>
+          <div class="status-row">
+            <span id="status-dot-3">🟡</span>
+            <span id="status-label-3">Не отправлено</span>
+          </div>
+          <div class="status-btns">
+            <button class="status-btn" onclick="setStatus(3, 'sent')">✅ Отметить отправлено</button>
+            <button class="status-btn status-btn-reply" onclick="setStatus(3, 'replied')">💬 Получен ответ</button>
+            <button class="status-btn status-btn-reset" onclick="setStatus(3, 'new')">↩ Сбросить</button>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="pricing-section">
+    <h2>🪟 Что мы продаём</h2>
+    <div class="pkg-cards">
+      <div class="pkg-card">
+        <div class="pkg-card-name">Витрина</div>
+        <div class="pkg-card-price">10 000 ₽ <span style="font-size:.75rem;color:var(--muted)">Коломна</span></div>
+        <div class="pkg-card-comm">Твоих: 3 000 (Кол.) · 4 500 (Мск.)</div>
+        <ul class="pkg-card-features">
+          <li>Лендинг, мобайл</li>
+          <li>Карта Яндекс</li>
+          <li>Кнопка «Позвонить»</li>
+          <li>Иконка ВКонтакте</li>
+          <li>Базовое SEO</li>
+          <li>1 раунд правок</li>
+        </ul>
+        <div class="pkg-card-note warn">⚠️ Хостинг и домен — клиент сам</div>
+      </div>
+      <div class="pkg-card featured">
+        <div class="pkg-card-name">Витрина+ ⭐</div>
+        <div class="pkg-card-price">15 000 ₽ <span style="font-size:.75rem;color:var(--muted)">Коломна</span></div>
+        <div class="pkg-card-comm">Твоих: 4 500 (Кол.) · 6 000 (Мск.)</div>
+        <ul class="pkg-card-features">
+          <li>Всё из Витрины</li>
+          <li>Галерея фото</li>
+          <li>Меню (PDF / блок)</li>
+          <li>Форма бронирования → email</li>
+          <li>3 цитаты отзывов + Яндекс</li>
+          <li>RU + EN версии</li>
+          <li>Schema.org микроразметка</li>
+          <li>Яндекс.Метрика</li>
+          <li>2 раунда правок</li>
+        </ul>
+        <div class="pkg-card-note good">✅ Хостинг 1 год — продлеваем мы</div>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-card-name">Гость</div>
+        <div class="pkg-card-price">20 000 ₽ <span style="font-size:.75rem;color:var(--muted)">Коломна</span></div>
+        <div class="pkg-card-comm">Твоих: 6 000 (Кол.) · 7 500 (Мск.)</div>
+        <ul class="pkg-card-features">
+          <li>Всё из Витрины+</li>
+          <li>Система бронирования + админ</li>
+          <li>Виджет Яндекс.Карт live</li>
+          <li>Лента ВКонтакте</li>
+          <li>Спецстраница (банкеты/меню)</li>
+          <li>Email-уведомления о бронях</li>
+          <li>Локальное SEO для туристов</li>
+          <li>3 раунда правок</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="tips-section">
+    <h2>💡 Важные напоминания</h2>
+    <div class="tips-grid">
+      <div class="tip-block">
+        <h4>⚠️ При разговоре с клиентами</h4>
+        <ul>
+          <li data-b="·">Не упоминай Telegram и Instagram как каналы для бизнеса</li>
+          <li data-b="·">Цены не озвучивай в первом разговоре</li>
+          <li data-b="·">Сначала покажи демо — заинтересуй, цена потом</li>
+        </ul>
+      </div>
+      <div class="tip-block">
+        <h4>🎯 Хорошие лиды</h4>
+        <ul>
+          <li data-b="✓">Нет своего сайта (только Яндекс.Карты, ВК)</li>
+          <li data-b="✓">Активный постинг в ВКонтакте</li>
+          <li data-b="✓">Рейтинг 4.5+</li>
+          <li data-b="✓">Туристическая локация</li>
+          <li data-b="✓">Уникальная концепция</li>
+        </ul>
+      </div>
+      <div class="tip-block">
+        <h4>❌ Плохие лиды</h4>
+        <ul>
+          <li data-b="×">Сетевые места (Шоколадница, Якитория)</li>
+          <li data-b="×">Низкий рейтинг (ниже 4.0)</li>
+          <li data-b="×">Закрылись или редко работают</li>
+        </ul>
+      </div>
+      <div class="tip-block">
+        <h4>📱 Где искать лиды</h4>
+        <ul>
+          <li data-b="→">Яндекс.Карты — рестораны рядом</li>
+          <li data-b="→">2ГИС — вкладка «Где поесть»</li>
+          <li data-b="→">ВКонтакте — группы «Коломна еда»</li>
+          <li data-b="→">Прогулки — замечай вывески без сайта</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Виктория · ВебКузница ·
+  <a href="tel:+393513904408">+39 351 390 4408</a> ·
+  <a href="https://vk.com/vebkuznitsa" target="_blank">vk.com/vebkuznitsa</a>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+function toggleLead(id) {
+  const d = document.getElementById('detail-' + id);
+  const t = document.getElementById('btn-text-' + id);
+  const ic = document.getElementById('btn-icon-' + id);
+  const open = d.style.display !== 'none';
+  d.style.display = open ? 'none' : 'block';
+  t.textContent = open ? 'Открыть детали' : 'Закрыть';
+  ic.textContent = open ? '↓' : '↑';
+}
+function copyText(id) {
+  const el = document.getElementById(id);
+  const text = el.textContent;
+  const btn = el.nextElementSibling;
+  const doMark = () => {
+    if (btn && btn.classList.contains('copy-btn')) {
+      btn.textContent = '✓ Скопировано';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = '📋 Скопировать'; btn.classList.remove('copied'); }, 2000);
+    }
+    showToast('Скопировано!');
+  };
+  navigator.clipboard.writeText(text).then(doMark).catch(() => {
+    const r = document.createRange(); r.selectNodeContents(el);
+    window.getSelection().removeAllRanges(); window.getSelection().addRange(r);
+    document.execCommand('copy'); doMark();
+  });
+}
+const STATUS_META = {
+  new:     { dot: '🟡', label: 'Не отправлено' },
+  sent:    { dot: '🟢', label: 'Питч отправлен' },
+  replied: { dot: '✅', label: 'Ответ получен'  }
+};
+function setStatus(id, s) {
+  localStorage.setItem('lena_status_' + id, s);
+  applyStatus(id, s);
+  updateSentCount();
+}
+function applyStatus(id, s) {
+  const m = STATUS_META[s] || STATUS_META.new;
+  document.getElementById('status-dot-' + id).textContent = m.dot;
+  document.getElementById('status-label-' + id).textContent = m.label;
+}
+function updateSentCount() {
+  const ids = [1, 3];
+  let c = 0;
+  ids.forEach(id => { const s = localStorage.getItem('lena_status_' + id); if (s && s !== 'new') c++; });
+  document.getElementById('stat-sent-val').textContent = c;
+}
+function initStatuses() {
+  const ids = [1, 3];
+  ids.forEach(id => { applyStatus(id, localStorage.getItem('lena_status_' + id) || 'new'); });
+  updateSentCount();
+}
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1800);
+}
+document.addEventListener('DOMContentLoaded', initStatuses);
+
+</script>
+</body>
+</html>
