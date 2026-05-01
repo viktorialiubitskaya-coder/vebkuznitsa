@@ -107,11 +107,13 @@ img{display:block;max-width:100%}
 
 /* NARRATIVE */
 #narrative{background:var(--ink-black);padding:80px clamp(20px,5vw,80px)}
-.narrative-grid{display:grid;grid-template-columns:180px 1fr;gap:60px;max-width:1000px;margin:0 auto;align-items:center}
-@media(max-width:768px){.narrative-grid{grid-template-columns:1fr;gap:36px}}
-.skull-wrap{display:flex;justify-content:center;align-items:center}
-.skull-svg{width:160px;height:160px;will-change:transform;transition:transform .1s ease-out}
-@media(max-width:768px){.skull-svg{width:100px;height:100px}}
+.narrative-grid{display:grid;grid-template-columns:360px 1fr;gap:60px;max-width:1060px;margin:0 auto;align-items:center}
+@media(max-width:900px){.narrative-grid{grid-template-columns:1fr;gap:36px}}
+.narrative-clipping{position:relative;max-width:380px;width:100%;margin:0 auto}
+.narrative-clipping img{width:100%;height:auto;display:block;filter:drop-shadow(4px 6px 14px rgba(0,0,0,.45));transform:rotate(-3deg);transition:transform .6s cubic-bezier(.16,1,.3,1)}
+@media(min-width:768px){.narrative-clipping:hover img{transform:rotate(-1deg) scale(1.02)}}
+@media(max-width:899px){.narrative-clipping{max-width:280px;margin-bottom:2rem}}
+@media(prefers-reduced-motion:reduce){.narrative-clipping img{transition:none}.narrative-clipping:hover img{transform:rotate(-3deg)}}
 .narrative-title{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--cream);margin-bottom:28px;letter-spacing:-.02em;line-height:1.1}
 .narrative-title .crossed{font-family:var(--font-hand);color:var(--neon-yellow);text-decoration:line-through;text-decoration-thickness:3px;opacity:.6;margin-right:.4rem;font-size:.75em}
 .narrative-text{font-size:1rem;line-height:1.85;color:rgba(242,235,217,.75);font-weight:300}
@@ -408,19 +410,14 @@ footer{background:#060608;padding:36px clamp(20px,5vw,64px);border-top:1px solid
 <!-- ═══ NARRATIVE ═══ -->
 <section id="narrative">
   <div class="narrative-grid section-pad">
-    <div class="skull-wrap reveal-left">
-      <svg class="skull-svg" id="skullSvg" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="50" cy="42" r="34" stroke="#F5DC42" stroke-width="1.5"/>
-        <ellipse cx="50" cy="78" rx="18" ry="12" stroke="#F5DC42" stroke-width="1.5"/>
-        <line x1="32" y1="78" x2="32" y2="90" stroke="#F5DC42" stroke-width="1.5"/>
-        <line x1="50" y1="78" x2="50" y2="90" stroke="#F5DC42" stroke-width="1.5"/>
-        <line x1="68" y1="78" x2="68" y2="90" stroke="#F5DC42" stroke-width="1.5"/>
-        <ellipse cx="38" cy="42" rx="9" ry="10" stroke="#F5DC42" stroke-width="1.5"/>
-        <ellipse cx="62" cy="42" rx="9" ry="10" stroke="#F5DC42" stroke-width="1.5"/>
-        <path d="M44 60 Q50 65 56 60" stroke="#F5DC42" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="50" y1="60" x2="50" y2="65" stroke="#F5DC42" stroke-width="1.5"/>
-        <path d="M30 30 Q50 8 70 30" stroke="#F5DC42" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
-      </svg>
+    <div class="narrative-clipping reveal-left">
+      <img
+        src="assets/newspaper-clipping.svg"
+        alt="Газетная вырезка 2020 года: «Школа требует закрыть бар на Покровке»"
+        width="400"
+        height="520"
+        loading="lazy"
+      >
     </div>
     <div class="reveal">
       <div class="narrative-title">
@@ -951,15 +948,21 @@ var revObs=new IntersectionObserver(function(entries){
 },{threshold:0.1});
 document.querySelectorAll('.reveal,.reveal-left').forEach(function(el){revObs.observe(el);});
 
-// ─── SKULL PARALLAX ──────────────────────────────────────────────────────────
-var skull=document.getElementById('skullSvg');
-if(skull && !window.matchMedia('(prefers-reduced-motion:reduce)').matches){
-  window.addEventListener('scroll',function(){
-    var rect=skull.getBoundingClientRect();
+// ─── CLIPPING PARALLAX ───────────────────────────────────────────────────────
+var clipping=document.querySelector('.narrative-clipping img');
+if(clipping && !window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+  var clipTicking=false;
+  function updateClippingTransform(){
+    var rect=clipping.getBoundingClientRect();
     var vy=window.innerHeight;
-    var progress=(vy-rect.top)/(vy+rect.height);
-    var angle=(progress-.5)*18;
-    skull.style.transform='rotate('+angle+'deg)';
+    var vis=Math.max(0,Math.min(1,(vy-rect.top)/(vy+rect.height)));
+    var rotation=-3+(vis*2);
+    var ty=(vis-.5)*20;
+    clipping.style.transform='rotate('+rotation+'deg) translateY('+ty+'px)';
+    clipTicking=false;
+  }
+  window.addEventListener('scroll',function(){
+    if(!clipTicking){requestAnimationFrame(updateClippingTransform);clipTicking=true;}
   },{passive:true});
 }
 

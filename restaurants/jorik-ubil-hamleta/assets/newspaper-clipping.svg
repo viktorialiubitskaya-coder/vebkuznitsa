@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" role="img" aria-label="Газетная вырезка 2020: Школа требует закрыть бар на Покровке">
+  <defs>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0e8d4" stop-opacity="0"/>
+      <stop offset="1" stop-color="#f0e8d4" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Paper with torn edges -->
+  <path fill="#f0e8d4" d="M0,3 L20,1 L40,4 L60,2 L80,5 L100,1 L120,4 L140,2 L160,5 L180,1 L200,3 L220,5 L240,1 L260,4 L280,2 L300,5 L320,1 L340,4 L360,2 L380,5 L400,2 L398,27 L400,52 L397,77 L399,102 L396,127 L400,152 L397,177 L399,202 L396,227 L400,252 L397,277 L399,302 L396,327 L400,352 L397,377 L399,402 L396,427 L400,452 L397,477 L399,502 L396,518 L380,517 L360,520 L340,516 L320,519 L300,515 L280,518 L260,516 L240,520 L220,516 L200,519 L180,515 L160,518 L140,516 L120,520 L100,516 L80,519 L60,515 L40,518 L20,516 L0,519 L2,494 L0,469 L3,444 L1,419 L4,394 L2,369 L0,344 L3,319 L1,294 L4,269 L2,244 L0,219 L3,194 L1,169 L4,144 L2,119 L0,94 L3,69 L1,44 L4,19 Z"/>
+
+  <!-- Newspaper name + date -->
+  <text x="200" y="20" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="700" fill="#1a1a1a" letter-spacing="2">ПОКРОВКА NEWS</text>
+  <text x="380" y="20" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="9" font-style="italic" fill="#6e6e6e">12 СЕНТЯБРЯ 2020</text>
+
+  <!-- Header rules (double) -->
+  <line x1="20" y1="25" x2="380" y2="25" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="20" y1="28" x2="380" y2="28" stroke="#1a1a1a" stroke-width="0.5"/>
+
+  <!-- Section label -->
+  <text x="20" y="38" font-family="Arial,Helvetica,sans-serif" font-size="7.5" fill="#3a3a3a" letter-spacing="1.5">ГОРОДСКИЕ НОВОСТИ  ·  СОБЫТИЕ</text>
+
+  <!-- Thin rule -->
+  <line x1="20" y1="45" x2="380" y2="45" stroke="#888" stroke-width="0.5"/>
+
+  <!-- Headline (3 lines) -->
+  <text x="20" y="87" font-family="Georgia,'Times New Roman',serif" font-size="33" font-weight="700" fill="#0d0d0d">&#171;ШКОЛА ТРЕБУЕТ</text>
+  <text x="20" y="125" font-family="Georgia,'Times New Roman',serif" font-size="33" font-weight="700" fill="#0d0d0d">ЗАКРЫТЬ БАР</text>
+  <text x="20" y="163" font-family="Georgia,'Times New Roman',serif" font-size="33" font-weight="700" fill="#0d0d0d">НА ПОКРОВКЕ&#187;</text>
+
+  <!-- Subheadline -->
+  <text x="20" y="180" font-family="Georgia,'Times New Roman',serif" font-size="11.5" font-style="italic" fill="#4a4a4a">Учебное заведение возмущено вывеской</text>
+  <text x="20" y="196" font-family="Georgia,'Times New Roman',serif" font-size="11.5" font-style="italic" fill="#4a4a4a">соседнего заведения с провокационным</text>
+  <text x="20" y="212" font-family="Georgia,'Times New Roman',serif" font-size="11.5" font-style="italic" fill="#4a4a4a">названием</text>
+
+  <!-- Rule before illustration -->
+  <line x1="20" y1="221" x2="380" y2="221" stroke="#999" stroke-width="0.5"/>
+
+  <!-- ── BUILDING ILLUSTRATION ── -->
+
+  <!-- Roof peak (triangular pediment) -->
+  <polyline points="42,252 200,232 358,252" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+
+  <!-- Sign/banner above entrance -->
+  <rect x="150" y="234" width="100" height="20" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+  <!-- Red cross through sign (редакторская отметка) -->
+  <line x1="152" y1="235" x2="248" y2="253" stroke="#b34141" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="248" y1="235" x2="152" y2="253" stroke="#b34141" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- 2nd floor façade -->
+  <rect x="70" y="252" width="260" height="56" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+
+  <!-- 2nd floor windows (3) -->
+  <rect x="90" y="261" width="46" height="38" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="177" y="261" width="46" height="38" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="264" y="261" width="46" height="38" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+
+  <!-- Ground floor façade -->
+  <rect x="60" y="308" width="280" height="65" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+
+  <!-- Floor divider -->
+  <line x1="60" y1="308" x2="340" y2="308" stroke="#1a1a1a" stroke-width="0.5"/>
+
+  <!-- Ground floor windows (left + right) -->
+  <rect x="80" y="316" width="56" height="50" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="264" y="316" width="56" height="50" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+
+  <!-- Door -->
+  <rect x="172" y="316" width="56" height="57" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+  <circle cx="221" cy="348" r="2.5" fill="#1a1a1a"/>
+
+  <!-- Pavement / ground line -->
+  <line x1="40" y1="373" x2="360" y2="373" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="60" y1="373" x2="60" y2="378" stroke="#1a1a1a" stroke-width="0.5"/>
+  <line x1="120" y1="373" x2="120" y2="378" stroke="#1a1a1a" stroke-width="0.5"/>
+  <line x1="200" y1="373" x2="200" y2="378" stroke="#1a1a1a" stroke-width="0.5"/>
+  <line x1="280" y1="373" x2="280" y2="378" stroke="#1a1a1a" stroke-width="0.5"/>
+  <line x1="340" y1="373" x2="340" y2="378" stroke="#1a1a1a" stroke-width="0.5"/>
+
+  <!-- Photo caption -->
+  <text x="200" y="388" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="9" font-style="italic" fill="#6e6e6e">Спорная вывеска вызвала возмущение</text>
+
+  <!-- Rule before article text -->
+  <line x1="20" y1="396" x2="380" y2="396" stroke="#ccc" stroke-width="0.5"/>
+
+  <!-- Column separator -->
+  <line x1="196" y1="398" x2="196" y2="498" stroke="#ccc" stroke-width="0.5"/>
+
+  <!-- Article text — left column -->
+  <text font-family="Georgia,'Times New Roman',serif" font-size="7" fill="#2a2a2a">
+    <tspan x="20" y="408">Городская администрация</tspan>
+    <tspan x="20" dy="9">получила обращение от</tspan>
+    <tspan x="20" dy="9">руководства учебного</tspan>
+    <tspan x="20" dy="9">учреждения с просьбой</tspan>
+    <tspan x="20" dy="9">рассмотреть вопрос о</tspan>
+    <tspan x="20" dy="9">соответствии вывески</tspan>
+    <tspan x="20" dy="9">нормам этики. По словам</tspan>
+    <tspan x="20" dy="9">заявителей, расположение</tspan>
+    <tspan x="20" dy="9">напротив школы создаёт</tspan>
+    <tspan x="20" dy="9">немало вопросов...</tspan>
+  </text>
+
+  <!-- Article text — right column -->
+  <text font-family="Georgia,'Times New Roman',serif" font-size="7" fill="#2a2a2a">
+    <tspan x="204" y="408">Представители заведения</tspan>
+    <tspan x="204" dy="9">от комментариев пока</tspan>
+    <tspan x="204" dy="9">воздерживаются. В сети</tspan>
+    <tspan x="204" dy="9">развернулась дискуссия —</tspan>
+    <tspan x="204" dy="9">мнения пользователей</tspan>
+    <tspan x="204" dy="9">разделились. Часть</tspan>
+    <tspan x="204" dy="9">читателей поддержала</tspan>
+    <tspan x="204" dy="9">заведение, другие же</tspan>
+    <tspan x="204" dy="9">выразили обеспокоенность</tspan>
+    <tspan x="204" dy="9">ситуацией в целом...</tspan>
+  </text>
+
+  <!-- Bottom fade (текст обрывается) -->
+  <rect x="0" y="477" width="400" height="43" fill="url(#fade)"/>
+
+</svg>
