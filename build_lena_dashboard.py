@@ -20,13 +20,14 @@ except ImportError:
     pass
 
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-BASEROW_API_TOKEN = os.environ.get("BASEROW_API_TOKEN", "")
+BASEROW_API_TOKEN = os.environ.get("BASEROW_DB_TOKEN", os.environ.get("BASEROW_API_TOKEN", ""))
 BASEROW_URL = "https://leads.vebkuznitsa.ru/api/database/rows/table/580/?user_field_names=true&size=100"
 OUT_FILE = Path(__file__).parent / "lena" / "index.html"
 
 DEMO_URLS = {
     1: "https://viktorialiubitskaya-coder.github.io/vebkuznitsa/restaurants/barin-i-barash/",
     3: "https://viktorialiubitskaya-coder.github.io/vebkuznitsa/restaurants/lazhechnikov/",
+    6: "https://viktorialiubitskaya-coder.github.io/vebkuznitsa/restaurants/jorik-ubil-hamleta/",
 }
 
 CITY_RU = {
@@ -161,6 +162,31 @@ def _mock_leads():
             "Афиша событий": {"value": "yes regular"},
             "Дата сбора": "2026-04-30",
             "Фото": [{"url": "", "thumbnails": {"card_cover": {"url": "https://leads.vebkuznitsa.ru/media/thumbnails/card_cover/jevOmmCZ37qpRI45Ut8ocnJo95Hjyp3q_2fd02161a921a6d59128a31eae6a03a9eaae9c143b96bdcf3bff9bc8ff2de54e.jpg"}}}],
+        },
+        {
+            "id": 6,
+            "Название": "Йорик убил Хамлета",
+            "Город": {"value": "Moscow"},
+            "Адрес": "Покровка, 16, Москва",
+            "Тип заведения": {"value": "bar"},
+            "Кухня": [{"value": "European"}, {"value": "Author"}],
+            "Средний чек, ₽": 2500,
+            "Ссылка на 2gis или Яндекс": "https://yandex.ru/maps/?text=Покровка+16+Москва",
+            "Есть ли свой сайт?": {"value": "no"},
+            "ВКонтакте": "https://vk.com/yorick_bar",
+            "Телефон ресторана": "+7 (495) 000-00-00",
+            "Рейтинг 2gis/Яндекс": 47,
+            "Сколько оценок": 312,
+            "Что особенного (в 2 предложениях)": (
+                "Шекспировский бар на Покровке — концепция «истинная цена» меняет цены на алкоголь до 19:00. "
+                "Джин-бар с авторскими коктейлями, именами персонажей Шекспира, Canvas-рулетка с бонусами "
+                "и регулярные DJ-сеты. Место для тех, кто ценит литературу, театр и хороший джин."
+            ),
+            "Уникальная концепция?": {"value": "yes strong"},
+            "Банкеты": {"value": "yes"},
+            "Афиша событий": {"value": "yes regular"},
+            "Дата сбора": "2026-04-30",
+            "Фото": [{"url": "", "thumbnails": {"card_cover": {"url": ""}}}],
         }
     ]
 
