@@ -230,19 +230,31 @@ img{display:block;max-width:100%}
 .menu-inner{max-width:1100px;margin:0 auto}
 .menu-header{text-align:center;margin-bottom:48px}
 .menu-shakespeare{font-family:var(--font-classic);font-style:italic;font-size:1rem;color:rgba(242,235,217,.45);margin-top:.5rem}
-.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-@media(max-width:640px){.menu-grid{grid-template-columns:1fr}}
-.menu-card{background:rgba(255,255,255,.04);border:1px solid rgba(245,220,66,.1);padding:1.25rem 1rem 1rem;transition:border-color .2s,transform .2s,box-shadow .2s;position:relative;overflow:hidden}
-.menu-card:hover{border-color:rgba(245,220,66,.3);transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.4)}
-.menu-card-name{font-weight:700;font-size:1rem;color:var(--cream);margin-bottom:.35rem}
-.menu-card-desc{font-size:.82rem;color:rgba(242,235,217,.5);line-height:1.55;margin-bottom:.875rem}
-.menu-card-prices{display:flex;align-items:baseline;gap:.75rem;flex-wrap:wrap}
-.price-cost{font-family:var(--font-display);font-size:1.75rem;font-weight:800;color:var(--neon-yellow);line-height:1}
-.price-regular{font-size:.95rem;color:var(--ash);text-decoration:line-through}
-.price-label{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,220,66,.55);margin-top:.2rem}
-.menu-card.expired .price-cost{color:var(--ash);text-decoration:line-through}
-.menu-card.expired .price-regular{color:var(--cream);text-decoration:none;font-size:1.4rem;font-weight:700}
-.menu-card.expired::after{content:'';position:absolute;inset:0;background:rgba(14,14,16,.35);pointer-events:none}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem}
+@media(max-width:600px){.menu-grid{grid-template-columns:1fr}}
+/* Photo card */
+.menu-item{background:rgba(255,255,255,.02);border:1px solid rgba(245,220,66,.1);overflow:hidden;transition:transform .4s,border-color .4s,box-shadow .4s;position:relative}
+.menu-item:hover{transform:translateY(-4px);border-color:rgba(245,220,66,.3);box-shadow:0 12px 36px rgba(0,0,0,.5)}
+.menu-item-photo{aspect-ratio:1/1;overflow:hidden;background:var(--ink-black)}
+.menu-item-photo img{width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.9);transition:filter .4s,transform .6s;display:block}
+.menu-item:hover .menu-item-photo img{filter:brightness(1) saturate(1.05);transform:scale(1.05)}
+.menu-item-content{padding:1.5rem}
+.menu-item-name{font-family:var(--font-display);font-size:1.05rem;color:var(--cream);margin:0 0 .5rem;line-height:1.2}
+.menu-item-desc{font-family:var(--font-classic);font-style:italic;font-size:.88rem;color:var(--ash);margin:0 0 1.25rem;line-height:1.45}
+.menu-item-prices{display:flex;justify-content:space-between;align-items:flex-end;padding-top:1rem;border-top:1px solid rgba(245,220,66,.15)}
+.price-cost .price-value{font-family:var(--font-display);font-size:1.65rem;color:var(--neon-yellow);display:block;line-height:1}
+.price-cost .price-label{font-size:.65rem;letter-spacing:.15em;color:rgba(245,220,66,.7);text-transform:uppercase;margin-top:.2rem}
+.price-regular .price-value{font-family:var(--font-display);font-size:1.05rem;color:var(--ash);text-decoration:line-through;display:block;line-height:1}
+.price-regular .price-label{font-size:.65rem;letter-spacing:.15em;color:rgba(242,235,217,.4);text-transform:uppercase;margin-top:.2rem}
+/* After-hours: regular price becomes primary */
+.menu-item.after-hours .price-cost .price-value{color:var(--ash);text-decoration:line-through;font-size:1.05rem}
+.menu-item.after-hours .price-cost .price-label{color:rgba(242,235,217,.4)}
+.menu-item.after-hours .price-regular .price-value{color:var(--neon-yellow);text-decoration:none;font-size:1.65rem}
+.menu-item.after-hours .price-regular .price-label{color:rgba(245,220,66,.7)}
+/* Keep old .menu-card styles so timer badge still works */
+.menu-card{background:rgba(255,255,255,.04);border:1px solid rgba(245,220,66,.1);padding:1.25rem 1rem 1rem;transition:border-color .2s,transform .2s,box-shadow .2s;position:relative;overflow:hidden;display:none}
+.menu-time-badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(245,220,66,.35);color:var(--neon-yellow);padding:.35rem .85rem;margin-bottom:.75rem}
+.menu-time-badge.expired{color:var(--ash);border-color:rgba(242,235,217,.25)}
 .menu-time-badge{display:inline-block;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--neon-yellow);border:1px solid rgba(245,220,66,.3);padding:.2rem .55rem;margin-bottom:.75rem}
 .menu-time-badge.expired{color:var(--ash);border-color:rgba(110,110,110,.3)}
 
@@ -1177,14 +1189,14 @@ function showShareModal(shareUrl,gin,tonic,garnish){
 }
 
 const MENU=[
-  {name:'Дим-сам с уткой и хойсин',cost:220,regular:580,description:'Утка по-пекински в нежном тесте'},
-  {name:'Лапша Дандан с говядиной',cost:280,regular:690,description:'Сычуанская острая, с маринованной редькой'},
-  {name:'Ролл Калифорния с крабом',cost:340,regular:820,description:'Свежий краб, авокадо, тобико'},
-  {name:'Кимчи-чигэ',cost:250,regular:590,description:'Корейский острый суп с тофу и свининой'},
-  {name:'Бао с томлёной свининой',cost:180,regular:420,description:'Воздушная булочка, томление 8 часов'},
-  {name:'Том Ям с морепродуктами',cost:320,regular:750,description:'Острый, кислый, с галангалом и кориандром'},
-  {name:'Гёдза с креветкой',cost:240,regular:540,description:'Хрустящие снизу, мягкие сверху'},
-  {name:'Утиная грудка с грушей',cost:380,regular:920,description:'Карамелизованная груша, соус из розмарина'}
+  {slug:'dim-sum-duck',    name:'Дим-сам с уткой и хойсин', cost:220,regular:580, description:'Утка по-пекински в нежном тесте'},
+  {slug:'noodles-dandan',  name:'Лапша Дандан с говядиной', cost:280,regular:690, description:'Сычуанская острая, с маринованной редькой'},
+  {slug:'california-roll', name:'Ролл Калифорния с крабом', cost:340,regular:820, description:'Свежий краб, авокадо, тобико'},
+  {slug:'kimchi-jjigae',   name:'Кимчи-чигэ',               cost:250,regular:590, description:'Корейский острый суп с тофу и свининой'},
+  {slug:'bao-pork',        name:'Бао с томлёной свининой',  cost:180,regular:420, description:'Воздушная булочка, томление 8 часов'},
+  {slug:'tom-yum',         name:'Том Ям с морепродуктами',  cost:320,regular:750, description:'Острый, кислый, с галангалом и кориандром'},
+  {slug:'gyoza',           name:'Гёдза с креветкой',        cost:240,regular:540, description:'Хрустящие снизу, мягкие сверху'},
+  {slug:'duck-pear',       name:'Утиная грудка с грушей',   cost:380,regular:920, description:'Карамелизованная груша, соус из розмарина'}
 ];
 
 // ─── NAV ─────────────────────────────────────────────────────────────────────
@@ -1487,24 +1499,31 @@ function buildMenuGrid(expired){
   var grid=document.getElementById('menu-grid');
   if(!grid) return;
   grid.innerHTML=MENU.map(function(item){
-    var badgeEl=expired
-      ? '<span class="menu-time-badge expired">⛔ True Cost закончился</span>'
-      : '<span class="menu-time-badge">⏱ True Cost до 19:00</span>';
-    var priceBlock=expired
-      ? '<div class="menu-card-prices">'
-        +'<div><div class="price-cost" style="color:var(--ash);text-decoration:line-through;font-size:1.4rem">'+item.cost+'₽</div><div class="price-label" style="color:var(--ash)">Себестоимость</div></div>'
-        +'<div><div class="price-regular" style="text-decoration:none;color:var(--cream);font-size:1.5rem;font-weight:800">'+item.regular+'₽</div><div class="price-label" style="color:rgba(242,235,217,.45)">Обычная</div></div>'
+    var slug=item.slug||'dim-sum-duck';
+    var photoBase='assets/menu/'+slug;
+    var ah=expired?' after-hours':'';
+    return '<article class="menu-item'+ah+'">'
+      +'<div class="menu-item-photo">'
+        +'<picture>'
+          +'<source srcset="'+photoBase+'.webp" type="image/webp">'
+          +'<img src="'+photoBase+'.jpg" alt="'+item.name+'" loading="lazy" width="600" height="600">'
+        +'</picture>'
+      +'</div>'
+      +'<div class="menu-item-content">'
+        +'<h3 class="menu-item-name">'+item.name+'</h3>'
+        +'<p class="menu-item-desc">'+item.description+'</p>'
+        +'<div class="menu-item-prices">'
+          +'<div class="price-cost">'
+            +'<span class="price-value">'+item.cost+' ₽</span>'
+            +'<span class="price-label">До 19:00</span>'
+          +'</div>'
+          +'<div class="price-regular">'
+            +'<span class="price-value">'+item.regular+' ₽</span>'
+            +'<span class="price-label">После</span>'
+          +'</div>'
         +'</div>'
-      : '<div class="menu-card-prices">'
-        +'<div><div class="price-cost">'+item.cost+'₽</div><div class="price-label">Себестоимость</div></div>'
-        +'<div><del class="price-regular">'+item.regular+'₽</del><div class="price-label">Обычная</div></div>'
-        +'</div>';
-    return '<div class="menu-card'+(expired?' expired':'')+'">'
-      +badgeEl
-      +'<div class="menu-card-name">'+item.name+'</div>'
-      +'<div class="menu-card-desc">'+item.description+'</div>'
-      +priceBlock
-      +'</div>';
+      +'</div>'
+      +'</article>';
   }).join('');
 }
 
