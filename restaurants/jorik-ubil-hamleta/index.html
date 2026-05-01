@@ -172,20 +172,29 @@ img{display:block;max-width:100%}
 .cocktail-result::before,.cocktail-result::after{content:'';position:absolute;width:60px;height:60px;border:1px solid var(--neon-yellow);opacity:.4}
 .cocktail-result::before{top:12px;left:12px;border-right:none;border-bottom:none}
 .cocktail-result::after{bottom:12px;right:12px;border-left:none;border-top:none}
-.cocktail-stamp{font-family:var(--font-display);font-size:.7rem;letter-spacing:.3em;color:var(--neon-yellow);opacity:.6;margin-bottom:1.5rem}
-.stamp-divider{margin:0 .6em}
-.cocktail-glass-wrap{display:flex;justify-content:center;margin:1.5rem 0}
+/* Result stage — bokeh atmosphere */
+.cocktail-result-stage{position:relative;padding:1.5rem 0;isolation:isolate}
+.cocktail-result-stage::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 30%,rgba(245,220,66,.08) 0%,rgba(245,220,66,.02) 40%,transparent 70%);z-index:-2;pointer-events:none}
+.cocktail-result-stage::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 15% 20%,rgba(245,220,66,.4) 0%,transparent .5%),radial-gradient(circle at 85% 30%,rgba(245,220,66,.3) 0%,transparent .4%),radial-gradient(circle at 25% 70%,rgba(245,220,66,.5) 0%,transparent .6%),radial-gradient(circle at 80% 80%,rgba(245,220,66,.35) 0%,transparent .5%),radial-gradient(circle at 50% 90%,rgba(245,220,66,.25) 0%,transparent .4%),radial-gradient(circle at 10% 50%,rgba(168,201,181,.3) 0%,transparent .4%),radial-gradient(circle at 90% 60%,rgba(168,201,181,.25) 0%,transparent .4%),radial-gradient(circle at 40% 15%,rgba(107,31,44,.4) 0%,transparent .5%);filter:blur(2px);z-index:-1;opacity:.7;pointer-events:none;animation:bokeShimmer 8s ease-in-out infinite}
+@keyframes bokeShimmer{0%,100%{opacity:.7}50%{opacity:.4}}
+@media(prefers-reduced-motion:reduce){.cocktail-result-stage::after{animation:none}}
+/* Glass wrap — flex row for vertical marking */
+.cocktail-glass-wrap{display:flex;justify-content:center;align-items:center;gap:1.5rem;margin:1.5rem 0 1rem;position:relative}
 .cocktail-glass{width:180px;height:240px}
-.cocktail-title{margin:1.5rem 0}
-.cocktail-name-top,.cocktail-name-bottom{font-family:var(--font-display);font-size:clamp(2.4rem,6vw,3.8rem);color:var(--cream);line-height:.95;letter-spacing:-.02em;margin:0}
-.cocktail-ornament{display:flex;align-items:center;justify-content:center;gap:.8rem;margin:.5rem 0;color:var(--neon-yellow)}
-.ornament-line{display:inline-block;width:60px;height:1px;background:var(--neon-yellow);opacity:.6}
+/* Vertical marking (book-spine style) */
+.cocktail-marking{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--font-display);font-size:.65rem;letter-spacing:.4em;color:var(--neon-yellow);opacity:.5;display:flex;flex-direction:column;align-items:center;gap:.35rem;user-select:none}
+.marking-number{font-size:.95rem;letter-spacing:.2em;color:var(--cream);opacity:.8}
+.marking-divider{margin:.2em 0;opacity:.5}
+@media(max-width:600px){.cocktail-marking{display:none}}
+/* Name */
+.cocktail-name-top,.cocktail-name-bottom{font-family:var(--font-display);font-size:clamp(2rem,4.5vw,3rem);color:var(--cream);line-height:.92;letter-spacing:-.02em;margin:0}
+.cocktail-ornament{display:flex;align-items:center;justify-content:center;gap:.8rem;margin:.3rem 0;color:var(--neon-yellow)}
+.ornament-line{display:inline-block;width:40px;height:1px;background:var(--neon-yellow);opacity:.6}
 .ornament-mark{font-size:1.2rem;opacity:.8}
-.cocktail-name-tail{font-family:var(--font-classic);font-style:italic;font-size:1.1rem;color:var(--ash);margin:.6rem 0 0}
-.cocktail-mood{font-family:var(--font-classic);font-style:italic;font-size:1.15rem;color:var(--cream);opacity:.9;max-width:420px;margin:1.5rem auto 1rem;line-height:1.4}
-.cocktail-shakespeare{font-family:var(--font-classic);font-size:.85rem;color:var(--ash);margin:1rem 0 2rem}
-.cocktail-shakespeare em{font-style:italic;color:var(--neon-yellow);opacity:.7}
-.shakespeare-source{display:block;font-size:.75rem;margin-top:.3rem;letter-spacing:.05em}
+.cocktail-name-tail{font-family:var(--font-classic);font-style:italic;font-size:1rem;color:var(--ash);margin:.5rem 0 0}
+.cocktail-mood{font-family:var(--font-classic);font-style:italic;font-size:1rem;color:var(--cream);opacity:.85;max-width:400px;margin:1.25rem auto .75rem;line-height:1.35}
+/* Shakespeare circular stamp */
+.cocktail-stamp-shake{margin:1rem auto 1.75rem;transform:rotate(-8deg);display:flex;justify-content:center;opacity:.85}
 .cocktail-ingredients{font-family:var(--font-display);font-size:.75rem;letter-spacing:.25em;color:var(--cream);opacity:.7;margin:2rem 0;padding:1rem 0;border-top:1px solid rgba(245,220,66,.15);border-bottom:1px solid rgba(245,220,66,.15)}
 .ingredient-tag{cursor:default}
 .ingredient-divider{color:var(--neon-yellow);margin:0 .8em;opacity:.6}
@@ -515,35 +524,62 @@ footer{background:#060608;padding:36px clamp(20px,5vw,64px);border-top:1px solid
 
     <!-- Result -->
     <div id="gb-result">
+      <div class="cocktail-result-stage">
       <div class="cocktail-result" id="cocktailResult">
 
-        <!-- Stamp -->
-        <div class="cocktail-stamp">
-          <span class="stamp-label">коктейль</span>
-          <span class="stamp-number" id="cocktailNumber">#1</span>
-        </div>
-
-        <!-- Animated glass -->
+        <!-- Animated glass with vertical marking -->
         <div class="cocktail-glass-wrap">
+          <div class="cocktail-marking" aria-hidden="true">
+            <span class="marking-bar">ПОКРОВКА · 16</span>
+            <span class="marking-divider">·</span>
+            <span class="marking-number" id="cocktailNumber">001</span>
+            <span class="marking-divider">·</span>
+            <span class="marking-label">No.</span>
+          </div>
           <svg class="cocktail-glass" viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <clipPath id="glassClip">
+                <path d="M42,22 L33,198 Q33,225 100,225 Q167,225 167,198 L158,22 Z"/>
+              </clipPath>
+              <linearGradient id="glassHighlight" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="rgba(255,255,255,0.35)"/>
+                <stop offset="20%" stop-color="rgba(255,255,255,0.1)"/>
+                <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+              </linearGradient>
+              <radialGradient id="meniscGradient" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="rgba(255,255,255,0.35)"/>
+                <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+              </radialGradient>
+              <filter id="shadowBlur" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="4"/>
+              </filter>
+            </defs>
+            <!-- Ground shadow -->
+            <ellipse cx="100" cy="248" rx="52" ry="7" fill="rgba(0,0,0,0.4)" filter="url(#shadowBlur)"/>
             <!-- Glass outline (drawn via stroke-dashoffset) -->
             <path id="glassOutline"
               d="M40,20 L30,200 Q30,230 100,230 Q170,230 170,200 L160,20 Z"
               fill="none" stroke="#c8a96e" stroke-width="2.5"
               stroke-dasharray="700" stroke-dashoffset="700"/>
             <!-- Liquid fill (scaleY from 0) -->
-            <clipPath id="glassClip">
-              <path d="M42,22 L33,198 Q33,225 100,225 Q167,225 167,198 L158,22 Z"/>
-            </clipPath>
             <rect id="liquid" x="33" y="95" width="134" height="130"
               clip-path="url(#glassClip)"
               fill="#88c5d0" opacity="0.72"
               style="transform:scaleY(0);transform-origin:100px 225px;transition:transform 1.1s cubic-bezier(.22,1,.36,1) .4s"/>
+            <!-- Highlight streak -->
+            <rect x="50" y="25" width="22" height="195" fill="url(#glassHighlight)" clip-path="url(#glassClip)" opacity="0.45"/>
+            <!-- Meniscus surface -->
+            <ellipse id="gbMeniscus" cx="100" cy="98" rx="56" ry="6" fill="url(#meniscGradient)" opacity="0" clip-path="url(#glassClip)" style="transition:opacity .3s"/>
+            <!-- Ice cubes -->
+            <g id="gbIce" clip-path="url(#glassClip)" opacity="0" style="transition:opacity .4s">
+              <rect x="75" y="148" width="19" height="19" fill="rgba(255,255,255,0.28)" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" transform="rotate(15 84 157)"/>
+              <rect x="116" y="170" width="15" height="15" fill="rgba(255,255,255,0.22)" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" transform="rotate(-10 123 177)"/>
+            </g>
             <!-- Bubbles group -->
             <g id="gbBubbles" clip-path="url(#glassClip)"></g>
             <!-- Garnish slot -->
             <g id="gbGarnish" transform="translate(100,18)"></g>
-            <!-- Glass rim highlight -->
+            <!-- Glass rim line -->
             <line x1="40" y1="20" x2="160" y2="20" stroke="#c8a96e" stroke-width="1.5" stroke-linecap="round" opacity="0"/>
           </svg>
         </div>
@@ -561,11 +597,20 @@ footer{background:#060608;padding:36px clamp(20px,5vw,64px);border-top:1px solid
         <!-- Mood -->
         <p class="cocktail-mood" id="cocktailMood"></p>
 
-        <!-- Shakespeare quote -->
-        <blockquote class="cocktail-shakespeare">
-          <p id="shakespeareText"></p>
-          <cite class="shakespeare-source" id="shakespeareSource"></cite>
-        </blockquote>
+        <!-- Shakespeare circular stamp -->
+        <div class="cocktail-stamp-shake">
+          <svg viewBox="0 0 120 120" width="100" height="100" aria-hidden="true">
+            <defs>
+              <path id="stampArcPath" d="M 60,60 m -45,0 a 45,45 0 1,1 90,0 a 45,45 0 1,1 -90,0"/>
+            </defs>
+            <circle cx="60" cy="60" r="50" fill="none" stroke="var(--neon-yellow)" stroke-width="0.8" opacity="0.5"/>
+            <circle cx="60" cy="60" r="42" fill="none" stroke="var(--neon-yellow)" stroke-width="0.4" opacity="0.4"/>
+            <text font-family="var(--font-display)" font-size="6" fill="var(--neon-yellow)" opacity="0.7" letter-spacing="2">
+              <textPath href="#stampArcPath" id="stampTextPath"></textPath>
+            </text>
+            <text x="60" y="68" text-anchor="middle" font-family="serif" font-size="26" fill="var(--neon-yellow)" opacity="0.55">❦</text>
+          </svg>
+        </div>
 
         <!-- Ingredients -->
         <div class="cocktail-ingredients" id="cocktailIngredients"></div>
@@ -586,6 +631,7 @@ footer{background:#060608;padding:36px clamp(20px,5vw,64px);border-top:1px solid
           </button>
         </div>
       </div>
+      </div><!-- /.cocktail-result-stage -->
 
       <!-- Saved cocktails -->
       <div id="saved-cocktails-section">
@@ -942,12 +988,12 @@ const TONICS=[
   {id:'cucumber',     name:'Cucumber Soda',   flavor:'свежесть, лёгкость',       emoji:'🥒'}
 ];
 const GARNISHES=[
-  {id:'cucumber', name:'Огурец',        emoji:'🥒'},
-  {id:'rosemary', name:'Розмарин',      emoji:'🌿'},
-  {id:'lime',     name:'Лайм',          emoji:'🍋'},
-  {id:'ginger',   name:'Имбирь',        emoji:'🫚'},
-  {id:'pepper',   name:'Чёрный перец',  emoji:'🌶️'},
-  {id:'juniper',  name:'Можжевельник',  emoji:'🌲'}
+  {id:'cucumber', name:'Огурец',        emoji:'🥒', hint:'свежесть, прохлада'},
+  {id:'rosemary', name:'Розмарин',      emoji:'🌿', hint:'смолистая нота'},
+  {id:'lime',     name:'Лайм',          emoji:'🍋', hint:'острая кислота'},
+  {id:'ginger',   name:'Имбирь',        emoji:'🫚', hint:'жгучее тепло'},
+  {id:'pepper',   name:'Чёрный перец',  emoji:'🌶️', hint:'дерзкий акцент'},
+  {id:'juniper',  name:'Можжевельник',  emoji:'🌲', hint:'усиление джина'}
 ];
 const ADJECTIVES=['Меланхоличный','Порочный','Бледный','Дерзкий','Хладнокровный','Изящный','Раздосадованный','Восторженный','Печальный','Таинственный','Бессовестный','Безмолвный','Беспокойный','Озорной','Романтический','Вычурный','Резкий','Нежный','Поэтический','Пьянящий','Терпкий','Воздушный','Тяжкий','Отчаянный','Дряхлый','Юный','Безмятежный','Скандальный'];
 const CHARACTERS=['Йорик','Гамлет','Офелия','Полоний','Лаэрт','Гертруда','Клавдий','Розенкранц','Гильденстерн','Призрак отца','Фортинбрас','Горацио','Бернардо','Марцелл','Осрик'];
@@ -963,21 +1009,30 @@ const GARNISH_CASES={
 const PREPOSITIONS=PREPS;
 
 const COCKTAIL_MOODS=[
-  'Горьковатый привкус одиночества на дне стакана',
-  'Призрак, которого никто не ждал, но все рады',
-  'Меланхолия с нотками цитруса',
-  'Быть или не быть — выбери содовую',
-  'Лёгкая тревога с долгим послевкусием',
-  'Флирт на грани приличий в летнюю ночь',
-  'Что-то между трагедией и аперитивом',
-  'Лирический отступ в третьем акте',
-  'Холодная злоба в тёплой компании',
-  'Восторг, который не пережил бокала',
-  'Непостижимость бытия в двух глотках',
-  'Самообман с пузырьками',
-  'Нечто между нежностью и уксусом',
-  'Чувство, у которого нет названия, но есть вкус',
-  'Терпкий финал третьего акта'
+  'Тихий, как монолог в пустом зале.',
+  'Дерзкий, как ответ Гертруде.',
+  'Свежий, как первая реплика.',
+  'Печальный, как тень на стене.',
+  'Лёгкий, как обещание в темноте.',
+  'Острый, как реплика на дуэли.',
+  'Хладнокровный, как Розенкранц.',
+  'Романтический, как недописанное письмо.',
+  'Безмятежный, как утро после премьеры.',
+  'Резкий, как падающий занавес.',
+  'Поэтический, как пауза в сонете.',
+  'Меланхоличный, как вечер на Покровке.',
+  'Изящный, как реверанс королю.',
+  'Беспокойный, как шаги в галерее.',
+  'Юный, как Офелия в первом акте.',
+  'Терпкий, как правда в финале.',
+  'Воздушный, как сквозняк за кулисами.',
+  'Безмолвный, как Йорик после.',
+  'Горький, как несостоявшаяся свадьба.',
+  'Прямой, как кинжал в третьем акте.',
+  'Хитрый, как реплика в сторону.',
+  'Тёплый, как свеча перед последним актом.',
+  'Холодный, как замок в декабре.',
+  'Странный, как сон Гамлета.'
 ];
 
 const SHAKESPEARE_QUOTES=[
@@ -995,49 +1050,46 @@ const SHAKESPEARE_QUOTES=[
   {text:'«Нет в мире виноватых — есть лишь обстоятельства»',source:'Мера за меру, II.1'}
 ];
 
-function seededRand(seed){
-  var s=seed%2147483647;
-  s=(s*16807)%2147483647;
-  return(s-1)/2147483646;
+function hashSeed(str){
+  var h=2166136261;
+  for(var i=0;i<str.length;i++){h=(h^str.charCodeAt(i))>>>0;h=Math.imul(h,16777619)>>>0;}
+  return h;
 }
-function pickByIndex(arr,idx){return arr[idx%arr.length];}
-
-function generateCocktailDescription(gin,tonic,garnish,seed){
-  var r1=seededRand(seed),r2=seededRand(seed+1),r3=seededRand(seed+2);
-  var mood=pickByIndex(COCKTAIL_MOODS,Math.floor(r1*COCKTAIL_MOODS.length));
-  return mood;
-}
-function pickShakespeare(seed){
-  var r=seededRand(seed+7);
-  return pickByIndex(SHAKESPEARE_QUOTES,Math.floor(r*SHAKESPEARE_QUOTES.length));
-}
-function generateCocktailName(gin,tonic,garnish,seed){
-  var r1=seededRand(seed+10),r2=seededRand(seed+11),r3=seededRand(seed+12);
-  var adj=pickByIndex(ADJECTIVES,Math.floor(r1*ADJECTIVES.length));
-  var char=pickByIndex(CHARACTERS,Math.floor(r2*CHARACTERS.length));
-  var prep=pickByIndex(PREPOSITIONS,Math.floor(r3*PREPOSITIONS.length));
+function generateCocktailName(gin,tonic,garnish){
+  var base=gin.id+':'+tonic.id+':'+garnish.id;
+  var adj=ADJECTIVES[hashSeed(base+':adj')%ADJECTIVES.length].toUpperCase();
+  var char=CHARACTERS[hashSeed(base+':char')%CHARACTERS.length].toUpperCase();
+  var prep=PREPOSITIONS[hashSeed(base+':prep')%PREPOSITIONS.length];
   var gc=GARNISH_CASES[garnish.id]||{};
-  var tail=prep+' '+(gc[prep]||garnish.name);
-  return{top:adj,bottom:char,tail:tail};
+  return{top:adj,bottom:char,tail:prep+' '+(gc[prep]||garnish.name)};
 }
-function calcSeed(gin,tonic,garnish){
-  var str=gin.id+tonic.id+garnish.id;
-  return str.split('').reduce(function(a,c){return a+c.charCodeAt(0);},0);
+function generateCocktailDescription(gin,tonic,garnish){
+  return COCKTAIL_MOODS[hashSeed(gin.id+':'+tonic.id+':'+garnish.id+':mood')%COCKTAIL_MOODS.length];
+}
+function pickShakespeare(gin,tonic,garnish){
+  return SHAKESPEARE_QUOTES[hashSeed(gin.id+':'+tonic.id+':'+garnish.id+':shake')%SHAKESPEARE_QUOTES.length];
+}
+function generateCocktailNumber(gin,tonic,garnish){
+  return String((hashSeed(gin.id+':'+tonic.id+':'+garnish.id+':num')%999)+1).padStart(3,'0');
 }
 
 function animateCocktail(gin){
   var outline=document.getElementById('glassOutline');
   var liquid=document.getElementById('liquid');
   var rim=document.querySelector('.cocktail-glass line');
+  var iceEl=document.getElementById('gbIce');
+  var meniscEl=document.getElementById('gbMeniscus');
   if(outline){
     outline.style.transition='stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1)';
     outline.style.strokeDashoffset='0';
   }
   if(liquid){
     liquid.setAttribute('fill',gin.color||'#88c5d0');
-    setTimeout(function(){liquid.style.transform='scaleY(1)';},200);
+    setTimeout(function(){liquid.style.transition='transform 1.1s cubic-bezier(.22,1,.36,1) .4s';liquid.style.transform='scaleY(1)';},200);
   }
   if(rim){setTimeout(function(){rim.style.opacity='0.6';},600);}
+  if(meniscEl){setTimeout(function(){meniscEl.style.transition='opacity .3s';meniscEl.style.opacity='0.55';},1500);}
+  if(iceEl){setTimeout(function(){iceEl.style.transition='opacity .4s';iceEl.style.opacity='1';},1900);}
   spawnBubbles(gin.color||'#88c5d0');
 }
 function spawnBubbles(color){
@@ -1081,6 +1133,17 @@ function renderGarnishSVG(garnish){
       el.style.transform=el.style.transform.replace('translateY(0)','translateY(-8px)').replace('scaleY(0)','scaleY(1)');
     }
   },900);
+}
+
+function renderShakespeareStamp(quote){
+  var tp=document.getElementById('stampTextPath');
+  if(!tp) return;
+  var raw=quote.text.replace(/«|»/g,'').toUpperCase();
+  var src=quote.source.toUpperCase();
+  // Repeat text around circumference (~283px at r=45)
+  var content=raw+' · '+src+' · ';
+  while(content.length<80) content+=content;
+  tp.textContent=content.slice(0,90);
 }
 
 function shareCocktail(gin,tonic,garnish){
@@ -1232,7 +1295,7 @@ function renderGbOptions(container,items,stateKey){
       : '<div class="gb-card-emoji">'+item.emoji+'</div>';
     card.innerHTML=visual
       +'<div class="gb-card-name">'+item.name+'</div>'
-      +'<div class="gb-card-sub">'+(item.subtitle||item.flavor)+'</div>';
+      +'<div class="gb-card-sub">'+(item.subtitle||item.flavor||item.hint||'')+'</div>';
     card.addEventListener('click',function(){
       gbState[stateKey]=item;
       el.querySelectorAll('.gb-card').forEach(function(c){c.classList.remove('selected');});
@@ -1281,16 +1344,13 @@ window.gbShowResult=function(){
   result.scrollIntoView({behavior:'smooth',block:'nearest'});
 
   var gin=gbState.gin,tonic=gbState.tonic,garnish=gbState.garnish;
-  var seed=calcSeed(gin,tonic,garnish);
-  var name=generateCocktailName(gin,tonic,garnish,seed);
-  var mood=generateCocktailDescription(gin,tonic,garnish,seed);
-  var quote=pickShakespeare(seed);
+  var name=generateCocktailName(gin,tonic,garnish);
+  var mood=generateCocktailDescription(gin,tonic,garnish);
+  var quote=pickShakespeare(gin,tonic,garnish);
+  var num=generateCocktailNumber(gin,tonic,garnish);
 
-  // Stamp: count unique saved combos
-  var saved=JSON.parse(localStorage.getItem('jorik_cocktails')||'[]');
-  var num=saved.length+1;
   var stampEl=document.getElementById('cocktailNumber');
-  if(stampEl) stampEl.textContent='#'+num;
+  if(stampEl) stampEl.textContent=num;
 
   var topEl=document.getElementById('cocktailNameTop');
   var botEl=document.getElementById('cocktailNameBottom');
@@ -1302,10 +1362,7 @@ window.gbShowResult=function(){
   var moodEl=document.getElementById('cocktailMood');
   if(moodEl) moodEl.textContent=mood;
 
-  var qText=document.getElementById('shakespeareText');
-  var qSrc=document.getElementById('shakespeareSource');
-  if(qText) qText.textContent=quote.text;
-  if(qSrc) qSrc.textContent='— '+quote.source;
+  renderShakespeareStamp(quote);
 
   var ingEl=document.getElementById('cocktailIngredients');
   if(ingEl){
@@ -1324,7 +1381,6 @@ window.gbShowResult=function(){
   }
 
   gbState.lastName=name;
-  gbState.lastSeed=seed;
 
   // Reset glass then animate
   var outline=document.getElementById('glassOutline');
@@ -1335,6 +1391,10 @@ window.gbShowResult=function(){
   if(bubblesEl) bubblesEl.innerHTML='';
   var garnishEl=document.getElementById('gbGarnish');
   if(garnishEl) garnishEl.innerHTML='';
+  var iceEl=document.getElementById('gbIce');
+  if(iceEl){iceEl.style.transition='none';iceEl.style.opacity='0';}
+  var meniscEl=document.getElementById('gbMeniscus');
+  if(meniscEl){meniscEl.style.transition='none';meniscEl.style.opacity='0';}
   setTimeout(function(){
     animateCocktail(gin);
     renderGarnishSVG(garnish);
@@ -1385,10 +1445,14 @@ window.gbRestart=function(){
   var liquid=document.getElementById('liquid');
   var bubblesEl=document.getElementById('gbBubbles');
   var garnishEl=document.getElementById('gbGarnish');
+  var iceEl=document.getElementById('gbIce');
+  var meniscEl=document.getElementById('gbMeniscus');
   if(outline){outline.style.transition='none';outline.style.strokeDashoffset='700';}
   if(liquid){liquid.style.transition='none';liquid.style.transform='scaleY(0)';}
   if(bubblesEl) bubblesEl.innerHTML='';
   if(garnishEl) garnishEl.innerHTML='';
+  if(iceEl){iceEl.style.transition='none';iceEl.style.opacity='0';}
+  if(meniscEl){meniscEl.style.transition='none';meniscEl.style.opacity='0';}
 
   gbState={gin:null,tonic:null,garnish:null,step:1};
   document.getElementById('gb-result').style.display='none';
