@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Йорик убил Хамлета — Бар на Покровке, Москва</title>
-<meta name="description" content="Бар «Йорик убил Хамлета» на Покровке 16, Москва. Паназиатская кухня, 30+ джинов, True Cost до 19:00 — всё по себестоимости. ★ 4.7 · 2074 отзыва.">
+<meta name="description" content="Бар «Йорик убил Хамлета» на Покровке 16, Москва. Паназиатская кухня, 30+ джинов, суши, роллы, воскресная рулетка. ★ 4.7 · 2074 отзыва.">
 <meta property="og:title" content="Йорик убил Хамлета — бар на Покровке">
-<meta property="og:description" content="Паназиатская кухня, джин-конструктор, воскресная рулетка. Честные цены до 19:00.">
+<meta property="og:description" content="Паназиатская кухня, джин-конструктор, воскресная рулетка на Покровке, Москва.">
 <meta property="og:type" content="restaurant.restaurant">
 <meta property="og:image" content="assets/hero-bg.jpg">
 <meta property="og:locale" content="ru_RU">
@@ -78,14 +78,7 @@ img{display:block;max-width:100%}
 .hero-meta{display:flex;flex-wrap:wrap;gap:1.5rem;color:rgba(242,235,217,.75);font-size:.9rem;margin-bottom:3rem;opacity:0;transition:opacity .8s ease 1.1s}
 .hero-meta.visible{opacity:1}
 .hero-meta-sep{opacity:.35}
-.hero-truecost-timer{display:inline-flex;flex-direction:column;gap:.5rem;padding:1.1rem 1.75rem;border:1px solid rgba(245,220,66,.6);background:rgba(245,220,66,.05);align-self:flex-start;opacity:0;transition:opacity .8s ease 1.4s}
-.hero-truecost-timer.visible{opacity:1}
-.timer-label{color:var(--neon-yellow);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
-.timer-countdown{color:var(--cream);font-family:var(--font-display);font-size:1.6rem;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.05em}
-.timer-ended .timer-label{color:var(--ash)}
-.timer-ended .timer-countdown{color:var(--ash);font-size:1rem;font-weight:400}
-@keyframes glowPulse{0%,100%{box-shadow:0 0 0 rgba(245,220,66,0)}50%{box-shadow:0 0 35px rgba(245,220,66,.3)}}
-@media(prefers-reduced-motion:no-preference){.hero-truecost-timer.visible{animation:glowPulse 3.5s ease-in-out 2.5s infinite}}
+
 .hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;opacity:.5}
 @keyframes bounceDown{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 @media(prefers-reduced-motion:no-preference){.hero-scroll{animation:bounceDown 2s ease-in-out infinite}}
@@ -95,7 +88,7 @@ img{display:block;max-width:100%}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-left{opacity:0;transform:translateX(-36px);transition:opacity .7s ease-out,transform .7s ease-out}
 .reveal-left.visible{opacity:1;transform:translateX(0)}
-@media(prefers-reduced-motion:reduce){.reveal,.reveal-left{opacity:1;transform:none;transition:none}.hero-bg img{animation:none}.hero-truecost-timer.visible{animation:none}}
+@media(prefers-reduced-motion:reduce){.reveal,.reveal-left{opacity:1;transform:none;transition:none}.hero-bg img{animation:none}}
 
 /* SECTION COMMONS */
 .section-pad{padding:80px clamp(20px,5vw,80px)}
@@ -121,90 +114,101 @@ img{display:block;max-width:100%}
 .narrative-text p:last-child{margin-bottom:0}
 .narrative-text strong{color:var(--cream);font-weight:600}
 
-/* GIN BUILDER */
-#gin-builder{background:#111114;padding:80px clamp(20px,5vw,64px)}
-.gin-builder-inner{max-width:1000px;margin:0 auto}
-.gin-builder-header{text-align:center;margin-bottom:48px}
-.gin-builder-sub{font-family:var(--font-classic);font-style:italic;font-size:1.1rem;color:rgba(242,235,217,.55);margin-top:.5rem}
-
-/* Progress */
-.gb-progress{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:40px}
-.gb-step-dot{width:32px;height:32px;border-radius:50%;border:2px solid rgba(245,220,66,.25);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:rgba(242,235,217,.4);transition:all .3s;position:relative;z-index:1;background:#111114;flex-shrink:0}
-.gb-step-dot.active{border-color:var(--neon-yellow);color:var(--neon-yellow)}
-.gb-step-dot.done{border-color:var(--neon-yellow);background:var(--neon-yellow);color:var(--ink-black)}
-.gb-step-line{width:60px;height:1px;background:rgba(245,220,66,.18);flex-shrink:0}
-.gb-step-line.done{background:var(--neon-yellow)}
-.gb-step-labels{display:flex;justify-content:center;gap:60px;margin-top:8px}
-.gb-step-label{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,235,217,.35);text-align:center;width:60px}
-.gb-step-label.active{color:var(--neon-yellow)}
-
-/* Step panels */
-.gb-panel{display:none}
-.gb-panel.active{display:block}
-.gb-panel-title{font-family:var(--font-classic);font-style:italic;font-size:1.4rem;color:var(--neon-yellow);margin-bottom:8px}
-.gb-shakespeare{font-family:var(--font-classic);font-size:.88rem;color:rgba(242,235,217,.4);font-style:italic;margin-bottom:24px}
-
-/* Option grids */
-.gb-options{display:grid;gap:10px}
-.gb-options-8{grid-template-columns:repeat(4,1fr)}
-.gb-options-4{grid-template-columns:repeat(4,1fr)}
-.gb-options-6{grid-template-columns:repeat(3,1fr)}
-@media(max-width:640px){.gb-options-8,.gb-options-4,.gb-options-6{grid-template-columns:repeat(2,1fr)}}
-.gb-card{background:rgba(255,255,255,.035);border:1px solid rgba(245,220,66,.1);padding:1rem .875rem;cursor:pointer;transition:border-color .2s,background .2s,transform .15s;position:relative}
-.gb-card:hover{border-color:rgba(245,220,66,.4);background:rgba(245,220,66,.05)}
-.gb-card.selected{border-color:var(--neon-yellow);background:rgba(245,220,66,.08)}
-.gb-card.selected::after{content:'✓';position:absolute;top:.4rem;right:.6rem;color:var(--neon-yellow);font-size:.75rem;font-weight:700}
-.gb-card-emoji{font-size:1.6rem;margin-bottom:.5rem}
-.gb-card-name{font-size:.9rem;font-weight:700;color:var(--cream);margin-bottom:.2rem}
-.gb-card-sub{font-size:.72rem;color:rgba(242,235,217,.45);line-height:1.4}
-
-/* Next btn */
-.gb-next-wrap{display:flex;justify-content:flex-end;margin-top:20px}
-.gb-next-btn{background:var(--neon-yellow);color:var(--ink-black);font-size:.82rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:none;padding:12px 28px;cursor:pointer;transition:background .2s,transform .1s;display:none}
-.gb-next-btn.visible{display:inline-flex;align-items:center;gap:.5rem}
-.gb-next-btn:hover{background:#ffe94a;transform:translateY(-1px)}
-.gb-back-btn{background:transparent;color:rgba(242,235,217,.5);border:1px solid rgba(242,235,217,.2);font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:10px 20px;cursor:pointer;transition:all .2s;margin-right:10px}
-.gb-back-btn:hover{color:var(--cream);border-color:rgba(242,235,217,.5)}
-
-/* Result card */
-#gb-result{display:none;margin-top:32px}
-.cocktail-result{background:linear-gradient(180deg,rgba(245,220,66,.04),rgba(245,220,66,.01) 30%,transparent);border:1px solid rgba(245,220,66,.25);padding:3rem 2rem;max-width:580px;margin:3rem auto 0;text-align:center;position:relative;overflow:hidden}
-.cocktail-result::before,.cocktail-result::after{content:'';position:absolute;width:60px;height:60px;border:1px solid var(--neon-yellow);opacity:.4}
-.cocktail-result::before{top:12px;left:12px;border-right:none;border-bottom:none}
-.cocktail-result::after{bottom:12px;right:12px;border-left:none;border-top:none}
-/* Result stage — bokeh atmosphere */
-.cocktail-result-stage{position:relative;padding:1.5rem 0;isolation:isolate}
-.cocktail-result-stage::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 30%,rgba(245,220,66,.08) 0%,rgba(245,220,66,.02) 40%,transparent 70%);z-index:-2;pointer-events:none}
-.cocktail-result-stage::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 15% 20%,rgba(245,220,66,.4) 0%,transparent .5%),radial-gradient(circle at 85% 30%,rgba(245,220,66,.3) 0%,transparent .4%),radial-gradient(circle at 25% 70%,rgba(245,220,66,.5) 0%,transparent .6%),radial-gradient(circle at 80% 80%,rgba(245,220,66,.35) 0%,transparent .5%),radial-gradient(circle at 50% 90%,rgba(245,220,66,.25) 0%,transparent .4%),radial-gradient(circle at 10% 50%,rgba(168,201,181,.3) 0%,transparent .4%),radial-gradient(circle at 90% 60%,rgba(168,201,181,.25) 0%,transparent .4%),radial-gradient(circle at 40% 15%,rgba(107,31,44,.4) 0%,transparent .5%);filter:blur(2px);z-index:-1;opacity:.7;pointer-events:none;animation:bokeShimmer 8s ease-in-out infinite}
-@keyframes bokeShimmer{0%,100%{opacity:.7}50%{opacity:.4}}
-@media(prefers-reduced-motion:reduce){.cocktail-result-stage::after{animation:none}}
-/* Glass wrap — flex row for vertical marking */
-.cocktail-glass-wrap{display:flex;justify-content:center;align-items:center;gap:1.5rem;margin:1.5rem 0 1rem;position:relative}
-.cocktail-glass{width:180px;height:240px}
-/* Vertical marking (book-spine style) */
-.cocktail-marking{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--font-display);font-size:.65rem;letter-spacing:.4em;color:var(--neon-yellow);opacity:.5;display:flex;flex-direction:column;align-items:center;gap:.35rem;user-select:none}
-.marking-number{font-size:.95rem;letter-spacing:.2em;color:var(--cream);opacity:.8}
-.marking-divider{margin:.2em 0;opacity:.5}
-@media(max-width:600px){.cocktail-marking{display:none}}
-/* Name */
-.cocktail-name-top,.cocktail-name-bottom{font-family:var(--font-display);font-size:clamp(2rem,4.5vw,3rem);color:var(--cream);line-height:.92;letter-spacing:-.02em;margin:0}
-.cocktail-ornament{display:flex;align-items:center;justify-content:center;gap:.8rem;margin:.3rem 0;color:var(--neon-yellow)}
-.ornament-line{display:inline-block;width:40px;height:1px;background:var(--neon-yellow);opacity:.6}
-.ornament-mark{font-size:1.2rem;opacity:.8}
-.cocktail-name-tail{font-family:var(--font-classic);font-style:italic;font-size:1rem;color:var(--ash);margin:.5rem 0 0}
-.cocktail-mood{font-family:var(--font-classic);font-style:italic;font-size:1rem;color:var(--cream);opacity:.85;max-width:400px;margin:1.25rem auto .75rem;line-height:1.35}
-/* Shakespeare circular stamp */
-.cocktail-stamp-shake{margin:1rem auto 1.75rem;transform:rotate(-8deg);display:flex;justify-content:center;opacity:.85}
-.cocktail-ingredients{font-family:var(--font-display);font-size:.75rem;letter-spacing:.25em;color:var(--cream);opacity:.7;margin:2rem 0;padding:1rem 0;border-top:1px solid rgba(245,220,66,.15);border-bottom:1px solid rgba(245,220,66,.15)}
-.ingredient-tag{cursor:default}
-.ingredient-divider{color:var(--neon-yellow);margin:0 .8em;opacity:.6}
-.cocktail-actions{display:flex;justify-content:center;gap:2.5rem;margin-top:2rem}
-.action-btn{background:none;border:none;color:var(--cream);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:.4rem;font-family:var(--font-body);font-size:.8rem;letter-spacing:.05em;opacity:.7;transition:opacity .2s,transform .2s;min-width:44px;padding:.5rem}
-.action-btn:hover{opacity:1;transform:translateY(-2px)}
-.action-icon{width:22px;height:22px;stroke:currentColor}
-.action-label{white-space:nowrap}
-.gb-card-swatch{width:36px;height:36px;border-radius:50%;margin:0 auto .5rem;border:1.5px solid rgba(242,235,217,.3);transition:border-color .2s}
-.gb-card.selected .gb-card-swatch{border-color:var(--neon-yellow)}
+/* ALCHEMY LAB */
+#gin-builder{background:#0d0b08;padding:80px clamp(20px,5vw,64px);position:relative;overflow:hidden}
+.alchemy-lab{max-width:960px;margin:0 auto;position:relative}
+.gin-builder-sub{font-family:var(--font-classic);font-style:italic;font-size:1rem;color:rgba(200,160,60,.5);margin-top:.5rem}
+.lab-ambient{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.lab-ambient::before{content:'';position:absolute;top:10%;left:50%;transform:translateX(-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(180,120,30,.1) 0%,transparent 70%);filter:blur(40px)}
+.lab-ambient::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:400px;height:200px;background:radial-gradient(ellipse,rgba(100,60,10,.12) 0%,transparent 70%);filter:blur(30px)}
+.lab-header{text-align:center;margin-bottom:2rem;position:relative;z-index:1}
+.lab-alchemy-symbols{display:flex;justify-content:center;gap:1.5rem;margin-bottom:.75rem;font-size:1.3rem;color:rgba(200,160,60,.4);letter-spacing:.4rem}
+.lab-progress{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:1.5rem;position:relative;z-index:1}
+.lab-dot{width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(180,130,40,.25);display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;color:rgba(200,160,60,.4);transition:all .3s;background:#0d0b08;flex-shrink:0}
+.lab-dot.active{border-color:rgba(200,160,60,.8);color:rgba(200,160,60,.9)}
+.lab-dot.done{border-color:rgba(200,160,60,.7);background:rgba(180,130,40,.8);color:#1a1205}
+.lab-line{width:50px;height:1px;background:rgba(180,130,40,.15);flex-shrink:0}
+.lab-line.done{background:rgba(180,130,40,.6)}
+.lab-dot-labels{display:flex;justify-content:center;gap:50px;margin-top:6px;margin-bottom:1.75rem;position:relative;z-index:1}
+.lab-dot-label{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(200,160,60,.3);text-align:center;width:60px;font-family:var(--font-classic)}
+.lab-dot-label.active{color:rgba(200,160,60,.7)}
+.parchment-stage{position:relative;z-index:1}
+.parchment{background:linear-gradient(160deg,#1e1508 0%,#231a0a 30%,#1a1205 60%,#231a0a 100%);border:1px solid rgba(180,130,40,.22);padding:2.5rem 3rem;position:relative;overflow:hidden;box-shadow:inset 0 0 80px rgba(0,0,0,.6),0 0 40px rgba(0,0,0,.4)}
+@media(max-width:640px){.parchment{padding:1.5rem 1.25rem}}
+.parchment::before,.parchment::after{content:'';position:absolute;width:44px;height:44px;border:1px solid rgba(180,130,40,.28);opacity:.55}
+.parchment::before{top:10px;left:10px;border-right:none;border-bottom:none}
+.parchment::after{bottom:10px;right:10px;border-left:none;border-top:none}
+.parchment-texture{position:absolute;inset:0;background-image:radial-gradient(ellipse 80% 60% at 30% 20%,rgba(180,130,40,.04) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 70% 80%,rgba(100,60,20,.07) 0%,transparent 60%);pointer-events:none;z-index:0}
+.alchemy-corners{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.alchemy-corner-sym{position:absolute;font-size:1rem;color:rgba(180,130,40,.18);line-height:1;user-select:none}
+.alchemy-corner-sym:nth-child(1){top:.9rem;left:3.2rem}
+.alchemy-corner-sym:nth-child(2){top:.9rem;right:3.2rem}
+.alchemy-corner-sym:nth-child(3){bottom:.9rem;left:3.2rem}
+.alchemy-corner-sym:nth-child(4){bottom:.9rem;right:3.2rem}
+.recipe-header{text-align:center;margin-bottom:1.5rem;position:relative;z-index:2}
+.recipe-title{font-family:var(--font-classic);font-size:.85rem;letter-spacing:.22em;color:rgba(200,160,60,.55);text-transform:uppercase;margin-bottom:.4rem}
+.recipe-divider{display:flex;align-items:center;gap:.75rem;justify-content:center;margin:.5rem 0}
+.recipe-divider-line{flex:1;max-width:80px;height:1px;background:rgba(180,130,40,.28)}
+.recipe-divider-sym{font-size:.85rem;color:rgba(180,130,40,.45)}
+.recipe-lines{margin:0 auto 2rem;max-width:500px;position:relative;z-index:2}
+.recipe-line{display:flex;align-items:baseline;gap:.75rem;padding:.45rem 0;border-bottom:1px solid rgba(180,130,40,.1);font-family:var(--font-classic)}
+.recipe-line:last-child{border-bottom:none}
+.recipe-line-num{font-size:.7rem;color:rgba(180,130,40,.38);width:1.2rem;flex-shrink:0;text-align:right;font-style:italic}
+.recipe-line-label{font-size:.72rem;letter-spacing:.1em;color:rgba(200,160,60,.45);text-transform:uppercase;width:65px;flex-shrink:0}
+.recipe-line-dots{flex:1;border-bottom:1px dotted rgba(180,130,40,.18);margin-bottom:3px;min-width:16px}
+.recipe-line-value{font-family:var(--font-hand);font-size:1.15rem;color:var(--cream);opacity:0;transition:opacity .3s;overflow:hidden;white-space:nowrap}
+.recipe-line-value.filled{opacity:1;animation:inkWrite .5s ease-out forwards}
+@keyframes inkWrite{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0% 0 0)}}
+.ink-drop-stage{position:absolute;inset:0;pointer-events:none;z-index:100;overflow:hidden}
+.lab-candle{display:flex;justify-content:center;margin-bottom:1.25rem;opacity:.65}
+@keyframes flicker{0%,100%{transform:scaleX(1) scaleY(1) translateY(0);opacity:.85}25%{transform:scaleX(0.85) scaleY(1.1) translateY(-1px);opacity:.9}50%{transform:scaleX(1.1) scaleY(0.9) translateY(1px);opacity:.8}75%{transform:scaleX(0.9) scaleY(1.05) translateY(-0.5px);opacity:.88}}
+@media(prefers-reduced-motion:no-preference){.candle-flame{transform-origin:50% 100%;animation:flicker 2.8s ease-in-out infinite}}
+.selection-section{position:relative;z-index:2}
+.selection-step{display:none}
+.selection-step.active{display:block}
+.selection-step-title{font-family:var(--font-classic);font-style:italic;font-size:1.05rem;color:rgba(200,160,60,.75);margin-bottom:.35rem;text-align:center}
+.selection-step-quote{font-family:var(--font-classic);font-style:italic;font-size:.8rem;color:rgba(242,235,217,.33);text-align:center;margin-bottom:1.25rem}
+.selection-grid{display:grid;gap:10px;margin-bottom:1.25rem}
+.selection-grid-8{grid-template-columns:repeat(4,1fr)}
+.selection-grid-4{grid-template-columns:repeat(4,1fr)}
+.selection-grid-6{grid-template-columns:repeat(3,1fr)}
+@media(max-width:640px){.selection-grid-8,.selection-grid-4,.selection-grid-6{grid-template-columns:repeat(2,1fr)}}
+.alchemy-card{background:rgba(20,14,5,.7);border:1px solid rgba(180,130,40,.18);padding:.85rem .7rem;cursor:pointer;transition:border-color .2s,background .2s,transform .15s;position:relative;overflow:hidden}
+.alchemy-card:hover{border-color:rgba(180,130,40,.5);background:rgba(180,130,40,.07);transform:translateY(-1px)}
+.alchemy-card.selected{border-color:rgba(200,160,60,.8);background:rgba(180,130,40,.12)}
+.alchemy-card.selected::after{content:'✦';position:absolute;top:.3rem;right:.45rem;color:rgba(200,160,60,.8);font-size:.6rem}
+.alchemy-card::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(105deg,transparent 40%,rgba(200,160,60,.07) 50%,transparent 60%);transition:left .4s ease}
+.alchemy-card:hover::before{left:150%}
+.alchemy-card-swatch{width:30px;height:30px;border-radius:50%;margin:0 auto .4rem;border:1px solid rgba(200,160,60,.18);transition:border-color .2s}
+.alchemy-card.selected .alchemy-card-swatch{border-color:rgba(200,160,60,.6)}
+.alchemy-card-latin{font-family:var(--font-classic);font-style:italic;font-size:.58rem;color:rgba(200,160,60,.45);margin-bottom:.18rem;line-height:1.2}
+.alchemy-card-name{font-size:.82rem;font-weight:700;color:var(--cream);margin-bottom:.12rem;line-height:1.2}
+.alchemy-card-hint{font-size:.65rem;color:rgba(242,235,217,.38);line-height:1.3}
+.selection-nav{display:flex;justify-content:space-between;align-items:center;margin-top:.25rem}
+.alchemy-back-btn{background:transparent;color:rgba(242,235,217,.38);border:1px solid rgba(180,130,40,.18);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;cursor:pointer;transition:all .2s;font-family:var(--font-body)}
+.alchemy-back-btn:hover{color:var(--cream);border-color:rgba(180,130,40,.5)}
+.alchemy-next-btn{background:rgba(180,130,40,.85);color:#1a1205;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:none;padding:9px 22px;cursor:pointer;transition:background .2s,transform .1s;font-family:var(--font-body);display:none}
+.alchemy-next-btn.visible{display:inline-flex;align-items:center;gap:.5rem}
+.alchemy-next-btn:hover{background:rgba(200,160,60,1);transform:translateY(-1px)}
+#alchemy-finale{display:none;text-align:center;padding:.75rem 0;position:relative;z-index:2}
+.finale-seal{margin:0 auto 1.25rem;display:flex;justify-content:center;opacity:.82}
+.finale-name{font-family:var(--font-display);font-size:clamp(1.9rem,4.5vw,3rem);color:var(--cream);line-height:.92;letter-spacing:-.02em;margin-bottom:.35rem}
+.finale-name-ornament{display:flex;align-items:center;justify-content:center;gap:.75rem;margin:.35rem 0;color:rgba(200,160,60,.65)}
+.finale-orn-line{display:inline-block;width:36px;height:1px;background:rgba(200,160,60,.45)}
+.finale-orn-sym{font-size:.95rem}
+.finale-latin{font-family:var(--font-classic);font-style:italic;font-size:.88rem;color:rgba(200,160,60,.55);margin:.2rem 0 .9rem;letter-spacing:.04em}
+.finale-mood{font-family:var(--font-classic);font-style:italic;font-size:1rem;color:var(--cream);opacity:.78;max-width:420px;margin:0 auto 1rem;line-height:1.4}
+.finale-ingredients{font-size:.7rem;letter-spacing:.18em;color:var(--cream);opacity:.5;margin:1.25rem 0;padding:.85rem 0;border-top:1px solid rgba(180,130,40,.14);border-bottom:1px solid rgba(180,130,40,.14)}
+.finale-actions{display:flex;justify-content:center;gap:2rem;margin-top:1.5rem}
+.finale-btn{background:none;border:none;color:var(--cream);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:.4rem;font-size:.78rem;letter-spacing:.05em;opacity:.62;transition:opacity .2s,transform .2s;min-width:44px;padding:.5rem;font-family:var(--font-body)}
+.finale-btn:hover{opacity:1;transform:translateY(-2px)}
+.finale-btn svg{width:20px;height:20px;stroke:currentColor}
+#saved-cocktails-section{margin-top:1.5rem;display:none}
+.saved-list-title{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(180,130,40,.38);margin-bottom:.6rem}
+.saved-list{display:flex;flex-direction:column;gap:.4rem}
+.saved-item{background:rgba(180,130,40,.05);border:1px solid rgba(180,130,40,.1);padding:.6rem .85rem;display:flex;justify-content:space-between;align-items:center;font-size:.8rem}
+.saved-item-name{color:var(--cream);font-weight:600}
+.saved-item-sub{color:rgba(242,235,217,.33);font-size:.7rem;margin-top:.1rem}
 .share-modal{position:fixed;inset:0;background:rgba(14,14,16,.9);z-index:1000;align-items:center;justify-content:center;padding:1rem;display:none}
 .share-modal.open{display:flex}
 .share-modal-box{background:#1a1a1c;border:1px solid rgba(245,220,66,.3);padding:2rem;text-align:center;max-width:360px;width:100%;position:relative}
@@ -217,46 +221,34 @@ img{display:block;max-width:100%}
 .share-url-copy:hover{opacity:.85}
 .share-hint{font-size:.78rem;color:rgba(242,235,217,.45);margin:0}
 
-/* Saved cocktails */
-#saved-cocktails-section{margin-top:2rem;display:none}
-.saved-list-title{font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(242,235,217,.35);margin-bottom:.75rem}
-.saved-list{display:flex;flex-direction:column;gap:.5rem}
-.saved-item{background:rgba(255,255,255,.03);border:1px solid rgba(245,220,66,.1);padding:.75rem 1rem;display:flex;justify-content:space-between;align-items:center;font-size:.84rem}
-.saved-item-name{color:var(--cream);font-weight:600}
-.saved-item-sub{color:rgba(242,235,217,.4);font-size:.75rem;margin-top:.15rem}
-
 /* MENU */
-#menu{background:var(--ink-black);padding:80px clamp(20px,5vw,80px)}
-.menu-inner{max-width:1100px;margin:0 auto}
-.menu-header{text-align:center;margin-bottom:48px}
-.menu-shakespeare{font-family:var(--font-classic);font-style:italic;font-size:1rem;color:rgba(242,235,217,.45);margin-top:.5rem}
-.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem}
-@media(max-width:600px){.menu-grid{grid-template-columns:1fr}}
-/* Photo card */
-.menu-item{background:rgba(255,255,255,.02);border:1px solid rgba(245,220,66,.1);overflow:hidden;transition:transform .4s,border-color .4s,box-shadow .4s;position:relative}
-.menu-item:hover{transform:translateY(-4px);border-color:rgba(245,220,66,.3);box-shadow:0 12px 36px rgba(0,0,0,.5)}
-.menu-item-photo{aspect-ratio:1/1;overflow:hidden;background:var(--ink-black)}
-.menu-item-photo img{width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.9);transition:filter .4s,transform .6s;display:block}
-.menu-item:hover .menu-item-photo img{filter:brightness(1) saturate(1.05);transform:scale(1.05)}
-.menu-item-content{padding:1.5rem}
-.menu-item-name{font-family:var(--font-display);font-size:1.05rem;color:var(--cream);margin:0 0 .5rem;line-height:1.2}
-.menu-item-desc{font-family:var(--font-classic);font-style:italic;font-size:.88rem;color:var(--ash);margin:0 0 1.25rem;line-height:1.45}
-.menu-item-prices{display:flex;justify-content:space-between;align-items:flex-end;padding-top:1rem;border-top:1px solid rgba(245,220,66,.15)}
-.price-cost .price-value{font-family:var(--font-display);font-size:1.65rem;color:var(--neon-yellow);display:block;line-height:1}
-.price-cost .price-label{font-size:.65rem;letter-spacing:.15em;color:rgba(245,220,66,.7);text-transform:uppercase;margin-top:.2rem}
-.price-regular .price-value{font-family:var(--font-display);font-size:1.05rem;color:var(--ash);text-decoration:line-through;display:block;line-height:1}
-.price-regular .price-label{font-size:.65rem;letter-spacing:.15em;color:rgba(242,235,217,.4);text-transform:uppercase;margin-top:.2rem}
-/* After-hours: regular price becomes primary */
-.menu-item.after-hours .price-cost .price-value{color:var(--ash);text-decoration:line-through;font-size:1.05rem}
-.menu-item.after-hours .price-cost .price-label{color:rgba(242,235,217,.4)}
-.menu-item.after-hours .price-regular .price-value{color:var(--neon-yellow);text-decoration:none;font-size:1.65rem}
-.menu-item.after-hours .price-regular .price-label{color:rgba(245,220,66,.7)}
-/* Keep old .menu-card styles so timer badge still works */
-.menu-card{background:rgba(255,255,255,.04);border:1px solid rgba(245,220,66,.1);padding:1.25rem 1rem 1rem;transition:border-color .2s,transform .2s,box-shadow .2s;position:relative;overflow:hidden;display:none}
-.menu-time-badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(245,220,66,.35);color:var(--neon-yellow);padding:.35rem .85rem;margin-bottom:.75rem}
-.menu-time-badge.expired{color:var(--ash);border-color:rgba(242,235,217,.25)}
-.menu-time-badge{display:inline-block;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--neon-yellow);border:1px solid rgba(245,220,66,.3);padding:.2rem .55rem;margin-bottom:.75rem}
-.menu-time-badge.expired{color:var(--ash);border-color:rgba(110,110,110,.3)}
+#menu{background:var(--ink-black)}
+.menu-section{position:relative;padding:4rem clamp(20px,5vw,80px) 5rem;max-width:1200px;margin:0 auto}
+.menu-header{text-align:center;max-width:700px;margin:0 auto 3rem}
+.menu-eyebrow{display:block;font-family:var(--font-display);font-size:.7rem;letter-spacing:.4em;color:var(--neon-yellow);opacity:.6;margin-bottom:.5rem;text-transform:uppercase}
+.menu-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);color:var(--cream);margin:0 0 .5rem;line-height:1;letter-spacing:-.02em}
+.menu-subtitle{font-family:var(--font-classic);color:var(--ash);font-size:.95rem;margin:0}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2rem}
+@media(max-width:900px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.menu-grid{grid-template-columns:1fr}}
+.menu-item{background:rgba(255,255,255,.02);border:1px solid rgba(245,220,66,.08);display:flex;flex-direction:column;transition:all .3s ease;position:relative;overflow:hidden;cursor:default}
+.menu-item:hover{border-color:rgba(245,220,66,.3);background:rgba(255,255,255,.04);transform:translateY(-3px)}
+.menu-item-visual{aspect-ratio:4/3;background:linear-gradient(135deg,rgba(43,24,16,.6) 0%,rgba(20,12,8,.8) 100%);position:relative;overflow:hidden}
+.menu-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;color:var(--cream)}
+.placeholder-icon{width:70px;height:70px;opacity:.4}
+.placeholder-label{font-family:var(--font-classic);font-style:italic;font-size:.75rem;color:rgba(245,235,217,.4);letter-spacing:.1em;text-transform:lowercase}
+.menu-item[data-photo]:not([data-photo=""]) .menu-placeholder{display:none}
+.menu-item[data-photo]:not([data-photo=""]) .menu-item-visual{background-image:var(--photo-url);background-size:cover;background-position:center}
+.menu-item-body{padding:1.2rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.menu-item-name{font-family:var(--font-display);font-size:1.05rem;color:var(--cream);margin:0;line-height:1.2;letter-spacing:-.01em}
+.menu-item-desc{font-family:var(--font-classic);font-style:italic;font-size:.85rem;color:rgba(245,235,217,.55);margin:0;line-height:1.4;flex:1}
+.menu-item-footer{display:flex;align-items:center;justify-content:space-between;margin-top:.5rem;padding-top:.7rem;border-top:1px solid rgba(245,220,66,.1)}
+.menu-item-price{font-family:var(--font-display);font-size:1.4rem;color:var(--neon-yellow);font-weight:600;letter-spacing:-.01em}
+.menu-item-tag{font-family:var(--font-classic);font-style:italic;font-size:.75rem;color:rgba(245,220,66,.7);letter-spacing:.05em}
+.menu-footnote{text-align:center;font-family:var(--font-classic);font-style:italic;font-size:.9rem;color:rgba(245,235,217,.5);margin:2rem 0 0}
+.menu-footnote a{color:var(--neon-yellow);text-decoration:none;border-bottom:1px dashed rgba(245,220,66,.4);padding-bottom:1px;transition:border-color .2s}
+.menu-footnote a:hover{border-bottom-color:var(--neon-yellow)}
+
 
 /* ROULETTE */
 #roulette{background:#0a0a0c;padding:80px clamp(20px,5vw,80px)}
@@ -440,10 +432,7 @@ footer{background:#060608;padding:36px clamp(20px,5vw,64px);border-top:1px solid
       <span class="hero-meta-sep">·</span>
       <span>Покровка, 16</span>
     </div>
-    <div class="hero-truecost-timer" id="truecostTimer" aria-live="polite">
-      <span class="timer-label" id="timerLabel">До 19:00 — всё по себестоимости</span>
-      <span class="timer-countdown" id="timerCountdown">--:--:--</span>
-    </div>
+
   </div>
   <div class="hero-scroll" aria-hidden="true">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(245,220,66,.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -472,213 +461,380 @@ footer{background:#060608;padding:36px clamp(20px,5vw,64px);border-top:1px solid
         <p>В <strong>2020 году</strong> мы открылись под именем «ЙУХ».</p>
         <p>Школа напротив возмутилась. Власти потребовали снять вывеску.</p>
         <p>Мы переименовались — официально. Но <strong>«Йорик убил Хамлета»</strong> — это просто расшифровка той же аббревиатуры. Дерзость никуда не делась.</p>
-        <p>Мы по-прежнему наливаем джин-тоники по себестоимости до 19:00. Мы по-прежнему делаем дим-самы в 23:30. Мы по-прежнему запускаем <strong>ценовую рулетку по воскресеньям</strong> — где скидка может быть 90%, а наценка 20%.</p>
+        <p>Мы по-прежнему наливаем джин-тоники. Мы по-прежнему делаем роллы и суши в 23:30. Мы по-прежнему запускаем <strong>ценовую рулетку по воскресеньям</strong> — где скидка может быть 90%, а наценка 20%.</p>
         <p>Просто теперь у нас более длинное название.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ GIN BUILDER ═══ -->
+<!-- ═══ GIN BUILDER (ALCHEMY LAB) ═══ -->
 <section id="gin-builder">
-  <div class="gin-builder-inner section-pad">
-    <div class="gin-builder-header reveal">
-      <span class="section-label">Интерактивно</span>
-      <h2 class="section-title">Собери свой джин-тоник</h2>
-      <p class="gin-builder-sub">«Что в имени тебе моём? — спросил коктейль» · 3 шага · 192 комбинации · тысячи имён</p>
+  <div class="alchemy-lab section-pad">
+    <div class="lab-ambient" aria-hidden="true"></div>
+
+    <!-- Header -->
+    <div class="lab-header reveal">
+      <div class="lab-alchemy-symbols" aria-hidden="true">☿ ☉ ☽ ♄</div>
+      <span class="section-label">Алхимическая лаборатория</span>
+      <h2 class="section-title">Составь свой рецепт</h2>
+      <p class="gin-builder-sub">«Смешай три ингредиента — получи имя, судьбу и настроение» · 192 комбинации</p>
     </div>
 
     <!-- Progress -->
-    <div class="gb-progress reveal" id="gbProgress">
-      <div class="gb-step-dot active" id="dot-1">1</div>
-      <div class="gb-step-line" id="line-1"></div>
-      <div class="gb-step-dot" id="dot-2">2</div>
-      <div class="gb-step-line" id="line-2"></div>
-      <div class="gb-step-dot" id="dot-3">3</div>
+    <div class="lab-progress reveal" id="labProgress">
+      <div class="lab-dot active" id="lab-dot-1">I</div>
+      <div class="lab-line" id="lab-line-1"></div>
+      <div class="lab-dot" id="lab-dot-2">II</div>
+      <div class="lab-line" id="lab-line-2"></div>
+      <div class="lab-dot" id="lab-dot-3">III</div>
     </div>
-    <div class="gb-step-labels reveal" style="transition-delay:.1s">
-      <span class="gb-step-label active" id="label-1">Джин</span>
-      <span class="gb-step-label" id="label-2">Содовая</span>
-      <span class="gb-step-label" id="label-3">Добавка</span>
-    </div>
-
-    <!-- Step 1: Gin -->
-    <div class="gb-panel active reveal" id="gb-step-1" style="margin-top:28px;transition-delay:.15s">
-      <p class="gb-panel-title">Шаг 1 — Выбери джин</p>
-      <p class="gb-shakespeare">«Весь мир — барная стойка, а люди в нём — напитки»</p>
-      <div class="gb-options gb-options-8" id="gin-options"></div>
-      <div class="gb-next-wrap">
-        <button class="gb-next-btn" id="gin-next" onclick="gbGoTo(2)">Дальше →</button>
-      </div>
+    <div class="lab-dot-labels reveal" style="transition-delay:.08s">
+      <span class="lab-dot-label active" id="lab-label-1">Джин</span>
+      <span class="lab-dot-label" id="lab-label-2">Содовая</span>
+      <span class="lab-dot-label" id="lab-label-3">Гарнир</span>
     </div>
 
-    <!-- Step 2: Tonic -->
-    <div class="gb-panel" id="gb-step-2">
-      <p class="gb-panel-title">Шаг 2 — Выбери содовую</p>
-      <p class="gb-shakespeare">«Выбор содовой — это уже характер»</p>
-      <div class="gb-options gb-options-4" id="tonic-options"></div>
-      <div class="gb-next-wrap">
-        <button class="gb-back-btn" onclick="gbGoTo(1)">← Назад</button>
-        <button class="gb-next-btn" id="tonic-next" onclick="gbGoTo(3)">Дальше →</button>
-      </div>
-    </div>
+    <!-- Parchment stage -->
+    <div class="parchment-stage reveal" style="transition-delay:.15s">
+      <div class="parchment">
+        <div class="parchment-texture" aria-hidden="true"></div>
+        <div class="alchemy-corners" aria-hidden="true">
+          <span class="alchemy-corner-sym">☿</span>
+          <span class="alchemy-corner-sym">☉</span>
+          <span class="alchemy-corner-sym">☽</span>
+          <span class="alchemy-corner-sym">♄</span>
+        </div>
 
-    <!-- Step 3: Garnish -->
-    <div class="gb-panel" id="gb-step-3">
-      <p class="gb-panel-title">Шаг 3 — Добавь гарнир</p>
-      <p class="gb-shakespeare">«Последний штрих, как точка в сонете»</p>
-      <div class="gb-options gb-options-6" id="garnish-options"></div>
-      <div class="gb-next-wrap">
-        <button class="gb-back-btn" onclick="gbGoTo(2)">← Назад</button>
-        <button class="gb-next-btn" id="garnish-next" onclick="gbShowResult()">Готово ✦</button>
-      </div>
-    </div>
-
-    <!-- Result -->
-    <div id="gb-result">
-      <div class="cocktail-result-stage">
-      <div class="cocktail-result" id="cocktailResult">
-
-        <!-- Animated glass with vertical marking -->
-        <div class="cocktail-glass-wrap">
-          <div class="cocktail-marking" aria-hidden="true">
-            <span class="marking-bar">ПОКРОВКА · 16</span>
-            <span class="marking-divider">·</span>
-            <span class="marking-number" id="cocktailNumber">001</span>
-            <span class="marking-divider">·</span>
-            <span class="marking-label">No.</span>
-          </div>
-          <svg class="cocktail-glass" viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <clipPath id="glassClip">
-                <path d="M42,22 L33,198 Q33,225 100,225 Q167,225 167,198 L158,22 Z"/>
-              </clipPath>
-              <linearGradient id="glassHighlight" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="rgba(255,255,255,0.35)"/>
-                <stop offset="20%" stop-color="rgba(255,255,255,0.1)"/>
-                <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
-              </linearGradient>
-              <radialGradient id="meniscGradient" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="rgba(255,255,255,0.35)"/>
-                <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
-              </radialGradient>
-              <filter id="shadowBlur" x="-60%" y="-60%" width="220%" height="220%">
-                <feGaussianBlur stdDeviation="4"/>
-              </filter>
-            </defs>
-            <!-- Ground shadow -->
-            <ellipse cx="100" cy="248" rx="52" ry="7" fill="rgba(0,0,0,0.4)" filter="url(#shadowBlur)"/>
-            <!-- Glass outline (drawn via stroke-dashoffset) -->
-            <path id="glassOutline"
-              d="M40,20 L30,200 Q30,230 100,230 Q170,230 170,200 L160,20 Z"
-              fill="none" stroke="#c8a96e" stroke-width="2.5"
-              stroke-dasharray="700" stroke-dashoffset="700"/>
-            <!-- Liquid fill (scaleY from 0) -->
-            <rect id="liquid" x="33" y="95" width="134" height="130"
-              clip-path="url(#glassClip)"
-              fill="#88c5d0" opacity="0.72"
-              style="transform:scaleY(0);transform-origin:100px 225px;transition:transform 1.1s cubic-bezier(.22,1,.36,1) .4s"/>
-            <!-- Highlight streak -->
-            <rect x="50" y="25" width="22" height="195" fill="url(#glassHighlight)" clip-path="url(#glassClip)" opacity="0.45"/>
-            <!-- Meniscus surface -->
-            <ellipse id="gbMeniscus" cx="100" cy="98" rx="56" ry="6" fill="url(#meniscGradient)" opacity="0" clip-path="url(#glassClip)" style="transition:opacity .3s"/>
-            <!-- Ice cubes -->
-            <g id="gbIce" clip-path="url(#glassClip)" opacity="0" style="transition:opacity .4s">
-              <rect x="75" y="148" width="19" height="19" fill="rgba(255,255,255,0.28)" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" transform="rotate(15 84 157)"/>
-              <rect x="116" y="170" width="15" height="15" fill="rgba(255,255,255,0.22)" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" transform="rotate(-10 123 177)"/>
+        <!-- Candle -->
+        <div class="lab-candle" aria-hidden="true">
+          <svg width="24" height="52" viewBox="0 0 24 52">
+            <g class="candle-flame">
+              <ellipse cx="12" cy="8" rx="5" ry="8" fill="rgba(245,180,30,.7)"/>
+              <ellipse cx="12" cy="10" rx="3" ry="5" fill="rgba(255,220,80,.85)"/>
+              <ellipse cx="12" cy="12" rx="1.5" ry="2.5" fill="rgba(255,255,200,.9)"/>
             </g>
-            <!-- Bubbles group -->
-            <g id="gbBubbles" clip-path="url(#glassClip)"></g>
-            <!-- Garnish slot -->
-            <g id="gbGarnish" transform="translate(100,18)"></g>
-            <!-- Glass rim line -->
-            <line x1="40" y1="20" x2="160" y2="20" stroke="#c8a96e" stroke-width="1.5" stroke-linecap="round" opacity="0"/>
+            <rect x="10" y="18" width="4" height="2" fill="rgba(200,160,60,.6)"/>
+            <rect x="9" y="20" width="6" height="28" rx="1" fill="rgba(230,210,160,.12)" stroke="rgba(200,160,60,.28)" stroke-width=".5"/>
+            <ellipse cx="12" cy="48" rx="5" ry="2" fill="rgba(200,160,60,.18)"/>
           </svg>
         </div>
 
-        <!-- Name -->
-        <div class="cocktail-name-top" id="cocktailNameTop"></div>
-        <div class="cocktail-ornament">
-          <span class="ornament-line"></span>
-          <span class="ornament-mark">✦</span>
-          <span class="ornament-line"></span>
-        </div>
-        <div class="cocktail-name-bottom" id="cocktailNameBottom"></div>
-        <div class="cocktail-name-tail" id="cocktailNameTail"></div>
-
-        <!-- Mood -->
-        <p class="cocktail-mood" id="cocktailMood"></p>
-
-        <!-- Shakespeare circular stamp -->
-        <div class="cocktail-stamp-shake">
-          <svg viewBox="0 0 120 120" width="100" height="100" aria-hidden="true">
-            <defs>
-              <path id="stampArcPath" d="M 60,60 m -45,0 a 45,45 0 1,1 90,0 a 45,45 0 1,1 -90,0"/>
-            </defs>
-            <circle cx="60" cy="60" r="50" fill="none" stroke="var(--neon-yellow)" stroke-width="0.8" opacity="0.5"/>
-            <circle cx="60" cy="60" r="42" fill="none" stroke="var(--neon-yellow)" stroke-width="0.4" opacity="0.4"/>
-            <text font-family="var(--font-display)" font-size="6" fill="var(--neon-yellow)" opacity="0.7" letter-spacing="2">
-              <textPath href="#stampArcPath" id="stampTextPath"></textPath>
-            </text>
-            <text x="60" y="68" text-anchor="middle" font-family="serif" font-size="26" fill="var(--neon-yellow)" opacity="0.55">❦</text>
-          </svg>
+        <!-- Recipe header -->
+        <div class="recipe-header">
+          <div class="recipe-title">Рецептурная книга</div>
+          <div class="recipe-divider">
+            <div class="recipe-divider-line"></div>
+            <span class="recipe-divider-sym">⚗</span>
+            <div class="recipe-divider-line"></div>
+          </div>
         </div>
 
-        <!-- Ingredients -->
-        <div class="cocktail-ingredients" id="cocktailIngredients"></div>
-
-        <!-- Actions -->
-        <div class="cocktail-actions">
-          <button class="action-btn" id="gb-save-btn" data-action="save" onclick="gbSave()">
-            <svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
-            <span class="action-label">Сохранить</span>
-          </button>
-          <button class="action-btn" data-action="share" onclick="gbShare()">
-            <svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-            <span class="action-label">Поделиться</span>
-          </button>
-          <button class="action-btn" data-action="restart" onclick="gbRestart()">
-            <svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.85"/></svg>
-            <span class="action-label">Ещё раз</span>
-          </button>
+        <!-- Recipe lines -->
+        <div class="recipe-lines" id="recipeLines">
+          <div class="recipe-line" id="rl-1">
+            <span class="recipe-line-num">I</span>
+            <span class="recipe-line-label">Spiritus</span>
+            <span class="recipe-line-dots"></span>
+            <span class="recipe-line-value" id="rl-1-val"></span>
+          </div>
+          <div class="recipe-line" id="rl-2">
+            <span class="recipe-line-num">II</span>
+            <span class="recipe-line-label">Aqua</span>
+            <span class="recipe-line-dots"></span>
+            <span class="recipe-line-value" id="rl-2-val"></span>
+          </div>
+          <div class="recipe-line" id="rl-3">
+            <span class="recipe-line-num">III</span>
+            <span class="recipe-line-label">Herba</span>
+            <span class="recipe-line-dots"></span>
+            <span class="recipe-line-value" id="rl-3-val"></span>
+          </div>
         </div>
-      </div>
-      </div><!-- /.cocktail-result-stage -->
+
+        <!-- Ink drop stage -->
+        <div class="ink-drop-stage" id="inkDropStage" aria-hidden="true"></div>
+
+        <!-- Selection steps -->
+        <div class="selection-section" id="selectionSection">
+
+          <!-- Step 1: Gin -->
+          <div class="selection-step active" id="al-step-1">
+            <p class="selection-step-title">Шаг I — Выбери джин</p>
+            <p class="selection-step-quote">«Весь мир — барная стойка, а люди в нём — напитки»</p>
+            <div class="selection-grid selection-grid-8" id="al-gin-options"></div>
+            <div class="selection-nav">
+              <span></span>
+              <button class="alchemy-next-btn" id="al-gin-next" onclick="alGoTo(2)">Далее →</button>
+            </div>
+          </div>
+
+          <!-- Step 2: Tonic -->
+          <div class="selection-step" id="al-step-2">
+            <p class="selection-step-title">Шаг II — Выбери содовую</p>
+            <p class="selection-step-quote">«Выбор содовой — это уже характер»</p>
+            <div class="selection-grid selection-grid-4" id="al-tonic-options"></div>
+            <div class="selection-nav">
+              <button class="alchemy-back-btn" onclick="alGoTo(1)">← Назад</button>
+              <button class="alchemy-next-btn" id="al-tonic-next" onclick="alGoTo(3)">Далее →</button>
+            </div>
+          </div>
+
+          <!-- Step 3: Garnish -->
+          <div class="selection-step" id="al-step-3">
+            <p class="selection-step-title">Шаг III — Добавь гарнир</p>
+            <p class="selection-step-quote">«Последний штрих, как точка в сонете»</p>
+            <div class="selection-grid selection-grid-6" id="al-garnish-options"></div>
+            <div class="selection-nav">
+              <button class="alchemy-back-btn" onclick="alGoTo(2)">← Назад</button>
+              <button class="alchemy-next-btn" id="al-garnish-next" onclick="alShowFinale()">Готово ✦</button>
+            </div>
+          </div>
+
+        </div><!-- /selection-section -->
+
+        <!-- Finale -->
+        <div id="alchemy-finale">
+          <div class="finale-seal">
+            <svg viewBox="0 0 120 120" width="90" height="90" aria-hidden="true">
+              <defs>
+                <path id="finaleArcPath" d="M 60,60 m -45,0 a 45,45 0 1,1 90,0 a 45,45 0 1,1 -90,0"/>
+              </defs>
+              <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(200,160,60,.42)" stroke-width=".8"/>
+              <circle cx="60" cy="60" r="42" fill="none" stroke="rgba(200,160,60,.22)" stroke-width=".4"/>
+              <text font-family="var(--font-display)" font-size="5.5" fill="rgba(200,160,60,.62)" letter-spacing="2">
+                <textPath href="#finaleArcPath" id="finaleTextPath"></textPath>
+              </text>
+              <text x="60" y="68" text-anchor="middle" font-family="serif" font-size="24" fill="rgba(200,160,60,.48)">❦</text>
+            </svg>
+          </div>
+          <div class="finale-name" id="finale-name-top"></div>
+          <div class="finale-name-ornament">
+            <span class="finale-orn-line"></span>
+            <span class="finale-orn-sym">✦</span>
+            <span class="finale-orn-line"></span>
+          </div>
+          <div class="finale-name" id="finale-name-bottom"></div>
+          <div class="finale-latin" id="finale-latin"></div>
+          <p class="finale-mood" id="finale-mood"></p>
+          <div class="finale-ingredients" id="finale-ingredients"></div>
+          <div class="finale-actions">
+            <button class="finale-btn" id="al-save-btn" onclick="alSave()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+              <span id="al-save-label">Сохранить</span>
+            </button>
+            <button class="finale-btn" onclick="alShare()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              <span>Поделиться</span>
+            </button>
+            <button class="finale-btn" onclick="alRestart()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.85"/></svg>
+              <span>Ещё раз</span>
+            </button>
+          </div>
+        </div><!-- /alchemy-finale -->
+
+      </div><!-- /parchment -->
 
       <!-- Saved cocktails -->
       <div id="saved-cocktails-section">
-        <div class="saved-list-title">Ваши сохранённые коктейли</div>
+        <div class="saved-list-title">Сохранённые рецепты</div>
         <div class="saved-list" id="saved-list"></div>
       </div>
 
-      <!-- Share modal -->
-      <div class="share-modal" id="shareModal" role="dialog" aria-modal="true" aria-label="Поделиться коктейлем">
-        <div class="share-modal-box">
-          <button class="share-modal-close" onclick="document.getElementById('shareModal').classList.remove('open')" aria-label="Закрыть">&times;</button>
-          <p class="share-modal-title">Поделись своим коктейлем</p>
-          <div class="share-url-row">
-            <input class="share-url-input" id="shareUrlInput" readonly>
-            <button class="share-url-copy" id="shareUrlCopy">Скопировать</button>
-          </div>
-          <p class="share-hint" id="shareHint"></p>
-        </div>
+    </div><!-- /parchment-stage -->
+
+  </div><!-- /alchemy-lab -->
+
+  <!-- Share modal -->
+  <div class="share-modal" id="shareModal" role="dialog" aria-modal="true" aria-label="Поделиться рецептом">
+    <div class="share-modal-box">
+      <button class="share-modal-close" onclick="document.getElementById('shareModal').classList.remove('open')" aria-label="Закрыть">&times;</button>
+      <p class="share-modal-title">Поделись своим рецептом</p>
+      <div class="share-url-row">
+        <input class="share-url-input" id="shareUrlInput" readonly>
+        <button class="share-url-copy" id="shareUrlCopy">Скопировать</button>
       </div>
+      <p class="share-hint" id="shareHint"></p>
     </div>
   </div>
 </section>
 
 <!-- ═══ MENU ═══ -->
+<!--
+  МЕНЮ — заглушки на месте фото
+  Когда получим реальные фото от заказчика:
+  1. Положить файлы в assets/menu/ (имена: 1-firmenny.jpg, 2-philadelphia.jpg,
+     3-california.jpg, 4-tomyam.jpg, 5-gunkan.jpg, 6-cesar.jpg)
+  2. Заменить data-photo="" на data-photo="assets/menu/1-firmenny.jpg"
+     для каждой карточки
+  3. Добавить style="--photo-url: url('assets/menu/1-firmenny.jpg')"
+     к article.menu-item — заглушка автоматически скроется (CSS-правило)
+-->
 <section id="menu">
-  <div class="menu-inner section-pad">
-    <div class="menu-header reveal">
-      <span class="section-label">Паназиатская кухня</span>
-      <h2 class="section-title">Меню</h2>
-      <p class="menu-shakespeare">«Аппетит приходит во время чтения меню» — вольная отсылка к Шекспиру</p>
+  <div class="menu-section reveal">
+
+    <header class="menu-header">
+      <span class="menu-eyebrow">Кухня</span>
+      <h2 class="menu-title">Хиты меню</h2>
+      <p class="menu-subtitle"><em>«Что в тарелке тебе моей?»</em> — Паназиатская и европейская кухня от шефа</p>
+    </header>
+
+    <div class="menu-grid">
+
+      <article class="menu-item" data-category="roll" data-photo="">
+        <div class="menu-item-visual">
+          <div class="menu-placeholder">
+            <svg class="placeholder-icon" viewBox="0 0 80 80" aria-hidden="true">
+              <circle cx="40" cy="40" r="32" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+              <circle cx="40" cy="40" r="26" fill="none" stroke="currentColor" stroke-width="0.4" opacity="0.3"/>
+              <line x1="20" y1="56" x2="56" y2="20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+              <line x1="24" y1="60" x2="60" y2="24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+              <circle cx="36" cy="40" r="2" fill="currentColor" opacity="0.4"/>
+              <circle cx="44" cy="42" r="2" fill="currentColor" opacity="0.4"/>
+              <circle cx="40" cy="36" r="2" fill="currentColor" opacity="0.4"/>
+            </svg>
+            <span class="placeholder-label">Фото скоро</span>
+          </div>
+        </div>
+        <div class="menu-item-body">
+          <h3 class="menu-item-name">Фирменный ролл</h3>
+          <p class="menu-item-desc">Лосось, креветка, кремета, манго</p>
+          <div class="menu-item-footer">
+            <span class="menu-item-price">460 ₽</span>
+            <span class="menu-item-tag">★ Хит</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-item" data-category="roll" data-photo="">
+        <div class="menu-item-visual">
+          <div class="menu-placeholder">
+            <svg class="placeholder-icon" viewBox="0 0 80 80" aria-hidden="true">
+              <circle cx="40" cy="40" r="32" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+              <circle cx="40" cy="40" r="26" fill="none" stroke="currentColor" stroke-width="0.4" opacity="0.3"/>
+              <line x1="20" y1="56" x2="56" y2="20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+              <line x1="24" y1="60" x2="60" y2="24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+              <circle cx="36" cy="40" r="2" fill="currentColor" opacity="0.4"/>
+              <circle cx="44" cy="42" r="2" fill="currentColor" opacity="0.4"/>
+              <circle cx="40" cy="36" r="2" fill="currentColor" opacity="0.4"/>
+            </svg>
+            <span class="placeholder-label">Фото скоро</span>
+          </div>
+        </div>
+        <div class="menu-item-body">
+          <h3 class="menu-item-name">Филадельфия с обожжённым лососем</h3>
+          <p class="menu-item-desc">Кремета, авокадо, икра тобико, тростниковый сахар</p>
+          <div class="menu-item-footer">
+            <span class="menu-item-price">420 ₽</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-item" data-category="roll" data-photo="">
+        <div class="menu-item-visual">
+          <div class="menu-placeholder">
+            <svg class="placeholder-icon" viewBox="0 0 80 80" aria-hidden="true">
+              <circle cx="40" cy="40" r="32" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+              <circle cx="40" cy="40" r="26" fill="none" stroke="currentColor" stroke-width="0.4" opacity="0.3"/>
+              <line x1="20" y1="56" x2="56" y2="20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+              <line x1="24" y1="60" x2="60" y2="24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+              <circle cx="36" cy="40" r="2" fill="currentColor" opacity="0.4"/>
+              <circle cx="44" cy="42" r="2" fill="currentColor" opacity="0.4"/>
+              <circle cx="40" cy="36" r="2" fill="currentColor" opacity="0.4"/>
+            </svg>
+            <span class="placeholder-label">Фото скоро</span>
+          </div>
+        </div>
+        <div class="menu-item-body">
+          <h3 class="menu-item-name">Калифорния со снежным крабом</h3>
+          <p class="menu-item-desc">Икра тобико, огурец, кремета</p>
+          <div class="menu-item-footer">
+            <span class="menu-item-price">420 ₽</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-item" data-category="soup" data-photo="">
+        <div class="menu-item-visual">
+          <div class="menu-placeholder">
+            <svg class="placeholder-icon" viewBox="0 0 80 80" aria-hidden="true">
+              <circle cx="40" cy="40" r="32" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+              <circle cx="40" cy="40" r="26" fill="none" stroke="currentColor" stroke-width="0.4" opacity="0.3"/>
+              <line x1="20" y1="56" x2="56" y2="20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+              <line x1="24" y1="60" x2="60" y2="24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+              <circle cx="36" cy="40" r="2" fill="currentColor" opacity="0.4"/>
+              <circle cx="44" cy="42" r="2" fill="currentColor" opacity="0.4"/>
+              <circle cx="40" cy="36" r="2" fill="currentColor" opacity="0.4"/>
+            </svg>
+            <span class="placeholder-label">Фото скоро</span>
+          </div>
+        </div>
+        <div class="menu-item-body">
+          <h3 class="menu-item-name">Том ям с морепродуктами</h3>
+          <p class="menu-item-desc">Куриный бульон, лемонграсс, лайм, имбирь, чили</p>
+          <div class="menu-item-footer">
+            <span class="menu-item-price">480 ₽</span>
+            <span class="menu-item-tag">⚡ Острое</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-item" data-category="sushi" data-photo="">
+        <div class="menu-item-visual">
+          <div class="menu-placeholder">
+            <svg class="placeholder-icon" viewBox="0 0 80 80" aria-hidden="true">
+              <circle cx="40" cy="40" r="32" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+              <circle cx="40" cy="40" r="26" fill="none" stroke="currentColor" stroke-width="0.4" opacity="0.3"/>
+              <line x1="20" y1="56" x2="56" y2="20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+              <line x1="24" y1="60" x2="60" y2="24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+              <circle cx="36" cy="40" r="2" fill="currentColor" opacity="0.4"/>
+              <circle cx="44" cy="42" r="2" fill="currentColor" opacity="0.4"/>
+              <circle cx="40" cy="36" r="2" fill="currentColor" opacity="0.4"/>
+            </svg>
+            <span class="placeholder-label">Фото скоро</span>
+          </div>
+        </div>
+        <div class="menu-item-body">
+          <h3 class="menu-item-name">Гункан лосось</h3>
+          <p class="menu-item-desc">Рис, нори, лосось, соус спайси</p>
+          <div class="menu-item-footer">
+            <span class="menu-item-price">140 ₽</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-item" data-category="salad" data-photo="">
+        <div class="menu-item-visual">
+          <div class="menu-placeholder">
+            <svg class="placeholder-icon" viewBox="0 0 80 80" aria-hidden="true">
+              <circle cx="40" cy="40" r="32" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+              <circle cx="40" cy="40" r="26" fill="none" stroke="currentColor" stroke-width="0.4" opacity="0.3"/>
+              <line x1="20" y1="56" x2="56" y2="20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+              <line x1="24" y1="60" x2="60" y2="24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+              <circle cx="36" cy="40" r="2" fill="currentColor" opacity="0.4"/>
+              <circle cx="44" cy="42" r="2" fill="currentColor" opacity="0.4"/>
+              <circle cx="40" cy="36" r="2" fill="currentColor" opacity="0.4"/>
+            </svg>
+            <span class="placeholder-label">Фото скоро</span>
+          </div>
+        </div>
+        <div class="menu-item-body">
+          <h3 class="menu-item-name">Боул цезарь с креветками</h3>
+          <p class="menu-item-desc">Микс салата, соус цезарь, ворчестер</p>
+          <div class="menu-item-footer">
+            <span class="menu-item-price">480 ₽</span>
+          </div>
+        </div>
+      </article>
+
     </div>
-    <div class="reveal" style="text-align:center;margin-bottom:24px;transition-delay:.1s">
-      <div id="menu-timer-badge" class="menu-time-badge">⏱ True Cost до 19:00</div>
-    </div>
-    <div class="menu-grid reveal" id="menu-grid" style="transition-delay:.15s"></div>
+
+    <p class="menu-footnote">
+      <em>Полное меню — </em>
+      <a href="https://jorik-ubil-hamleta.clients.site/" target="_blank" rel="noopener">смотреть на сайте бара →</a>
+    </p>
+
   </div>
 </section>
 
@@ -931,7 +1087,7 @@ footer{background:#060608;padding:36px clamp(20px,5vw,64px);border-top:1px solid
           <svg class="contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="#F5DC42" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24-.01.38z"/></svg>
           <div>
             <div class="contact-label">Telegram</div>
-            <a href="https://t.me/jorikubilhamleta" target="_blank" rel="noopener" class="contact-link">t.me/jorikubilhamleta</a>
+            <a href="https://t.me/xyuvsem" target="_blank" rel="noopener" class="contact-link">t.me/xyuvsem</a>
           </div>
         </div>
       </div>
@@ -959,9 +1115,9 @@ footer{background:#060608;padding:36px clamp(20px,5vw,64px);border-top:1px solid
     <div class="footer-brand">
       <span class="f-strike">Йух&nbsp;</span>ЙОРИК УБИЛ ХАМЛЕТА
     </div>
-    <div class="footer-quote">«Вся жизнь — игра. А цены у нас — особенно по воскресеньям.»</div>
+    <div class="footer-quote">«Йорик мёртв. Бар жив.»</div>
     <div class="footer-links">
-      <a href="https://t.me/jorikubilhamleta" target="_blank" rel="noopener" class="footer-link">Telegram</a>
+      <a href="https://t.me/xyuvsem" target="_blank" rel="noopener" class="footer-link">Telegram</a>
       <a href="tel:+74951290669" class="footer-link">+7 (495) 129-06-69</a>
       <span style="font-size:.75rem;color:rgba(242,235,217,.2)">&copy; 2025</span>
     </div>
@@ -984,28 +1140,28 @@ footer{background:#060608;padding:36px clamp(20px,5vw,64px);border-top:1px solid
 (function(){
 // ─── DATA ────────────────────────────────────────────────────────────────────
 const GINS=[
-  {id:'london-dry', name:'London Dry',    subtitle:'Классика жанра',      flavor:'можжевельник, кориандр, сухость', color:'#c8dde8'},
-  {id:'hendricks',  name:"Hendrick's",    subtitle:'Огурец и роза',       flavor:'свежесть, цветочные ноты',        color:'#c2e0c6'},
-  {id:'monkey-47',  name:'Monkey 47',     subtitle:'47 ботаников',        flavor:'комплексный, сложный, тонкий',    color:'#d6cfe8'},
-  {id:'tanqueray',  name:'Tanqueray N°10',subtitle:'Цитрусовый монарх',   flavor:'грейпфрут, лайм, апельсин',       color:'#f0e080'},
-  {id:'bombay',     name:'Bombay Sapphire',subtitle:'Восточные специи',   flavor:'кубеба, миндаль, лакрица',        color:'#a8c8e8'},
-  {id:'beefeater',  name:'Beefeater 24',  subtitle:'Чай с джином',        flavor:'зелёный чай, сенча, цедра',       color:'#d4b896'},
-  {id:'gin-mare',   name:'Gin Mare',      subtitle:'Средиземноморье',     flavor:'оливки, розмарин, базилик',       color:'#e8d8a0'},
-  {id:'roku',       name:'Roku',          subtitle:'6 ботаников Японии',  flavor:'сакура, юзу, сансё',              color:'#f0c8d4'}
+  {id:'london-dry', name:'London Dry',      latin:'Iuniperus Communis',         subtitle:'Классика',           flavor:'можжевельник, кориандр', color:'#c8dde8'},
+  {id:'hendricks',  name:"Hendrick's",      latin:'Rosa et Cucumis',            subtitle:'Огурец и роза',      flavor:'свежесть, цветочные ноты', color:'#c2e0c6'},
+  {id:'monkey-47',  name:'Monkey 47',       latin:'Quadraginta Septem',         subtitle:'47 ботаников',       flavor:'комплексный, тонкий', color:'#d6cfe8'},
+  {id:'tanqueray',  name:'Tanqueray N\xb010',latin:'Citrus Rex',                subtitle:'Цитрусовый монарх',  flavor:'грейпфрут, лайм', color:'#f0e080'},
+  {id:'bombay',     name:'Bombay Sapphire', latin:'Sapphirus Orientalis',       subtitle:'Восточные специи',   flavor:'кубеба, миндаль', color:'#a8c8e8'},
+  {id:'beefeater',  name:'Beefeater 24',    latin:'Viridis Thea Spiritus',      subtitle:'Чай с джином',       flavor:'зелёный чай, сенча', color:'#d4b896'},
+  {id:'gin-mare',   name:'Gin Mare',        latin:'Mare Nostrum Botanica',      subtitle:'Средиземноморье',    flavor:'оливки, розмарин', color:'#e8d8a0'},
+  {id:'roku',       name:'Roku',            latin:'Sex Botanica Japonica',      subtitle:'6 ботаников Японии', flavor:'сакура, юзу', color:'#f0c8d4'}
 ];
 const TONICS=[
-  {id:'classic',      name:'Classic Tonic',   flavor:'хинин, сладость, баланс',  emoji:'🫧'},
-  {id:'mediterranean',name:'Mediterranean',   flavor:'розмарин, тимьян, лимон',  emoji:'🌿'},
-  {id:'ginger',       name:'Ginger Ale',      flavor:'имбирь, перец, тепло',     emoji:'🫚'},
-  {id:'cucumber',     name:'Cucumber Soda',   flavor:'свежесть, лёгкость',       emoji:'🥒'}
+  {id:'classic',       name:'Classic Tonic',  latin:'Aqua Classica',      flavor:'хинин, баланс'},
+  {id:'mediterranean', name:'Mediterranean',  latin:'Aqua Mediterranea',  flavor:'розмарин, тимьян'},
+  {id:'ginger',        name:'Ginger Ale',     latin:'Aqua Zingiberis',    flavor:'имбирь, перец'},
+  {id:'cucumber',      name:'Cucumber Soda',  latin:'Aqua Cucumis',       flavor:'свежесть, лёгкость'}
 ];
 const GARNISHES=[
-  {id:'cucumber', name:'Огурец',        emoji:'🥒', hint:'свежесть, прохлада'},
-  {id:'rosemary', name:'Розмарин',      emoji:'🌿', hint:'смолистая нота'},
-  {id:'lime',     name:'Лайм',          emoji:'🍋', hint:'острая кислота'},
-  {id:'ginger',   name:'Имбирь',        emoji:'🫚', hint:'жгучее тепло'},
-  {id:'pepper',   name:'Чёрный перец',  emoji:'🌶️', hint:'дерзкий акцент'},
-  {id:'juniper',  name:'Можжевельник',  emoji:'🌲', hint:'усиление джина'}
+  {id:'cucumber', name:'Огурец',       latin:'Cucumis',             hint:'свежесть, прохлада'},
+  {id:'rosemary', name:'Розмарин',     latin:'Rosmarinus',          hint:'смолистая нота'},
+  {id:'lime',     name:'Лайм',         latin:'Citrus Aurantifolia', hint:'острая кислота'},
+  {id:'ginger',   name:'Имбирь',       latin:'Zingiber',            hint:'жгучее тепло'},
+  {id:'pepper',   name:'Чёрный перец', latin:'Piper Nigrum',        hint:'дерзкий акцент'},
+  {id:'juniper',  name:'Можжевельник', latin:'Iuniperus',           hint:'усиление джина'}
 ];
 const ADJECTIVES=['Меланхоличный','Порочный','Бледный','Дерзкий','Хладнокровный','Изящный','Раздосадованный','Восторженный','Печальный','Таинственный','Бессовестный','Безмолвный','Беспокойный','Озорной','Романтический','Вычурный','Резкий','Нежный','Поэтический','Пьянящий','Терпкий','Воздушный','Тяжкий','Отчаянный','Дряхлый','Юный','Безмятежный','Скандальный'];
 const CHARACTERS=['Йорик','Гамлет','Офелия','Полоний','Лаэрт','Гертруда','Клавдий','Розенкранц','Гильденстерн','Призрак отца','Фортинбрас','Горацио','Бернардо','Марцелл','Осрик'];
@@ -1018,7 +1174,6 @@ const GARNISH_CASES={
   pepper:{с:'перцем',в:'перце',под:'перцем',над:'перцем',без:'перца','из-за':'перца'},
   juniper:{с:'можжевельником',в:'можжевельнике',под:'можжевельником',над:'можжевельником',без:'можжевельника','из-за':'можжевельника'}
 };
-const PREPOSITIONS=PREPS;
 
 const COCKTAIL_MOODS=[
   'Тихий, как монолог в пустом зале.',
@@ -1051,15 +1206,15 @@ const SHAKESPEARE_QUOTES=[
   {text:'«Мир — театр, и люди в нём — актёры»',source:'Как вам это понравится, II.7'},
   {text:'«Краткость — душа остроумия»',source:'Гамлет, II.2'},
   {text:'«Быть или не быть — вот в чём вопрос»',source:'Гамлет, III.1'},
-  {text:'«Весь мир — сцена, и мужчины и женщины — только актёры»',source:'Как вам это понравится, II.7'},
-  {text:'«Нет ничего ни хорошего, ни дурного; это размышление делает всё таковым»',source:'Гамлет, II.2'},
-  {text:'«Бедность — это не позор, но это чертовски неудобно»',source:'Виндзорские насмешницы, III.1'},
-  {text:'«Влюблённые, безумцы и поэты созданы из воображения»',source:'Сон в летнюю ночь, V.1'},
+  {text:'«Весь мир — сцена»',source:'Как вам это понравится, II.7'},
+  {text:'«Нет ничего ни хорошего, ни дурного»',source:'Гамлет, II.2'},
+  {text:'«Влюблённые, безумцы и поэты»',source:'Сон в летнюю ночь, V.1'},
   {text:'«Несчастье — хороший учитель»',source:'Буря, I.2'},
-  {text:'«Смелость и невежество всегда идут рядом»',source:'Троил и Крессида, I.2'},
   {text:'«Самая сладкая месть — забвение»',source:'Много шума из ничего, IV.1'},
-  {text:'«Лучше быть королём своего молчания, чем рабом своих слов»',source:'Виндзорские насмешницы, II.2'},
-  {text:'«Нет в мире виноватых — есть лишь обстоятельства»',source:'Мера за меру, II.1'}
+  {text:'«Лучше быть королём своего молчания»',source:'Виндзорские насмешницы, II.2'},
+  {text:'«Нет в мире виноватых»',source:'Мера за меру, II.1'},
+  {text:'«Смелость и невежество всегда идут рядом»',source:'Троил и Крессида, I.2'},
+  {text:'«Бедность — это не позор»',source:'Виндзорские насмешницы, III.1'}
 ];
 
 function hashSeed(str){
@@ -1071,7 +1226,7 @@ function generateCocktailName(gin,tonic,garnish){
   var base=gin.id+':'+tonic.id+':'+garnish.id;
   var adj=ADJECTIVES[hashSeed(base+':adj')%ADJECTIVES.length].toUpperCase();
   var char=CHARACTERS[hashSeed(base+':char')%CHARACTERS.length].toUpperCase();
-  var prep=PREPOSITIONS[hashSeed(base+':prep')%PREPOSITIONS.length];
+  var prep=PREPS[hashSeed(base+':prep')%PREPS.length];
   var gc=GARNISH_CASES[garnish.id]||{};
   return{top:adj,bottom:char,tail:prep+' '+(gc[prep]||garnish.name)};
 }
@@ -1081,88 +1236,7 @@ function generateCocktailDescription(gin,tonic,garnish){
 function pickShakespeare(gin,tonic,garnish){
   return SHAKESPEARE_QUOTES[hashSeed(gin.id+':'+tonic.id+':'+garnish.id+':shake')%SHAKESPEARE_QUOTES.length];
 }
-function generateCocktailNumber(gin,tonic,garnish){
-  return String((hashSeed(gin.id+':'+tonic.id+':'+garnish.id+':num')%999)+1).padStart(3,'0');
-}
 
-function animateCocktail(gin){
-  var outline=document.getElementById('glassOutline');
-  var liquid=document.getElementById('liquid');
-  var rim=document.querySelector('.cocktail-glass line');
-  var iceEl=document.getElementById('gbIce');
-  var meniscEl=document.getElementById('gbMeniscus');
-  if(outline){
-    outline.style.transition='stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1)';
-    outline.style.strokeDashoffset='0';
-  }
-  if(liquid){
-    liquid.setAttribute('fill',gin.color||'#88c5d0');
-    setTimeout(function(){liquid.style.transition='transform 1.1s cubic-bezier(.22,1,.36,1) .4s';liquid.style.transform='scaleY(1)';},200);
-  }
-  if(rim){setTimeout(function(){rim.style.opacity='0.6';},600);}
-  if(meniscEl){setTimeout(function(){meniscEl.style.transition='opacity .3s';meniscEl.style.opacity='0.55';},1500);}
-  if(iceEl){setTimeout(function(){iceEl.style.transition='opacity .4s';iceEl.style.opacity='1';},1900);}
-  spawnBubbles(gin.color||'#88c5d0');
-}
-function spawnBubbles(color){
-  var g=document.getElementById('gbBubbles');
-  if(!g) return;
-  g.innerHTML='';
-  for(var i=0;i<8;i++){
-    (function(i){
-      setTimeout(function(){
-        var c=document.createElementNS('http://www.w3.org/2000/svg','circle');
-        var x=50+Math.random()*100;
-        c.setAttribute('cx',x);
-        c.setAttribute('cy','220');
-        c.setAttribute('r',2+Math.random()*2.5);
-        c.setAttribute('fill','rgba(255,255,255,0.55)');
-        g.appendChild(c);
-        c.animate([
-          {transform:'translateY(0)',opacity:0.7},
-          {transform:'translateY(-130px)',opacity:0}
-        ],{duration:2000+Math.random()*1500,easing:'ease-in',iterations:Infinity,delay:Math.random()*2000});
-      },i*250);
-    })(i);
-  }
-}
-function renderGarnishSVG(garnish){
-  var g=document.getElementById('gbGarnish');
-  if(!g) return;
-  g.innerHTML='';
-  var shapes={
-    cucumber:'<rect x="-14" y="-28" width="28" height="12" rx="6" fill="#7ec87e" stroke="#4a9a4a" stroke-width="1.5" style="transform-origin:0 -22px;transform:rotate(-20deg) translateY(0);transition:transform .7s cubic-bezier(.34,1.56,.64,1)"/>',
-    rosemary:'<line x1="0" y1="-10" x2="0" y2="-34" stroke="#5a8a4a" stroke-width="2.5" stroke-linecap="round" style="transform-origin:0 -10px;transform:rotate(-15deg)"/><circle cx="-4" cy="-20" r="2" fill="#7aaa5a"/><circle cx="4" cy="-26" r="2" fill="#7aaa5a"/>',
-    lime:'<circle cx="0" cy="-24" r="10" fill="#c8e85a" stroke="#8aaa2a" stroke-width="1.5" style="transform-origin:0 -14px;transform:rotate(8deg)"/>',
-    ginger:'<rect x="-8" y="-30" width="16" height="8" rx="3" fill="#d4a84a" stroke="#9a7020" stroke-width="1.5" style="transform-origin:0 -22px;transform:rotate(12deg)"/>',
-    pepper:'<circle cx="0" cy="-26" r="6" fill="#3a1a1a" style="transform-origin:0 -20px;transform:translateY(0);transition:transform .7s cubic-bezier(.34,1.56,.64,1)"/><line x1="0" y1="-32" x2="0" y2="-36" stroke="#3a1a1a" stroke-width="1.5"/>',
-    juniper:'<circle cx="0" cy="-24" r="5" fill="#6a8a6a" stroke="#3a5a3a" stroke-width="1"/><circle cx="-7" cy="-20" r="3" fill="#5a7a5a"/><circle cx="7" cy="-20" r="3" fill="#5a7a5a"/>'
-  };
-  g.innerHTML=shapes[garnish.id]||'';
-  setTimeout(function(){
-    var el=g.querySelector('[style]');
-    if(el&&el.style.transform){
-      el.style.transform=el.style.transform.replace('translateY(0)','translateY(-8px)').replace('scaleY(0)','scaleY(1)');
-    }
-  },900);
-}
-
-function renderShakespeareStamp(quote){
-  var tp=document.getElementById('stampTextPath');
-  if(!tp) return;
-  var raw=quote.text.replace(/«|»/g,'').toUpperCase();
-  var src=quote.source.toUpperCase();
-  // Repeat text around circumference (~283px at r=45)
-  var content=raw+' · '+src+' · ';
-  while(content.length<80) content+=content;
-  tp.textContent=content.slice(0,90);
-}
-
-function shareCocktail(gin,tonic,garnish){
-  var base=window.location.href.split('?')[0].split('#')[0];
-  var shareUrl=base+'?gin='+gin.id+'&tonic='+tonic.id+'&garnish='+garnish.id+'#builder';
-  showShareModal(shareUrl,gin,tonic,garnish);
-}
 function showShareModal(shareUrl,gin,tonic,garnish){
   var modal=document.getElementById('shareModal');
   var inp=document.getElementById('shareUrlInput');
@@ -1188,16 +1262,7 @@ function showShareModal(shareUrl,gin,tonic,garnish){
   });
 }
 
-const MENU=[
-  {slug:'dim-sum-duck',    name:'Дим-сам с уткой и хойсин', cost:220,regular:580, description:'Утка по-пекински в нежном тесте'},
-  {slug:'noodles-dandan',  name:'Лапша Дандан с говядиной', cost:280,regular:690, description:'Сычуанская острая, с маринованной редькой'},
-  {slug:'california-roll', name:'Ролл Калифорния с крабом', cost:340,regular:820, description:'Свежий краб, авокадо, тобико'},
-  {slug:'kimchi-jjigae',   name:'Кимчи-чигэ',               cost:250,regular:590, description:'Корейский острый суп с тофу и свининой'},
-  {slug:'bao-pork',        name:'Бао с томлёной свининой',  cost:180,regular:420, description:'Воздушная булочка, томление 8 часов'},
-  {slug:'tom-yum',         name:'Том Ям с морепродуктами',  cost:320,regular:750, description:'Острый, кислый, с галангалом и кориандром'},
-  {slug:'gyoza',           name:'Гёдза с креветкой',        cost:240,regular:540, description:'Хрустящие снизу, мягкие сверху'},
-  {slug:'duck-pear',       name:'Утиная грудка с грушей',   cost:380,regular:920, description:'Карамелизованная груша, соус из розмарина'}
-];
+
 
 // ─── NAV ─────────────────────────────────────────────────────────────────────
 var nav=document.getElementById('main-nav');
@@ -1231,7 +1296,7 @@ function updateMobCta(){
 
 // Hero reveal
 window.addEventListener('load',function(){
-  ['h-strike','h-title','h-tagline','h-meta','truecostTimer'].forEach(function(id,i){
+  ['h-strike','h-title','h-tagline','h-meta'].forEach(function(id,i){
     setTimeout(function(){
       var el=document.getElementById(id);
       if(el) el.classList.add('visible');
@@ -1240,31 +1305,7 @@ window.addEventListener('load',function(){
   onScroll();
 });
 
-// ─── TRUE COST TIMER ─────────────────────────────────────────────────────────
-function updateTrueCostTimer(){
-  var now=new Date();
-  var target=new Date();
-  target.setHours(19,0,0,0);
-  var cd=document.getElementById('timerCountdown');
-  var lb=document.getElementById('timerLabel');
-  var wrap=document.getElementById('truecostTimer');
-  if(!cd) return;
-  if(now>=target){
-    cd.textContent='до завтра';
-    lb.textContent='Себестоимость закончилась';
-    wrap.classList.add('timer-ended');
-    updateMenuState(true);
-    return;
-  }
-  var diff=target-now;
-  var h=Math.floor(diff/3600000);
-  var m=Math.floor((diff%3600000)/60000);
-  var s=Math.floor((diff%60000)/1000);
-  cd.textContent=h+'ч '+String(m).padStart(2,'0')+'м '+String(s).padStart(2,'0')+'с';
-  updateMenuState(false);
-}
-setInterval(updateTrueCostTimer,1000);
-updateTrueCostTimer();
+
 
 // ─── INTERSECTION OBSERVER ───────────────────────────────────────────────────
 var revObs=new IntersectionObserver(function(entries){
@@ -1292,149 +1333,169 @@ if(clipping && !window.matchMedia('(prefers-reduced-motion:reduce)').matches){
   },{passive:true});
 }
 
-// ─── GIN BUILDER ─────────────────────────────────────────────────────────────
-var gbState={gin:null,tonic:null,garnish:null,step:1};
+// ─── ALCHEMY LAB ─────────────────────────────────────────────────────────────
+function generateCocktailLatin(gin,tonic,garnish){
+  return gin.latin+' cum '+garnish.latin.toLowerCase();
+}
 
-function renderGbOptions(container,items,stateKey){
-  var el=document.getElementById(container);
+function spawnInkDrop(fromEl,lineNum){
+  var stage=document.getElementById('inkDropStage');
+  if(!stage||!fromEl) return;
+  var stageRect=stage.getBoundingClientRect();
+  var fromRect=fromEl.getBoundingClientRect();
+  var targetEl=document.getElementById('rl-'+lineNum+'-val');
+  if(!targetEl) return;
+  var targetRect=targetEl.getBoundingClientRect();
+  var startX=fromRect.left+fromRect.width/2-stageRect.left;
+  var startY=fromRect.top+fromRect.height/2-stageRect.top;
+  var endX=targetRect.left+targetRect.width/2-stageRect.left;
+  var endY=targetRect.top+targetRect.height/2-stageRect.top;
+  var drop=document.createElement('div');
+  drop.style.cssText='position:absolute;width:8px;height:8px;border-radius:50%;background:rgba(200,160,60,.85);pointer-events:none;left:'+startX+'px;top:'+startY+'px;transform:translate(-50%,-50%);box-shadow:0 0 6px rgba(200,160,60,.5)';
+  stage.appendChild(drop);
+  if(window.matchMedia('(prefers-reduced-motion:no-preference)').matches){
+    drop.animate([
+      {left:startX+'px',top:startY+'px',opacity:1,transform:'translate(-50%,-50%) scale(1)'},
+      {left:(startX+(endX-startX)*.5)+'px',top:(startY+(endY-startY)*.3-30)+'px',opacity:.9,transform:'translate(-50%,-50%) scale(1.2)'},
+      {left:endX+'px',top:endY+'px',opacity:0,transform:'translate(-50%,-50%) scale(0.4)'}
+    ],{duration:520,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'}).onfinish=function(){drop.remove();};
+  } else {drop.remove();}
+}
+
+function fillRecipeLine(lineNum,value,fromEl){
+  var valEl=document.getElementById('rl-'+lineNum+'-val');
+  if(!valEl) return;
+  if(fromEl) spawnInkDrop(fromEl,lineNum);
+  setTimeout(function(){
+    valEl.textContent=value;
+    valEl.classList.remove('filled');
+    void valEl.offsetWidth;
+    valEl.classList.add('filled');
+  },fromEl?260:0);
+}
+
+var alState={gin:null,tonic:null,garnish:null,step:1,lastName:null,lastLatin:null};
+
+function renderAlCards(containerId,items,stateKey,lineNum){
+  var el=document.getElementById(containerId);
   if(!el) return;
   el.innerHTML='';
   items.forEach(function(item){
     var card=document.createElement('div');
-    card.className='gb-card'+(gbState[stateKey]&&gbState[stateKey].id===item.id?' selected':'');
-    var visual=item.color
-      ? '<div class="gb-card-swatch" style="background:'+item.color+'"></div>'
-      : '<div class="gb-card-emoji">'+item.emoji+'</div>';
-    card.innerHTML=visual
-      +'<div class="gb-card-name">'+item.name+'</div>'
-      +'<div class="gb-card-sub">'+(item.subtitle||item.flavor||item.hint||'')+'</div>';
+    card.className='alchemy-card'+(alState[stateKey]&&alState[stateKey].id===item.id?' selected':'');
+    var visual=item.color?'<div class="alchemy-card-swatch" style="background:'+item.color+'"></div>':'';
+    var latin=item.latin?'<div class="alchemy-card-latin">'+item.latin+'</div>':'';
+    card.innerHTML=visual+latin
+      +'<div class="alchemy-card-name">'+item.name+'</div>'
+      +'<div class="alchemy-card-hint">'+(item.subtitle||item.flavor||item.hint||'')+'</div>';
     card.addEventListener('click',function(){
-      gbState[stateKey]=item;
-      el.querySelectorAll('.gb-card').forEach(function(c){c.classList.remove('selected');});
+      alState[stateKey]=item;
+      el.querySelectorAll('.alchemy-card').forEach(function(c){c.classList.remove('selected');});
       card.classList.add('selected');
-      var nextBtn=document.getElementById(stateKey+'-next');
+      var nextBtnId='al-'+stateKey+'-next';
+      var nextBtn=document.getElementById(nextBtnId);
       if(nextBtn) nextBtn.classList.add('visible');
+      fillRecipeLine(lineNum,item.latin||item.name,card);
     });
     el.appendChild(card);
   });
 }
 
-renderGbOptions('gin-options',GINS,'gin');
-renderGbOptions('tonic-options',TONICS,'tonic');
-renderGbOptions('garnish-options',GARNISHES,'garnish');
+renderAlCards('al-gin-options',GINS,'gin',1);
+renderAlCards('al-tonic-options',TONICS,'tonic',2);
+renderAlCards('al-garnish-options',GARNISHES,'garnish',3);
 
-function gbUpdateProgress(){
-  var s=gbState.step;
+function alUpdateProgress(){
+  var s=alState.step;
   [1,2,3].forEach(function(i){
-    var dot=document.getElementById('dot-'+i);
-    var lbl=document.getElementById('label-'+i);
+    var dot=document.getElementById('lab-dot-'+i);
+    var lbl=document.getElementById('lab-label-'+i);
     if(!dot) return;
     dot.classList.remove('active','done');
     if(lbl) lbl.classList.remove('active');
     if(i<s){dot.classList.add('done');dot.textContent='✓';}
-    else if(i===s){dot.classList.add('active');dot.textContent=String(i);if(lbl)lbl.classList.add('active');}
-    else{dot.textContent=String(i);}
-    var line=document.getElementById('line-'+i);
-    if(line){line.classList.toggle('done',i<s);}
+    else if(i===s){dot.classList.add('active');dot.textContent=['I','II','III'][i-1];if(lbl)lbl.classList.add('active');}
+    else{dot.textContent=['I','II','III'][i-1];}
+    var line=document.getElementById('lab-line-'+i);
+    if(line) line.classList.toggle('done',i<s);
   });
 }
 
-window.gbGoTo=function(step){
-  document.querySelectorAll('.gb-panel').forEach(function(p){p.classList.remove('active');});
-  var panel=document.getElementById('gb-step-'+step);
+window.alGoTo=function(step){
+  document.querySelectorAll('.selection-step').forEach(function(p){p.classList.remove('active');});
+  var panel=document.getElementById('al-step-'+step);
   if(panel) panel.classList.add('active');
-  document.getElementById('gb-result').style.display='none';
-  gbState.step=step;
-  gbUpdateProgress();
+  var fin=document.getElementById('alchemy-finale');
+  if(fin) fin.style.display='none';
+  var sel=document.getElementById('selectionSection');
+  if(sel) sel.style.display='block';
+  alState.step=step;
+  alUpdateProgress();
 };
 
-window.gbShowResult=function(){
-  if(!gbState.garnish) return;
-  document.querySelectorAll('.gb-panel').forEach(function(p){p.classList.remove('active');});
-  var result=document.getElementById('gb-result');
-  result.style.display='block';
-  result.scrollIntoView({behavior:'smooth',block:'nearest'});
+window.alShowFinale=function(){
+  if(!alState.garnish) return;
+  var sel=document.getElementById('selectionSection');
+  if(sel) sel.style.display='none';
+  var finale=document.getElementById('alchemy-finale');
+  if(!finale) return;
+  finale.style.display='block';
+  finale.scrollIntoView({behavior:'smooth',block:'nearest'});
 
-  var gin=gbState.gin,tonic=gbState.tonic,garnish=gbState.garnish;
+  var gin=alState.gin,tonic=alState.tonic,garnish=alState.garnish;
   var name=generateCocktailName(gin,tonic,garnish);
   var mood=generateCocktailDescription(gin,tonic,garnish);
   var quote=pickShakespeare(gin,tonic,garnish);
-  var num=generateCocktailNumber(gin,tonic,garnish);
+  var latin=generateCocktailLatin(gin,tonic,garnish);
 
-  var stampEl=document.getElementById('cocktailNumber');
-  if(stampEl) stampEl.textContent=num;
-
-  var topEl=document.getElementById('cocktailNameTop');
-  var botEl=document.getElementById('cocktailNameBottom');
-  var tailEl=document.getElementById('cocktailNameTail');
+  var topEl=document.getElementById('finale-name-top');
+  var botEl=document.getElementById('finale-name-bottom');
+  var latEl=document.getElementById('finale-latin');
+  var moodEl=document.getElementById('finale-mood');
   if(topEl) topEl.textContent=name.top;
-  if(botEl) botEl.textContent=name.bottom;
-  if(tailEl) tailEl.textContent=name.tail;
-
-  var moodEl=document.getElementById('cocktailMood');
+  if(botEl) botEl.textContent=name.bottom+' '+name.tail;
+  if(latEl) latEl.textContent=latin;
   if(moodEl) moodEl.textContent=mood;
 
-  renderShakespeareStamp(quote);
+  var ingEl=document.getElementById('finale-ingredients');
+  if(ingEl) ingEl.innerHTML=
+    '<span title="'+gin.flavor+'">'+gin.name+'</span>'
+    +' <span style="color:rgba(200,160,60,.5);margin:0 .7em">\xb7</span> '
+    +'<span title="'+tonic.flavor+'">'+tonic.name+'</span>'
+    +' <span style="color:rgba(200,160,60,.5);margin:0 .7em">\xb7</span> '
+    +'<span>'+garnish.name+'</span>';
 
-  var ingEl=document.getElementById('cocktailIngredients');
-  if(ingEl){
-    ingEl.innerHTML=
-      '<span class="ingredient-tag" title="'+gin.flavor+'">'+gin.name+'</span>'
-      +'<span class="ingredient-divider">·</span>'
-      +'<span class="ingredient-tag" title="'+tonic.flavor+'">'+tonic.name+'</span>'
-      +'<span class="ingredient-divider">·</span>'
-      +'<span class="ingredient-tag">'+garnish.name+'</span>';
+  var tp=document.getElementById('finaleTextPath');
+  if(tp){
+    var raw=quote.text.replace(/«|»/g,'').toUpperCase();
+    var content=raw+' \xb7 '+quote.source.toUpperCase()+' \xb7 ';
+    while(content.length<80) content+=content;
+    tp.textContent=content.slice(0,90);
   }
 
-  var saveBtn=document.getElementById('gb-save-btn');
-  if(saveBtn){
-    saveBtn.classList.remove('saved');
-    saveBtn.querySelector('.action-label').textContent='Сохранить';
-  }
-
-  gbState.lastName=name;
-
-  // Reset glass then animate
-  var outline=document.getElementById('glassOutline');
-  var liquid=document.getElementById('liquid');
-  if(outline){outline.style.transition='none';outline.style.strokeDashoffset='700';}
-  if(liquid){liquid.style.transition='none';liquid.style.transform='scaleY(0)';}
-  var bubblesEl=document.getElementById('gbBubbles');
-  if(bubblesEl) bubblesEl.innerHTML='';
-  var garnishEl=document.getElementById('gbGarnish');
-  if(garnishEl) garnishEl.innerHTML='';
-  var iceEl=document.getElementById('gbIce');
-  if(iceEl){iceEl.style.transition='none';iceEl.style.opacity='0';}
-  var meniscEl=document.getElementById('gbMeniscus');
-  if(meniscEl){meniscEl.style.transition='none';meniscEl.style.opacity='0';}
-  setTimeout(function(){
-    animateCocktail(gin);
-    renderGarnishSVG(garnish);
-  },80);
-
-  gbRenderSaved();
+  var saveLbl=document.getElementById('al-save-label');
+  if(saveLbl) saveLbl.textContent='Сохранить';
+  alState.lastName=name;
+  alState.lastLatin=latin;
+  alRenderSaved();
 };
 
-window.gbSave=function(){
+window.alSave=function(){
   var saved=JSON.parse(localStorage.getItem('jorik_cocktails')||'[]');
-  var name=gbState.lastName;
+  var name=alState.lastName;
+  if(!name) return;
   var nameStr=name.top+' '+name.bottom+' '+name.tail;
-  var entry={name:nameStr,
-    gin:gbState.gin.name,tonic:gbState.tonic.name,garnish:gbState.garnish.name,
-    ts:Date.now()};
+  var entry={name:nameStr,gin:alState.gin.name,tonic:alState.tonic.name,garnish:alState.garnish.name,ts:Date.now()};
   saved.unshift(entry);
   if(saved.length>10) saved=saved.slice(0,10);
   localStorage.setItem('jorik_cocktails',JSON.stringify(saved));
-  var saveBtn=document.getElementById('gb-save-btn');
-  if(saveBtn){
-    saveBtn.classList.add('saved');
-    saveBtn.querySelector('.action-label').textContent='Сохранено ✓';
-  }
-  gbRenderSaved();
+  var saveLbl=document.getElementById('al-save-label');
+  if(saveLbl) saveLbl.textContent='Сохранено ✓';
+  alRenderSaved();
   showToast('Рецепт сохранён!');
 };
 
-function gbRenderSaved(){
+function alRenderSaved(){
   var saved=JSON.parse(localStorage.getItem('jorik_cocktails')||'[]');
   var sec=document.getElementById('saved-cocktails-section');
   var list=document.getElementById('saved-list');
@@ -1442,40 +1503,35 @@ function gbRenderSaved(){
   sec.style.display='block';
   list.innerHTML=saved.map(function(c){
     return '<div class="saved-item"><div><div class="saved-item-name">'+c.name+'</div>'
-      +'<div class="saved-item-sub">'+c.gin+' · '+c.tonic+' · '+c.garnish+'</div></div></div>';
+      +'<div class="saved-item-sub">'+c.gin+' \xb7 '+c.tonic+' \xb7 '+c.garnish+'</div></div></div>';
   }).join('');
 }
 
-window.gbShare=function(){
-  if(!gbState.gin) return;
-  shareCocktail(gbState.gin,gbState.tonic,gbState.garnish);
+window.alShare=function(){
+  if(!alState.gin) return;
+  var base=window.location.href.split('?')[0].split('#')[0];
+  var url=base+'?gin='+alState.gin.id+'&tonic='+alState.tonic.id+'&garnish='+alState.garnish.id+'#gin-builder';
+  showShareModal(url,alState.gin,alState.tonic,alState.garnish);
 };
 
-window.gbRestart=function(){
-  // Reset glass animation
-  var outline=document.getElementById('glassOutline');
-  var liquid=document.getElementById('liquid');
-  var bubblesEl=document.getElementById('gbBubbles');
-  var garnishEl=document.getElementById('gbGarnish');
-  var iceEl=document.getElementById('gbIce');
-  var meniscEl=document.getElementById('gbMeniscus');
-  if(outline){outline.style.transition='none';outline.style.strokeDashoffset='700';}
-  if(liquid){liquid.style.transition='none';liquid.style.transform='scaleY(0)';}
-  if(bubblesEl) bubblesEl.innerHTML='';
-  if(garnishEl) garnishEl.innerHTML='';
-  if(iceEl){iceEl.style.transition='none';iceEl.style.opacity='0';}
-  if(meniscEl){meniscEl.style.transition='none';meniscEl.style.opacity='0';}
-
-  gbState={gin:null,tonic:null,garnish:null,step:1};
-  document.getElementById('gb-result').style.display='none';
-  renderGbOptions('gin-options',GINS,'gin');
-  renderGbOptions('tonic-options',TONICS,'tonic');
-  renderGbOptions('garnish-options',GARNISHES,'garnish');
-  ['gin-next','tonic-next','garnish-next'].forEach(function(id){
+window.alRestart=function(){
+  ['rl-1-val','rl-2-val','rl-3-val'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el){el.textContent='';el.classList.remove('filled');}
+  });
+  alState={gin:null,tonic:null,garnish:null,step:1,lastName:null,lastLatin:null};
+  var fin=document.getElementById('alchemy-finale');
+  if(fin) fin.style.display='none';
+  var sel=document.getElementById('selectionSection');
+  if(sel) sel.style.display='block';
+  renderAlCards('al-gin-options',GINS,'gin',1);
+  renderAlCards('al-tonic-options',TONICS,'tonic',2);
+  renderAlCards('al-garnish-options',GARNISHES,'garnish',3);
+  ['al-gin-next','al-tonic-next','al-garnish-next'].forEach(function(id){
     var el=document.getElementById(id);
     if(el) el.classList.remove('visible');
   });
-  gbGoTo(1);
+  alGoTo(1);
 };
 
 // Load from URL params
@@ -1483,60 +1539,21 @@ window.gbRestart=function(){
   var p=new URLSearchParams(location.search);
   var ginId=p.get('gin'),tonicId=p.get('tonic'),garnishId=p.get('garnish');
   if(ginId&&tonicId&&garnishId){
-    gbState.gin=GINS.find(function(g){return g.id===ginId;})||null;
-    gbState.tonic=TONICS.find(function(t){return t.id===tonicId;})||null;
-    gbState.garnish=GARNISHES.find(function(g){return g.id===garnishId;})||null;
-    if(gbState.gin&&gbState.tonic&&gbState.garnish){
-      gbState.step=3;
-      gbUpdateProgress();
-      setTimeout(gbShowResult,400);
+    alState.gin=GINS.find(function(g){return g.id===ginId;})||null;
+    alState.tonic=TONICS.find(function(t){return t.id===tonicId;})||null;
+    alState.garnish=GARNISHES.find(function(g){return g.id===garnishId;})||null;
+    if(alState.gin&&alState.tonic&&alState.garnish){
+      fillRecipeLine(1,alState.gin.latin||alState.gin.name,null);
+      fillRecipeLine(2,alState.tonic.latin||alState.tonic.name,null);
+      fillRecipeLine(3,alState.garnish.latin||alState.garnish.name,null);
+      alState.step=3;
+      alUpdateProgress();
+      setTimeout(alShowFinale,400);
     }
   }
 })();
 
-// ─── MENU ────────────────────────────────────────────────────────────────────
-function buildMenuGrid(expired){
-  var grid=document.getElementById('menu-grid');
-  if(!grid) return;
-  grid.innerHTML=MENU.map(function(item){
-    var slug=item.slug||'dim-sum-duck';
-    var photoBase='assets/menu/'+slug;
-    var ah=expired?' after-hours':'';
-    return '<article class="menu-item'+ah+'">'
-      +'<div class="menu-item-photo">'
-        +'<picture>'
-          +'<source srcset="'+photoBase+'.webp" type="image/webp">'
-          +'<img src="'+photoBase+'.jpg" alt="'+item.name+'" loading="lazy" width="600" height="600">'
-        +'</picture>'
-      +'</div>'
-      +'<div class="menu-item-content">'
-        +'<h3 class="menu-item-name">'+item.name+'</h3>'
-        +'<p class="menu-item-desc">'+item.description+'</p>'
-        +'<div class="menu-item-prices">'
-          +'<div class="price-cost">'
-            +'<span class="price-value">'+item.cost+' ₽</span>'
-            +'<span class="price-label">До 19:00</span>'
-          +'</div>'
-          +'<div class="price-regular">'
-            +'<span class="price-value">'+item.regular+' ₽</span>'
-            +'<span class="price-label">После</span>'
-          +'</div>'
-        +'</div>'
-      +'</div>'
-      +'</article>';
-  }).join('');
-}
-
-function updateMenuState(expired){
-  var badge=document.getElementById('menu-timer-badge');
-  if(badge){
-    badge.textContent=expired?'⛔ True Cost закончился':'⏱ True Cost до 19:00';
-    badge.classList.toggle('expired',expired);
-  }
-  buildMenuGrid(expired);
-}
-
-buildMenuGrid(new Date().getHours()>=19);
+// ─── MENU ─ static HTML, no JS needed ───────────────────────────────────────
 
 // ─── ROULETTE ────────────────────────────────────────────────────────────────
 (function(){
