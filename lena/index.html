@@ -78,6 +78,20 @@
     details[open] .pitch-title{margin-bottom:.6rem}
     .pitch-content{font-size:.875rem;color:var(--text);line-height:1.6;white-space:pre-line;margin-top:.4rem}
 
+    .lead-card-contacts{margin:1rem 0 .8rem;padding:.9rem 0;border-top:1px dashed rgba(196,80,31,.15);border-bottom:1px dashed rgba(196,80,31,.15)}
+    .contacts-label{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 .6rem;font-weight:500}
+    .contacts-buttons{display:flex;flex-wrap:wrap;gap:.5rem}
+    .contact-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem .85rem;background:rgba(255,255,255,.6);border:1px solid rgba(196,80,31,.2);border-radius:6px;text-decoration:none;color:var(--text);font-size:.85rem;font-weight:500;transition:all .2s}
+    .contact-btn:hover{background:#fff;transform:translateY(-1px);box-shadow:0 4px 8px rgba(42,28,16,.06)}
+    .contact-btn-icon{font-size:1rem;line-height:1}
+    .contact-btn-phone{border-color:rgba(196,80,31,.3)}
+    .contact-btn-phone:hover{background:rgba(196,80,31,.06);border-color:rgba(196,80,31,.5)}
+    .contact-btn-vk{border-color:rgba(74,118,168,.3)}
+    .contact-btn-vk:hover{background:rgba(74,118,168,.08);border-color:rgba(74,118,168,.6)}
+    .contact-btn-tg{border-color:rgba(40,153,217,.3)}
+    .contact-btn-tg:hover{background:rgba(40,153,217,.08);border-color:rgba(40,153,217,.6)}
+    @media(max-width:480px){.contacts-buttons{flex-direction:column}.contact-btn{width:100%;justify-content:flex-start}}
+
     .pricing-section{margin-top:3rem;padding-top:2rem;border-top:2px solid var(--border)}
     .pricing-section h2{font-size:1.25rem;font-weight:700;margin-bottom:1.25rem}
     .pkg-cards{display:grid;grid-template-columns:1fr;gap:1rem}
@@ -303,6 +317,11 @@ const LEADS = [
     commission: 4500,
     photo: 'assets/leads/barin.jpg',
     badges: ['fire', 'demo-ready'],
+    contacts: {
+      phone: '+7 (901) 577-67-77',
+      vk: 'https://vk.com/barinandbarash',
+      telegram: null
+    },
     demoUrl: 'https://viktorialiubitskaya-coder.github.io/vebkuznitsa/restaurants/barin-i-barash/',
     pitches: {
       vk: `Добрый день! Я Лена, работаю с ресторанами Коломны. Заметила, что у вас классное место в кремле, но нет собственного сайта — только ВКонтакте и Яндекс.Карты. Сделала для вас демо-версию сайта, чтобы показать, как он может выглядеть: https://viktorialiubitskaya-coder.github.io/vebkuznitsa/restaurants/barin-i-barash/. Такой сайт помогает людям быстрее найти вас через Яндекс.Поиск и узнать про меню, банкеты и ваши фишки с углями и медовухой.`,
@@ -358,6 +377,11 @@ https://viktorialiubitskaya-coder.github.io/vebkuznitsa/restaurants/barin-i-bara
     commission: 4500,
     photo: 'assets/leads/lazhechnikov.jpg',
     badges: ['fire', 'demo-ready'],
+    contacts: {
+      phone: '+7 (916) 583-13-82',
+      vk: 'https://vk.com/cafelazhechnikov',
+      telegram: null
+    },
     demoUrl: 'https://viktorialiubitskaya-coder.github.io/vebkuznitsa/restaurants/lazhechnikov/',
     pitches: {
       vk: `Добрый день!
@@ -414,6 +438,11 @@ https://viktorialiubitskaya-coder.github.io/vebkuznitsa/restaurants/barin-i-bara
     commission: 7500,
     photo: 'assets/leads/jorik.jpg',
     badges: ['fire', 'demo-ready'],
+    contacts: {
+      phone: '+7 (495) 129-06-69',
+      vk: null,
+      telegram: 'https://t.me/xyuvsem'
+    },
     demoUrl: 'https://viktorialiubitskaya-coder.github.io/vebkuznitsa/restaurants/jorik-ubil-hamleta/',
     pitches: {
       vk: `**Вариант для ВКонтакте:**
@@ -503,6 +532,14 @@ function renderLeads() {
           <span class="pkg-comm">твоих <strong>${lead.commission.toLocaleString('ru')} ₽</strong></span>
         </div>
         <a href="${lead.demoUrl}" target="_blank" rel="noopener" class="demo-open-btn">Открыть демо ↗</a>
+        <div class="lead-card-contacts">
+          <p class="contacts-label">Связаться:</p>
+          <div class="contacts-buttons">
+            ${lead.contacts.phone ? `<a href="tel:${lead.contacts.phone.replace(/[^+\d]/g, '')}" class="contact-btn contact-btn-phone" title="Позвонить"><span class="contact-btn-icon">☎</span><span class="contact-btn-label">${lead.contacts.phone}</span></a>` : ''}
+            ${lead.contacts.vk ? `<a href="${lead.contacts.vk}" target="_blank" rel="noopener" class="contact-btn contact-btn-vk" title="ВКонтакте"><span class="contact-btn-icon">💬</span><span class="contact-btn-label">ВК</span></a>` : ''}
+            ${lead.contacts.telegram ? `<a href="${lead.contacts.telegram}" target="_blank" rel="noopener" class="contact-btn contact-btn-tg" title="Telegram"><span class="contact-btn-icon">✈</span><span class="contact-btn-label">Telegram</span></a>` : ''}
+          </div>
+        </div>
         <div>
           ${lead.pitches.vk ? `<details class="pitch-block"><summary class="pitch-title">💬 Питч для ВК</summary><div class="pitch-content">${esc(lead.pitches.vk)}</div></details>` : ''}
           ${lead.pitches.call ? `<details class="pitch-block"><summary class="pitch-title">☎ Питч для звонка</summary><div class="pitch-content">${esc(lead.pitches.call)}</div></details>` : ''}
